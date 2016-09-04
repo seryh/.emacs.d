@@ -66,7 +66,7 @@
 
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
-(global-set-key (kbd "M-<f4>") 'kill-emacs)
+;;(global-set-key (kbd "M-<f4>") 'kill-emacs)
 
 (global-set-key [f2] 'save-buffer)
 
