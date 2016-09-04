@@ -38,21 +38,22 @@
     magit
     powerline
     moe-theme
-    cider      ;; clojure  
+    cider         ;; clojure  
     web-mode
     rainbow-delimiters
-    projectile ;; простая навигация по проектам
-    ido        ;; интерактивное управление буферами и файлами;
-    ;;ac-js2     ;; автокомплит js
-    js2-mode   ;; подстветка синтаксиса js
-    company    ;; popup 
+    projectile    ;; простая навигация по проектам
+    ido           ;; интерактивное управление буферами и файлами;
+    ;;ac-js2      ;; автокомплит js
+    js2-mode      ;; подстветка синтаксиса js
+    company       ;; popup 
     scss-mode  
-    ;;tern       ;; автокомплит для js нуждается в npm install -g tern
+    ;;tern        ;; автокомплит для js нуждается в npm install -g tern
     ;;tern-auto-complete 
-    emmet-mode ;; zen-coding автокомплит для html - C-j 
-    autopair   ;; автозакрытие ковычек и скобок
-    which-key   ;; which-key - буфер с шорткат подсказками https://github.com/justbur/emacs-which-key
-    buffer-move ;; перемещение буфера buf-move-<pos>
+    emmet-mode    ;; zen-coding автокомплит для html - C-j 
+    autopair      ;; автозакрытие ковычек и скобок
+    which-key     ;; which-key - буфер с шорткат подсказками https://github.com/justbur/emacs-which-key
+    buffer-move   ;; перемещение буфера buf-move-<pos>
+    expand-region ;; семантическое выделение региона
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -84,6 +85,9 @@
 (autopair-global-mode) 
 ;;(ac-js2-mode t)
 (ido-mode t)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;(setq ac-js2-evaluate-calls t)
 
