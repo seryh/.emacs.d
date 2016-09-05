@@ -9,6 +9,12 @@
 
 ;; скрыть все меню
 (when (system-is-windows)
+ (setenv "PATH"
+  (concat
+   "C:\\msys64\\usr\\bin;"
+   "C:\\msys64\\mingw64\\bin;"
+   (getenv "PATH")))
+
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
   (setq default-process-coding-system '(windows-1251 . windows-1251))

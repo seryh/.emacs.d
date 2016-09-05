@@ -46,7 +46,7 @@
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
     company       ;; popup 
-    scss-mode  
+    sass-mode 
     ;;tern        ;; автокомплит для js нуждается в npm install -g tern
     ;;tern-auto-complete 
     emmet-mode    ;; zen-coding автокомплит для html - C-j 
@@ -97,7 +97,7 @@
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 
 (setq auto-mode-alist
-  (append '(("\\.scss$". scss-mode)
+  (append '(("\\.scss$". sass-mode)
             ("\\.css$". web-mode)
             ("\\.js$". js2-mode)
             ("\\.html$". web-mode)
@@ -109,6 +109,10 @@
             ("\\.el$". emacs-lisp-mode)
             (".emacs". emacs-lisp-mode))))
 
+
+(add-hook 'scss-mode-hook 
+  (lambda () 
+    (sass-mode)))
 
 (add-hook 'clojure-mode-hook 
   (lambda () 
