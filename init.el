@@ -111,8 +111,8 @@
 
 
 (add-hook 'scss-mode-hook 
-  (lambda () 
-    (sass-mode)))
+          (lambda ()
+            (sass-mode)))
 
 (add-hook 'clojure-mode-hook 
   (lambda () 

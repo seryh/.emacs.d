@@ -112,6 +112,30 @@
   (let ((cider-lein-parameters (concat "with-profile " profile " repl :headless")))
     (cider-jack-in)))
 
+(defun ser/hRBG ()
+  "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer"
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("#[ABCDEFabcdef[:digit:]]\\{3\\}"
+      (0 (put-text-property
+          (match-beginning 0)
+          (match-end 0)
+          'face (list :background
+                      (let* (
+                       (ms (match-string-no-properties 0))
+                       (r (substring ms 1 2))
+                       (g (substring ms 2 3))
+                       (b (substring ms 3 4)))
+                  (concat "#" r r g g b b))))))
+     ("#[ABCDEFabcdef[:digit:]]\\{6\\}"
+      (0 (put-text-property
+          (match-beginning 0)
+          (match-end 0)
+          'face (list :background (match-string-no-properties 0)))))))
+  (font-lock-fontify-buffer))
+
+
 ;; modes
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
@@ -120,6 +144,7 @@
 (define-key seryh-menu "3" 'conf-mode)
 (define-key seryh-menu "4" 'rainbow-delimiters-mode)
 (define-key seryh-menu "5" 'org-mode)
+(define-key seryh-menu "6" 'ser/hRBG)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
 
 
