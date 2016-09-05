@@ -112,7 +112,7 @@
   (let ((cider-lein-parameters (concat "with-profile " profile " repl :headless")))
     (cider-jack-in)))
 
-(defun ser/hRBG ()
+(defun ser/hRGB ()
   "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer"
   (interactive)
   (font-lock-add-keywords
@@ -144,7 +144,7 @@
 (define-key seryh-menu "3" 'conf-mode)
 (define-key seryh-menu "4" 'rainbow-delimiters-mode)
 (define-key seryh-menu "5" 'org-mode)
-(define-key seryh-menu "6" 'ser/hRBG)
+(define-key seryh-menu "6" 'ser/hRGB)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
 
 

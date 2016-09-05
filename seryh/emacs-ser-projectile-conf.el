@@ -24,9 +24,10 @@
 
 (setq projectile-globally-ignored-files
       (append '(
-        ".png"
-        ".jpg"
-        ".php"
+                ".min.js"
+                ".png"
+                ".jpg"
+                ".php"
         ) projectile-globally-ignored-files))
 
 (projectile-global-mode)
