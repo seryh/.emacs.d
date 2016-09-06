@@ -9,9 +9,9 @@
 
 ;; System-type definition
 (defun system-is-linux()
-    (string-equal system-type "gnu/linux"))
+  (string-equal system-type "gnu/linux"))
 (defun system-is-windows()
-    (string-equal system-type "windows-nt"))
+  (string-equal system-type "windows-nt"))
 
 (setq user-full-name "Seryh Oleg"
       user-mail-address "o.seryh@gmail.com")
@@ -97,17 +97,17 @@
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 
 (setq auto-mode-alist
-  (append '(("\\.scss$". sass-mode)
-            ("\\.css$". web-mode)
-            ("\\.js$". js2-mode)
-            ("\\.html$". web-mode)
-            ("\\.phtml$". web-mode)
-            ("\\.org$". org-mode)
-            ("\\.php$". web-mode)
-            ("\\.clj$". clojure-mode)
-            ("\\.end$". clojure-mode)
-            ("\\.el$". emacs-lisp-mode)
-            (".emacs". emacs-lisp-mode))))
+      (append '(("\\.scss$". sass-mode)
+                ("\\.css$". web-mode)
+                ("\\.js$". js2-mode)
+                ("\\.html$". web-mode)
+                ("\\.phtml$". web-mode)
+                ("\\.org$". org-mode)
+                ("\\.php$". web-mode)
+                ("\\.clj$". clojure-mode)
+                ("\\.end$". clojure-mode)
+                ("\\.el$". emacs-lisp-mode)
+                (".emacs". emacs-lisp-mode))))
 
 
 (add-hook 'scss-mode-hook 
@@ -115,42 +115,42 @@
             (sass-mode)))
 
 (add-hook 'clojure-mode-hook 
-  (lambda () 
-    (rainbow-delimiters-mode t)))
+          (lambda () 
+            (rainbow-delimiters-mode t)))
 
 (add-hook 'js2-mode-hook 
-  (lambda () 
-    (rainbow-delimiters-mode t)
-    (hs-minor-mode t)
-    ;;(tern-mode t) 
-    ;;(ac-js2-mode t)
-    ))
+          (lambda () 
+            (rainbow-delimiters-mode t)
+            (hs-minor-mode t)
+            ;;(tern-mode t) 
+            ;;(ac-js2-mode t)
+            ))
 
 (add-hook 'web-mode-hook 
-  (lambda () 
-    (hs-minor-mode t)
-    (emmet-mode t)))
+          (lambda () 
+            (hs-minor-mode t)
+            (emmet-mode t)))
 
 (add-hook 'dired-mode-hook (lambda ()
-  (hl-line-mode t)))
+                             (hl-line-mode t)))
 
 (add-hook 'ibuffer-hook
-        (lambda ()
-          (hl-line-mode t)      
-          (unless (eq ibuffer-sorting-mode 'alphabetic)
-            (ibuffer-do-sort-by-alphabetic))) )
+          (lambda ()
+            (hl-line-mode t)      
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))) )
 
 (eval-after-load 'tern
-   '(progn
-      (require 'tern-auto-complete)
-      (tern-ac-setup)))
+  '(progn
+     (require 'tern-auto-complete)
+     (tern-ac-setup)))
 
 ;; ------------------ [ web-mode ]
 (setq web-mode-enable-current-element-highlight t)
 (setq web-mode-enable-current-column-highlight t)
 (setq web-mode-engines-alist
       '(("php"    . "\\.phtml\\'"))
-)
+      )
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
 (cua-mode t)

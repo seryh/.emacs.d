@@ -8,26 +8,26 @@
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 ;; функция создания файла для dired-mode
 (eval-after-load 'dired
@@ -60,9 +60,9 @@
 
 ;; файло диалог shift - F1
 (global-set-key (kbd "M-<f1>")  
-  (lambda ()
-    (interactive)
-    (dired "~")))
+                (lambda ()
+                  (interactive)
+                  (dired "~")))
 
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
@@ -123,11 +123,11 @@
           (match-end 0)
           'face (list :background
                       (let* (
-                       (ms (match-string-no-properties 0))
-                       (r (substring ms 1 2))
-                       (g (substring ms 2 3))
-                       (b (substring ms 3 4)))
-                  (concat "#" r r g g b b))))))
+                             (ms (match-string-no-properties 0))
+                             (r (substring ms 1 2))
+                             (g (substring ms 2 3))
+                             (b (substring ms 3 4)))
+                        (concat "#" r r g g b b))))))
      ("#[ABCDEFabcdef[:digit:]]\\{6\\}"
       (0 (put-text-property
           (match-beginning 0)
@@ -146,7 +146,7 @@
 (define-key seryh-menu "5" 'org-mode)
 (define-key seryh-menu "6" 'ser/hRGB)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
-
+(define-key seryh-menu "r" 'indent-region) ;; reformat 
 
 ;; projectile-mode-kbd
 (defun my-projectile-mode-config ()

@@ -1,19 +1,19 @@
 ;;; emacs-rc-general.el ---
 
 ;; решаем виндопроблемы с кодирвокой
-; (set-language-environment 'UTF-8)
-; (setq default-input-method 'russian-computer)
-; (set-selection-coding-system 'windows-1251)
-; (set-default-coding-systems 'windows-1251)
-; (prefer-coding-system 'windows-1251)
+                                        ; (set-language-environment 'UTF-8)
+                                        ; (setq default-input-method 'russian-computer)
+                                        ; (set-selection-coding-system 'windows-1251)
+                                        ; (set-default-coding-systems 'windows-1251)
+                                        ; (prefer-coding-system 'windows-1251)
 
 ;; скрыть все меню
 (when (system-is-windows)
- (setenv "PATH"
-  (concat
-   "C:\\msys64\\usr\\bin;"
-   "C:\\msys64\\mingw64\\bin;"
-   (getenv "PATH")))
+  (setenv "PATH"
+          (concat
+           "C:\\msys64\\usr\\bin;"
+           "C:\\msys64\\mingw64\\bin;"
+           (getenv "PATH")))
 
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
@@ -29,7 +29,7 @@
   )
 
 (custom-set-variables
-   '(buffer-face-mode-face (quote (:background "black"))))
+ '(buffer-face-mode-face (quote (:background "black"))))
 
 (add-hook 'dired-mode-hook 'buffer-face-mode)
 
@@ -55,15 +55,15 @@
 (show-paren-mode 1)                 ;; show pair parentheses
 
 (setq-default
-    uniquify-buffer-name-style (quote forward)
-    column-number-mode t
-    size-indication-mode t            ;; размер файла в %-ах
-    transient-mark-mode t
-  ;;  x-stretch-cursor 0                ;; Show cursor as block, not underline
-    cursor-type 'bar
-    show-paren-delay 0                ;; set paren show delay
-    global-font-lock-mode 1           
-)
+ uniquify-buffer-name-style (quote forward)
+ column-number-mode t
+ size-indication-mode t            ;; размер файла в %-ах
+ transient-mark-mode t
+ ;;  x-stretch-cursor 0                ;; Show cursor as block, not underline
+ cursor-type 'bar
+ show-paren-delay 0                ;; set paren show delay
+ global-font-lock-mode 1           
+ )
 
 
 ;; Require typing only "y" or"n" instead of the full "yes" to confirm destructive actions.
