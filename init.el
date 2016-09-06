@@ -162,6 +162,11 @@
 (define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
 (put 'mouse-set-point 'CUA 'move)
 
+;; scroll lag fix
+(setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
+(setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
+(setq mouse-wheel-progressive-speed 1) ;; on a long mouse scroll keep scrolling by 1 line
+
 
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
