@@ -59,7 +59,8 @@
     column-number-mode t
     size-indication-mode t            ;; размер файла в %-ах
     transient-mark-mode t
-    x-stretch-cursor t                ;; Show cursor as block, not underline
+  ;;  x-stretch-cursor 0                ;; Show cursor as block, not underline
+    cursor-type 'bar
     show-paren-delay 0                ;; set paren show delay
     global-font-lock-mode 1           
 )

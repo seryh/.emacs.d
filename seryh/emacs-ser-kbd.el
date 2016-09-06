@@ -81,10 +81,10 @@
 
 
 ;; Move active cursor to window
-(global-set-key (kbd "<C-M-right>") 'windmove-right)
-(global-set-key (kbd "<C-M-left>") 'windmove-left)
-(global-set-key (kbd "<C-M-up>") 'windmove-up)            
-(global-set-key (kbd "<C-M-down>") 'windmove-down)       
+(global-set-key (kbd "<M-right>") 'windmove-right)
+(global-set-key (kbd "<M-left>") 'windmove-left)
+(global-set-key (kbd "<M-up>") 'windmove-up)            
+(global-set-key (kbd "<M-down>") 'windmove-down)       
 ;;(global-set-key (kbd "<C-tab>") 'other-window)
 
 ;; Swap current buffer with buffer in direction of arrow

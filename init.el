@@ -145,6 +145,23 @@
       (require 'tern-auto-complete)
       (tern-ac-setup)))
 
+;; ------------------ [ web-mode ]
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
+(setq web-mode-engines-alist
+      '(("php"    . "\\.phtml\\'"))
+)
+
+;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+;; shift + click select region
+(define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
+(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
+(put 'mouse-set-point 'CUA 'move)
+
 
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
