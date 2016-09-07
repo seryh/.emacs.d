@@ -22,26 +22,20 @@
   )
 
 ;; Интерфейс
-
 (global-linum-mode 1)
 (show-paren-mode 1)                 ;; show pair parentheses
   
 (setq-default
  uniquify-buffer-name-style (quote forward)
- column-number-mode t
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
- cursor-type 'bar
  show-paren-delay 0                ;; set paren show delay
- global-font-lock-mode 1           
+ cursor-type 'bar
 )
 
-;; (scroll-bar-mode nil)
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
-;; (set-scroll-bar-mode 'right)                 ;; Полоса прокрутки справа
 (setq inhibit-startup-message t)             ;; Не показываем сообщение при старте
-
 (setq echo-keystrokes 0.001)                 ;; Мгновенное отображение набранных сочетаний клавиш
 (setq use-dialog-boxes nil)                  ;; Не использовать диалоговые окна
 (setq cursor-in-non-selected-windows nil)    ;; Не показывать курсоры в неактивных окнах
@@ -57,11 +51,8 @@
 (setq resize-mini-windows nil)                 ;; Изменять при необходимости размер минибуфера по вертикали
 (setq resize-minibuffer nil)
 (auto-image-file-mode t)                     ;; Показывать картинки
-(setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении `C-q'
-(setq cursor-type 'bar)                      ;; Тонкий курсор
-
-;; Require typing only "y" or"n" 
-(fset 'yes-or-no-p 'y-or-n-p) 
+(setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
+(fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n" 
 
 
 ;; scroll lag fix
