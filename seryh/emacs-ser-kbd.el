@@ -79,21 +79,6 @@
 (global-set-key (kbd "C-;") 'comment-region)
 (global-set-key (kbd "C-:") 'uncomment-region)
 
-
-;; Move active cursor to window
-(global-set-key (kbd "<M-right>") 'windmove-right)
-(global-set-key (kbd "<M-left>") 'windmove-left)
-(global-set-key (kbd "<M-up>") 'windmove-up)            
-(global-set-key (kbd "<M-down>") 'windmove-down)       
-;;(global-set-key (kbd "<C-tab>") 'other-window)
-
-;; Swap current buffer with buffer in direction of arrow
-(global-set-key (kbd "C-x t <right>") 'buf-move-right)
-(global-set-key (kbd "C-x t <left>") 'buf-move-left)
-(global-set-key (kbd "C-x t <up>") 'buf-move-up)
-(global-set-key (kbd "C-x t <down>") 'buf-move-down)
-(global-set-key (kbd "C-0") 'toggle-window-split)
-
 (global-set-key "\C-c\C-r" 'replace-string) 
 
 (global-set-key (kbd "C-z") 'undo) ;; по умолчанию емакс уходит в бакграунд 
@@ -221,6 +206,21 @@
 (global-set-key (kbd "C-S-<right>") 'win-resize-minimize-horiz)
 (global-set-key (kbd "C-S-<down>") 'win-resize-minimize-vert)
 (global-set-key (kbd "C-S-<up>") 'win-resize-enlarge-vert)
+
+;; Move active cursor to window
+;; (global-set-key (kbd "<M-right>") 'windmove-right)
+;; (global-set-key (kbd "<M-left>") 'windmove-left)
+;; (global-set-key (kbd "<M-up>") 'windmove-up)            
+;; (global-set-key (kbd "<M-down>") 'windmove-down)       
+(global-set-key (kbd "<scroll>") 'other-window)
+
+;; Swap current buffer with buffer in direction of arrow
+(global-set-key (kbd "C-x t <right>") 'buf-move-right)
+(global-set-key (kbd "C-x t <left>") 'buf-move-left)
+(global-set-key (kbd "C-x t <up>") 'buf-move-up)
+(global-set-key (kbd "C-x t <down>") 'buf-move-down)
+(global-set-key (kbd "C-0") 'toggle-window-split) ;; сменить ориентацию split
+
 
 
 ;; если есть выделенный регион то используем его для поиска
