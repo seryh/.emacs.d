@@ -1,5 +1,4 @@
 (require 'projectile)
-(setq max-lisp-eval-depth 10000) ;; для индексации жирных проектов
 (setq projectile-indexing-method 'native) ; force the use of native indexing in operating systems other than Windows)
 (setq projectile-enable-caching t)
 (setq projectile-require-project-root nil)

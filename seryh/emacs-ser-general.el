@@ -1,11 +1,4 @@
-;;; emacs-rc-general.el ---
-
-;; решаем виндопроблемы с кодирвокой
-                                        ; (set-language-environment 'UTF-8)
-                                        ; (setq default-input-method 'russian-computer)
-                                        ; (set-selection-coding-system 'windows-1251)
-                                        ; (set-default-coding-systems 'windows-1251)
-                                        ; (prefer-coding-system 'windows-1251)
+;; emacs-rc-general.el ---
 
 ;; скрыть все меню
 (when (system-is-windows)
@@ -28,49 +21,46 @@
   (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
   )
 
-(custom-set-variables
- '(buffer-face-mode-face (quote (:background "black"))))
+;; Интерфейс
 
-(add-hook 'dired-mode-hook 'buffer-face-mode)
+;; (scroll-bar-mode nil)
+(setq column-number-mode t)                  ;; Показывать номер текущей колонки
+(setq line-number-mode t)                    ;; Показывать номер текущей строки
+;; (set-scroll-bar-mode 'right)                 ;; Полоса прокрутки справа
+(setq inhibit-startup-message t)             ;; Не показываем сообщение при старте
+(fset 'yes-or-no-p 'y-or-n-p)		         ;; не заставляйте меня печать "yes" целиком
+(setq echo-keystrokes 0.001)                 ;; Мгновенное отображение набранных сочетаний клавиш
+(setq use-dialog-boxes nil)                  ;; Не использовать диалоговые окна
+(setq cursor-in-non-selected-windows nil)    ;; Не показывать курсоры в неактивных окнах
+(setq default-tab-width 4)                   ;; размер табуляции
+(setq-default indent-tabs-mode nil)          ;; отступ только пробелами
+(setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
+(setq case-fold-search t)                    ;; Поиск без учёта регистра
+(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере
+(setq font-lock-maximum-decoration t)        ;; Максимальное использование различных начертаний шрифтов
+(if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
+(setq read-file-name-completion-ignore-case t) ;; Дополнение имён файлов без учёта регистра
+(file-name-shadow-mode t)                    ;; Затенять игнорируемую часть имени файла
+(setq resize-mini-windows nil)                 ;; Изменять при необходимости размер минибуфера по вертикали
+(setq resize-minibuffer nil)
+(auto-image-file-mode t)                     ;; Показывать картинки
+(setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении `C-q'
+(setq cursor-type 'bar)                      ;; Тонкий курсор
 
-;;(setq inhibit-splash-screen t)
-;;(setq inhibit-startup-message t)
-;;(setq inhibit-startup-screen t)
-
-(setq-default tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-
-(setq-default js-indent-level 2)
-(setq-default indent-tabs-mode nil)
-(setq-default truncate-lines t)
-
-;; Display file size/time in mode-line
-(setq display-time-24hr-format t) ;; 24-часовой временной формат в mode-line
-
-(require 'tree-widget)
-(require 'linum)                    ;; show line numbers
-
-(global-linum-mode 1)
-(show-paren-mode 1)                 ;; show pair parentheses
-
-(setq-default
- uniquify-buffer-name-style (quote forward)
- column-number-mode t
- size-indication-mode t            ;; размер файла в %-ах
- transient-mark-mode t
- ;;  x-stretch-cursor 0                ;; Show cursor as block, not underline
- cursor-type 'bar
- show-paren-delay 0                ;; set paren show delay
- global-font-lock-mode 1           
- )
-
-
-;; Require typing only "y" or"n" instead of the full "yes" to confirm destructive actions.
+;; Require typing only "y" or"n" 
 (fset 'yes-or-no-p 'y-or-n-p) 
 
-;; Fira Code
 
+;; scroll lag fix
+(setq scroll-conservatively 1)
+(setq scroll-step 1)
+(setq scroll-margin 3)
+(setq next-screen-context-lines 3)
+(setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
+(setq mouse-wheel-progressive-speed 1) ;; on a long mouse scroll keep scrolling by 1 line
+
+
+;; Fira Code
 (set-face-attribute 'default nil :family "Fira Code" :height 110)
 ;;(set-face-attribute 'default nil :family "Sauce Code Powerline" :height 110)
 

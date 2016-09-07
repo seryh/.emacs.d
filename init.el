@@ -31,6 +31,15 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;; Оптимизация работы редактора
+;; limit on number of Lisp variable bindings & unwind-protects
+(setq max-specpdl-size (* 10 max-specpdl-size)) ; 10 * 1 M (default)
+;; limit serving to catch infinite recursions for you before they
+;; cause actual stack overflow in C, which would be fatal for Emacs
+(setq max-lisp-eval-depth (* 10 max-lisp-eval-depth)) ; 10 * 400 (default)
+;; speed up things by preventing garbage collections
+(setq gc-cons-threshold (* 10 gc-cons-threshold)) ; 10 * 400 KB (default)
+
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
@@ -162,14 +171,6 @@
 (define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
 (put 'mouse-set-point 'CUA 'move)
 
-;; scroll lag fix
-(setq scroll-conservatively 1)
-(setq scroll-step 1)
-(setq scroll-margin 3)
-(setq next-screen-context-lines 3)
-
-(setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
-(setq mouse-wheel-progressive-speed 1) ;; on a long mouse scroll keep scrolling by 1 line
 
 (setq default-input-method "cyrillic-jcuken")
 
