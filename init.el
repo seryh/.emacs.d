@@ -162,10 +162,13 @@
       )
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
+;; To enter an Emacs command like C-x C-f while the mark is active, use one of the
+;; following methods: either hold Shift together with the prefix key, e.g., S-C-x C-f,
+;; or quickly type the prefix key twice, e.g., C-x C-x C-f.
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (transient-mark-mode 1) ;; No region when it is not highlighted
-(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+;;(setq cua-keep-region-after-copy t) ;; оставлять регион после копирования
 ;; shift + click select region
 (define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
 (define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
