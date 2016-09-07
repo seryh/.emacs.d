@@ -171,9 +171,8 @@
 (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
 (setq mouse-wheel-progressive-speed 1) ;; on a long mouse scroll keep scrolling by 1 line
 
+(setq default-input-method "cyrillic-jcuken")
 
-(setq which-key-idle-delay 1.0)
-(setq which-key-separator " → " )
 (which-key-mode t)
 (desktop-save-mode t)
 (custom-set-variables

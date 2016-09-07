@@ -94,12 +94,6 @@
 (global-set-key (kbd "C-x t <down>") 'buf-move-down)
 (global-set-key (kbd "C-0") 'toggle-window-split)
 
-;; Resize window
-(global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-S-<down>") 'shrink-window)
-(global-set-key (kbd "C-S-<up>") 'enlarge-window)
-
 (global-set-key "\C-c\C-r" 'replace-string) 
 
 (global-set-key (kbd "C-z") 'undo) ;; по умолчанию емакс уходит в бакграунд 
@@ -158,3 +152,73 @@
 
 ;; add to hook
 (add-hook 'projectile-mode-hook 'my-projectile-mode-config)
+
+;; Resize the current window
+(defun win-resize-top-or-bot ()
+  "Figure out if the current window is on top, bottom or in the
+   middle"
+  (let* ((win-edges (window-edges))
+         (this-window-y-min (nth 1 win-edges))
+         (this-window-y-max (nth 3 win-edges))
+         (fr-height (frame-height)))
+    (cond
+     ((eq 0 this-window-y-min) "top")
+     ((eq (- fr-height 1) this-window-y-max) "bot")
+     (t "mid"))))
+
+(defun win-resize-left-or-right ()
+  "Figure out if the current window is to the left, right or in the
+   middle"
+  (let* ((win-edges (window-edges))
+         (this-window-x-min (nth 0 win-edges))
+         (this-window-x-max (nth 2 win-edges))
+         (fr-width (frame-width)))
+    (cond
+     ((eq 0 this-window-x-min) "left")
+     ((eq (+ fr-width 4) this-window-x-max) "right")
+     (t "mid"))))
+
+(defun win-resize-enlarge-vert ()
+  (interactive)
+  (cond
+   ((equal "top" (win-resize-top-or-bot)) (enlarge-window -5))
+   ((equal "bot" (win-resize-top-or-bot)) (enlarge-window 5))
+   ((equal "mid" (win-resize-top-or-bot)) (enlarge-window -5))
+   (t (message "nil"))))
+
+(defun win-resize-minimize-vert ()
+  (interactive)
+  (cond
+   ((equal "top" (win-resize-top-or-bot)) (enlarge-window 5))
+   ((equal "bot" (win-resize-top-or-bot)) (enlarge-window -5))
+   ((equal "mid" (win-resize-top-or-bot)) (enlarge-window 5))
+   (t (message "nil"))))
+
+(defun win-resize-enlarge-horiz ()
+  (interactive)
+  (cond
+   ((equal "left" (win-resize-left-or-right)) (enlarge-window-horizontally -30))
+   ((equal "right" (win-resize-left-or-right)) (enlarge-window-horizontally 30))
+   ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally 30))))
+
+(defun win-resize-minimize-horiz ()
+  (interactive)
+  (cond
+   ((equal "left" (win-resize-left-or-right)) (enlarge-window-horizontally 30))
+   ((equal "right" (win-resize-left-or-right)) (enlarge-window-horizontally -30))
+   ((equal "mid" (win-resize-left-or-right)) (enlarge-window-horizontally -30))))
+
+
+;; Resize window old
+;; (global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
+;; (global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
+;; (global-set-key (kbd "C-S-<down>") 'shrink-window)
+;; (global-set-key (kbd "C-S-<up>") 'enlarge-window)
+
+
+;; Resize window
+(global-set-key (kbd "C-S-<left>") 'win-resize-enlarge-horiz)
+(global-set-key (kbd "C-S-<right>") 'win-resize-minimize-horiz)
+(global-set-key (kbd "C-S-<down>") 'win-resize-minimize-vert)
+(global-set-key (kbd "C-S-<up>") 'win-resize-enlarge-vert)
+
