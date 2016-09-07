@@ -141,7 +141,8 @@
             (emmet-mode t)))
 
 (add-hook 'dired-mode-hook (lambda ()
-                             (hl-line-mode t)))
+                             (hl-line-mode t)
+                             (auto-revert-mode t)))
 
 (add-hook 'ibuffer-hook
           (lambda ()
