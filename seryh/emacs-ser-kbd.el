@@ -222,3 +222,14 @@
 (global-set-key (kbd "C-S-<down>") 'win-resize-minimize-vert)
 (global-set-key (kbd "C-S-<up>") 'win-resize-enlarge-vert)
 
+
+;; если есть выделенный регион то используем его для поиска
+(defun ser/isearch-with-region ()
+  "Use region as the isearch text."
+  (when mark-active
+    (let ((region (funcall region-extract-function nil)))
+      (deactivate-mark)
+      (isearch-push-state)
+      (isearch-yank-string region))))
+
+(add-hook 'isearch-mode-hook #'ser/isearch-with-region)
