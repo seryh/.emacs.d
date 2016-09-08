@@ -106,7 +106,7 @@
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
 
-;; ------------------ [ibuffer]
+;;------------------ [ibuffer]
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                    ("dired" (mode . dired-mode))
