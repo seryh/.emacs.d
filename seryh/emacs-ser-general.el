@@ -65,7 +65,7 @@
 
 
 ;; Fira Code
-(set-face-attribute 'default nil :family "Fira Code" :height 110)
+(set-face-attribute 'default nil :family "Fira Code" :height 100)
 ;;(set-face-attribute 'default nil :family "Sauce Code Powerline" :height 110)
 
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
