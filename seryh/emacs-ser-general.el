@@ -58,8 +58,8 @@
 ;; scroll lag fix
 (setq scroll-conservatively 1)
 (setq scroll-step 1)
-(setq scroll-margin 3)
-(setq next-screen-context-lines 3)
+(setq scroll-margin 1)
+(setq next-screen-context-lines 1)
 (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
 (setq mouse-wheel-progressive-speed 1) ;; on a long mouse scroll keep scrolling by 1 line
 

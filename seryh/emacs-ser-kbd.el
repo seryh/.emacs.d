@@ -125,7 +125,8 @@
 (define-key seryh-menu "5" 'org-mode)
 (define-key seryh-menu "6" 'ser/hRGB)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
-(define-key seryh-menu "r" 'indent-region) ;; reformat 
+(define-key seryh-menu "r" 'indent-region) ;; reformat
+(define-key seryh-menu "w" 'whitespace-mode) ;; reformat 
 
 ;; projectile-mode-kbd
 (defun my-projectile-mode-config ()
