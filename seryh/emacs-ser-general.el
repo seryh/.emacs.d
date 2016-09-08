@@ -106,4 +106,33 @@
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
 
+;; ------------------ [ibuffer]
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+                   ("dired" (mode . dired-mode))
+                   ("web"  (or
+                            (mode . js2-mode)
+                            (mode . web-mode)))
+                   ("emacs" (or
+                             (name . "^\\*scratch\\*$")
+                             (name . "^\\*Messages\\*$")))
+                   ("clojure" (or
+                               (mode . clojure-mode)))))))
 
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
+(defadvice ibuffer-update-title-and-summary (after remove-column-titles)
+   (save-excursion
+      (set-buffer "*Ibuffer*")
+      (toggle-read-only 0)
+      (goto-char 1)
+      (search-forward "-\n" nil t)
+      (delete-region 1 (point))
+      (let ((window-min-height 1)) 
+        ;; save a little screen estate
+        (shrink-window-if-larger-than-buffer))
+      (toggle-read-only)))
+  
+(ad-activate 'ibuffer-update-title-and-summary)
