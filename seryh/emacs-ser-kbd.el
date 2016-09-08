@@ -114,7 +114,6 @@
           'face (list :background (match-string-no-properties 0)))))))
   (font-lock-fontify-buffer))
 
-
 ;; modes
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
@@ -231,6 +230,14 @@
     (let ((region (funcall region-extract-function nil)))
       (deactivate-mark)
       (isearch-push-state)
-      (isearch-yank-string region))))
+      (isearch-yank-string region)
+)))
 
 (add-hook 'isearch-mode-hook #'ser/isearch-with-region)
+
+(add-hook 'isearch-mode-hook (lambda ()
+      (define-key isearch-mode-map "\C-h" 'isearch-mode-help)
+      (define-key isearch-mode-map "\C-t" 'isearch-toggle-regexp)
+      (define-key isearch-mode-map "\C-c" 'isearch-toggle-case-fold)
+      (define-key isearch-mode-map "\C-e" 'isearch-edit-string)
+))
