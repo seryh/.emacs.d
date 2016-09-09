@@ -54,6 +54,7 @@
     ido           ;; интерактивное управление буферами и файлами;
     ido-ubiquitous
     ido-vertical-mode
+    smex
     
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
@@ -100,10 +101,18 @@
 (require 'ido)
 (require 'ido-ubiquitous)
 (require 'ido-vertical-mode)
+(require 'smex) ; Not needed if you use package.el
+
 (ido-mode t)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)
 (ido-vertical-mode 1)
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
