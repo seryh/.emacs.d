@@ -43,6 +43,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
+    bookmark+
     undo-tree
     magit
     powerline
@@ -87,6 +88,11 @@
 (require 'org-install)
 (require 'ibuffer)
 (require 'cider)
+
+;; ------------------------------------------------------- [ bookmark ]
+(require 'bookmark+)
+(bmkp-toggle-auto-light-when-jump)
+(bmkp-toggle-auto-light-when-set)
 
 ;; ------------------------------------------------------- [ Company ]
 (require 'company)
