@@ -52,6 +52,9 @@
     rainbow-delimiters
     projectile    ;; простая навигация по проектам
     ido           ;; интерактивное управление буферами и файлами;
+    ido-ubiquitous
+    ido-vertical-mode
+    
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
     company       ;; popup 
@@ -81,7 +84,6 @@
 (moe-dark)
 
 (require 'org-install)
-(require 'ido)
 (require 'ibuffer)
 (require 'cider)
 
@@ -93,7 +95,15 @@
 (global-undo-tree-mode)
 (autopair-global-mode) 
 ;;(ac-js2-mode t)
+
+;; ------------------------------------------------------- [ IDO ]
+(require 'ido)
+(require 'ido-ubiquitous)
+(require 'ido-vertical-mode)
 (ido-mode t)
+(ido-everywhere 1)
+(ido-ubiquitous-mode 1)
+(ido-vertical-mode 1)
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)

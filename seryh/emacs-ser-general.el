@@ -53,8 +53,8 @@
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
 (setq read-file-name-completion-ignore-case t) ;; Дополнение имён файлов без учёта регистра
 (file-name-shadow-mode t)                    ;; Затенять игнорируемую часть имени файла
-(setq resize-mini-windows nil)                 ;; Изменять при необходимости размер минибуфера по вертикали
-(setq resize-minibuffer nil)
+;;(setq resize-mini-windows nil)                 ;; Изменять при необходимости размер минибуфера по вертикали
+;;(setq resize-minibuffer nil)
 (auto-image-file-mode t)                     ;; Показывать картинки
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
 (fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n" 
