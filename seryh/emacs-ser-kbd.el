@@ -67,6 +67,9 @@
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
 (global-set-key (kbd "M-<f4>") 'magit-status)
+(global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
+(global-set-key (kbd "<f6>") 'bookmark-jump)
+(global-set-key (kbd "<f7>") 'bookmark-set)
 
 (global-set-key [f2] 'save-buffer)
 
@@ -125,7 +128,7 @@
 (define-key seryh-menu "6" 'ser/hRGB)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
 (define-key seryh-menu "r" 'indent-region) ;; reformat
-(define-key seryh-menu "w" 'whitespace-mode) ;; reformat 
+(define-key seryh-menu "w" 'whitespace-mode) ;; reformat
 
 ;; projectile-mode-kbd
 (defun my-projectile-mode-config ()
