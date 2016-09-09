@@ -13,6 +13,11 @@
   (setq default-process-coding-system '(windows-1251 . windows-1251))
   (prefer-coding-system 'windows-1251)
   (set-language-environment 'UTF-8)
+
+  (defadvice shell (after my-shell-advice)
+    (set-buffer-process-coding-system 'cp1251 'cp1251))
+  (ad-activate 'shell)
+  
   (tooltip-mode -1)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
