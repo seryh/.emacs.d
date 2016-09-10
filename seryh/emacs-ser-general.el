@@ -47,7 +47,7 @@
 (setq default-tab-width 4)                   ;; размер табуляции
 (setq-default indent-tabs-mode nil)          ;; отступ только пробелами
 (setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
-(setq case-fold-search t)                    ;; Поиск без учёта регистра
+(setq-default case-fold-search t)                  ;; Поиск без учёта регистра
 (global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере
 (setq font-lock-maximum-decoration t)        ;; Максимальное использование различных начертаний шрифтов
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
