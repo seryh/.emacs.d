@@ -129,6 +129,7 @@
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
+(load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd"))
 
 (setq auto-mode-alist
       (append '(("\\.scss$". sass-mode)
