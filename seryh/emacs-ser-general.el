@@ -35,7 +35,7 @@
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
- cursor-type 'bar
+ cursor-type 'hbar
 )
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
