@@ -2,7 +2,6 @@
 ;;
 ;; unsets
 (global-unset-key (kbd "M-SPC"))
-(global-unset-key (kbd "M-m"))
 (global-unset-key (kbd "M-n"))
 (global-unset-key (kbd "M-d"))
 (global-unset-key (kbd "M-f"))
@@ -52,6 +51,5 @@
 (global-set-key (kbd "M-d") 'delete-backward-char)
 ;; Enter
 (global-set-key (kbd "M-n") 'reindent-then-newline-and-indent)
-(global-set-key (kbd "M-m") 'reindent-then-newline-and-indent)
 ;; Выделение
 (global-set-key (kbd "M-SPC") 'set-mark-command)

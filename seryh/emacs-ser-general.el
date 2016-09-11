@@ -1,11 +1,13 @@
 ;; emacs-rc-general.el ---
 
+;;(add-to-list 'exec-path "C:/Program Files/7-Zip" t)
 ;; скрыть все меню
 (when (system-is-windows)
   (setenv "PATH"
           (concat
            "C:\\msys64\\usr\\bin;"
            "C:\\msys64\\mingw64\\bin;"
+           "C:\\Program Files\\7-Zip;"
            (getenv "PATH")))
 
   (setq frame-title-format "%b (%f)")
