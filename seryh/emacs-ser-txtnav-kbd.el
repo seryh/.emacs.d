@@ -51,8 +51,9 @@
  ("M-u" . backward-word)
  ("M-h" . move-end-of-line)
  ("M-H" . move-beginning-of-line)
- ("M-L" . end-of-buffer)
- ("M-J" . beginning-of-buffer)
+
+ ("M-J" . backward-sexp)
+ ("M-L" . forward-sexp)
  
  ("M-(" . move-backward-paren)
  ("M-)" . move-forward-paren)
