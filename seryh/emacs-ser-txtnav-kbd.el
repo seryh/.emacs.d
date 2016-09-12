@@ -64,6 +64,9 @@
  
  ("M-f" . delete-forward-char)  ;; Delete
  ("M-d" . delete-backward-char) ;; Backspace
+ ("M-F" . kill-word)  ;; Delete
+ ("M-D" . backward-kill-word) ;; Backspace
+
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
  ("M-SPC" . set-mark-command)   ;; Выделение
  )
