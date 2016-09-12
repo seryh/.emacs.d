@@ -92,8 +92,8 @@
 
 ;; ------------------------------------------------------- [ bookmark ]
 (require 'bookmark+)
-(bmkp-toggle-auto-light-when-jump)
-(bmkp-toggle-auto-light-when-set)
+;;(bmkp-toggle-auto-light-when-jump)
+;;(bmkp-toggle-auto-light-when-set)
 
 ;; ------------------------------------------------------- [ Company ]
 (require 'company)
