@@ -126,10 +126,14 @@
 ;;(setq ac-js2-evaluate-calls t)
 
 ;; load concrete packages
+(add-to-list 'load-path ".")
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
-(load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd"))
+(load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
+(load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
+
+(require 'gulpjs)
 
 (setq auto-mode-alist
       (append '(("\\.scss$". sass-mode)
@@ -211,7 +215,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "d:\\Dropbox\\home\\.emacs.d\\bookmarks")
  '(buffer-face-mode-face (quote (:background "#1a0b19")))
  '(cider-lein-parameters "with-profile +windows repl :headless"))
 (custom-set-faces
