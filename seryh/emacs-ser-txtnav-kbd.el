@@ -1,3 +1,45 @@
+(defun move-forward-paren (&optional arg)
+  "Move forward parenthesis"
+  (interactive "P")
+  (if (looking-at ")") (forward-char 1))
+  (while (not (looking-at ")")) (forward-char 1))
+  ) 
+
+(defun move-backward-paren (&optional arg)
+  "Move backward parenthesis"
+  (interactive "P")
+  (if (looking-at "(") (forward-char -1))
+  (while (not (looking-at "(")) (backward-char 1))
+  ) 
+
+(defun move-forward-sqrParen (&optional arg)
+  "Move forward square brackets"
+  (interactive "P")
+  (if (looking-at "]") (forward-char 1))
+  (while (not (looking-at "]")) (forward-char 1))
+  ) 
+
+(defun move-backward-sqrParen (&optional arg)
+  "Move backward square brackets"
+  (interactive "P")
+  (if (looking-at "[[]") (forward-char -1))
+  (while (not (looking-at "[[]")) (backward-char 1))
+  ) 
+
+(defun move-forward-curlyParen (&optional arg)
+  "Move forward curly brackets"
+  (interactive "P")
+  (if (looking-at "}") (forward-char 1))
+  (while (not (looking-at "}")) (forward-char 1))
+  ) 
+
+(defun move-backward-curlyParen (&optional arg)
+  "Move backward curly brackets"
+  (interactive "P")
+  (if (looking-at "{") (forward-char -1))
+  (while (not (looking-at "{")) (backward-char 1))
+  ) 
+
 (bind-keys*
  ("M-i" . previous-line)
  ("M-k" . next-line)
@@ -11,6 +53,13 @@
  ("M-H" . move-beginning-of-line)
  ("M-L" . end-of-buffer)
  ("M-J" . beginning-of-buffer)
+ 
+ ("M-(" . move-backward-paren)
+ ("M-)" . move-forward-paren)
+ ("M-[" . move-backward-sqrParen)
+ ("M-]" . move-forward-sqrParen)
+ ("M-{" . move-backward-curlyParen)
+ ("M-}" . move-forward-curlyParen)
  
  ("M-f" . delete-forward-char)  ;; Delete
  ("M-d" . delete-backward-char) ;; Backspace
