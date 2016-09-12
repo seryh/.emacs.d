@@ -43,6 +43,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
+    use-package
     bookmark+
     undo-tree
     magit
@@ -130,8 +131,8 @@
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
-(load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
+(load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
 
 (require 'gulpjs)
 
@@ -224,3 +225,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
