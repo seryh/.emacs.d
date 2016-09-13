@@ -52,8 +52,8 @@
  ("M-h" . move-end-of-line)
  ("M-H" . move-beginning-of-line)
 
- ("M-J" . backward-sexp)
- ("M-L" . forward-sexp)
+ ("M-C-j" . backward-sexp)
+ ("M-C-l" . forward-sexp)
  
  ("M-(" . move-backward-paren)
  ("M-)" . move-forward-paren)
