@@ -45,8 +45,6 @@
  ("M-k" . next-line)
  ("M-j" . backward-char)
  ("M-l" . forward-char)
- ("M-I" . scroll-down-command)
- ("M-K" . scroll-up-command)
  ("M-o" . forward-word)
  ("M-u" . backward-word)
  ("M-h" . move-end-of-line)
