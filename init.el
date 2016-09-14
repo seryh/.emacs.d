@@ -162,6 +162,7 @@
           (lambda () 
             (rainbow-delimiters-mode t)
             (hs-minor-mode t)
+            (js2-imenu-extras-mode t)
             ;;(tern-mode t) 
             ;;(ac-js2-mode t)
             ))
