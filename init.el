@@ -133,6 +133,8 @@
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
+(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
+
 
 (require 'gulpjs)
 
