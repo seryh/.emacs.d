@@ -49,7 +49,10 @@
     magit
     powerline
     moe-theme
-    cider         ;; clojure  
+
+    ;; clojure
+    cider         
+    
     web-mode
     rainbow-delimiters
     projectile    ;; простая навигация по проектам
@@ -139,10 +142,12 @@
 (add-to-list 'load-path ".")
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
+(load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
 (load (ser/get-config-dir "seryh/turn-off-messaging.el"))
+
 
 
 (require 'gulpjs)
