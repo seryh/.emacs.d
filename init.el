@@ -57,6 +57,7 @@
     ido-ubiquitous
     ido-vertical-mode
     smex
+    auto-indent-mode
     
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
@@ -123,6 +124,14 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; ------------------------------------------------------- [ auto-indent ]
+(setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files
+(setq auto-indent-key-for-end-of-line-then-newline "<M-return>")
+(setq auto-indent-key-for-end-of-line-insert-char-then-newline "<C-M-return>")
+(require 'auto-indent-mode)
+(auto-indent-global-mode)
+(setq auto-indent-indent-style 'conservative)
 
 ;;(setq ac-js2-evaluate-calls t)
 

@@ -1,6 +1,6 @@
 ;; the following is copied from http://lists.gnu.org/archive/html/help-gnu-emacs/2005-01/msg00636.html
 (defvar messaging-on t
-  "Control whether or not messages will be printed; by default, they are.")
+  "Control whether or not messages will be printed; by default, they are.") ;; nil or t
 
 ;; Note that by itself this renders edebug pretty useless.
 (defadvice message (around nomessage activate)
