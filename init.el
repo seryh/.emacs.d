@@ -44,6 +44,7 @@
 (defvar my-packages
   '(
     use-package
+    yasnippet
     bookmark+
     undo-tree
     magit
@@ -83,6 +84,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(yas-global-mode 1)
 (require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
@@ -92,7 +94,7 @@
 
 (require 'org-install)
 (require 'ibuffer)
-(require 'cider)
+;;(require 'cider)
 
 ;; ------------------------------------------------------- [ bookmark ]
 (require 'bookmark+)
@@ -137,6 +139,10 @@
 (setq auto-indent-indent-style 'conservative)
 
 ;;(setq ac-js2-evaluate-calls t)
+(require 'yasnippet)
+(when (require 'yasnippet nil 'noerror)
+  (progn
+    (yas/load-directory "~/.emacs.d/snippets")))
 
 ;; load concrete packages
 (add-to-list 'load-path ".")
