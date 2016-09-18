@@ -167,7 +167,6 @@
 (setq auto-mode-alist
       (append '(("\\.scss$". sass-mode)
                 ("\\.css$". web-mode)
-                ("\\.js$". js2-mode)
                 ("\\.html$". web-mode)
                 ("\\.phtml$". web-mode)
                 ("\\.org$". org-mode)
@@ -177,6 +176,7 @@
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
 
+(load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 
 (add-hook 'scss-mode-hook 
           (lambda ()
@@ -185,15 +185,6 @@
 (add-hook 'clojure-mode-hook 
           (lambda () 
             (rainbow-delimiters-mode t)))
-
-(add-hook 'js2-mode-hook 
-          (lambda () 
-            (rainbow-delimiters-mode t)
-            (hs-minor-mode t)
-            (js2-imenu-extras-mode t)
-            ;;(tern-mode t) 
-            ;;(ac-js2-mode t)
-            ))
 
 (add-hook 'web-mode-hook 
           (lambda () 
