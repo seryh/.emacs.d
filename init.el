@@ -156,6 +156,7 @@
 
 (require 'gulpjs)
 
+;; needed https://github.com/fletcher/peg-multimarkdown/wiki/How-do-I-install-MultiMarkdown%3F
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
