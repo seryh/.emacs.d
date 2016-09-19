@@ -18,11 +18,15 @@
               (rainbow-delimiters-mode t)
               (hs-minor-mode t)
               (js2-imenu-extras-mode t)
-             
+              
               ;;(tern-mode t) 
               ;;(ac-js2-mode t)
               (push '("function" . ?ƒ) prettify-symbols-alist)
               (prettify-symbols-mode 1)))
-
+  
   )
 
+(use-package color-identifiers-mode
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'color-identifiers-mode))
