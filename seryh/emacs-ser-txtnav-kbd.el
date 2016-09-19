@@ -45,8 +45,11 @@
  ("M-k" . next-line)
  ("M-j" . backward-char)
  ("M-l" . forward-char)
+
  ("M-o" . forward-word)
  ("M-u" . backward-word)
+ ("C-o" . cua-scroll-up)
+ ("C-u" . cua-scroll-down)
  ("M-h" . move-end-of-line)
  ("M-H" . move-beginning-of-line)
 
