@@ -7,6 +7,9 @@
   (scroll-bar-mode -1)
   (tooltip-mode -1))
 
+(when (not (display-graphic-p))
+  (menu-bar-mode -1))
+
 (when (system-is-windows)
   (setenv "PATH"
           (concat
