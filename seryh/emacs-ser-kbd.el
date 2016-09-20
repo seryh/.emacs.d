@@ -226,8 +226,6 @@
 (global-set-key (kbd "C-x t <down>") 'buf-move-down)
 (global-set-key (kbd "C-0") 'toggle-window-split) ;; сменить ориентацию split
 
-
-
 ;; если есть выделенный регион то используем его для поиска
 (defun ser/isearch-with-region ()
   "Use region as the isearch text."
@@ -246,3 +244,9 @@
       (define-key isearch-mode-map "\C-c" 'isearch-toggle-case-fold)
       (define-key isearch-mode-map "\C-e" 'isearch-edit-string)
 ))
+
+(defun my-clear-message ()
+  (interactive)
+  (message nil))
+
+(global-set-key (kbd "C-c c") 'my-clear-message)
