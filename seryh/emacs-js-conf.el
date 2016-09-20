@@ -8,7 +8,7 @@
                 js2-cleanup-whitespace t
                 js2-enter-indents-newline t
                 js2-indent-on-enter-key t
-                js2-global-externs (list "iwayWidgets" "window" "module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "jQuery" "$"))
+                js2-global-externs (list "define" "iwayWidgets" "window" "module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "jQuery" "$"))
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
