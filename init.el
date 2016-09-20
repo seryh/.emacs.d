@@ -53,6 +53,7 @@
 
     ;; clojure
     cider         
+    paredit
     
     web-mode
     rainbow-delimiters
@@ -132,7 +133,9 @@
 (require 'ido-ubiquitous)
 (require 'ido-vertical-mode)
 (require 'smex) ; Not needed if you use package.el
+(require 'magit)
 
+(global-magit-file-mode t)
 (ido-mode t)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)
