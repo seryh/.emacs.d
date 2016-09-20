@@ -126,6 +126,12 @@
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
 
+(require 'which-key)
+(add-to-list 'which-key-key-replacement-alist '("TAB" . "↹"))
+(add-to-list 'which-key-key-replacement-alist '("RET" . "⏎"))
+(add-to-list 'which-key-key-replacement-alist '("DEL" . "⇤"))
+(add-to-list 'which-key-key-replacement-alist '("SPC" . "␣"))
+
 ;; Ido-mode customizations
 (require 'cl-lib) ; Used: cl-letf.
 (setq ido-decorations
