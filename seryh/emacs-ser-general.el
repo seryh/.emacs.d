@@ -1,7 +1,12 @@
 ;; emacs-rc-general.el ---
 
-;;(add-to-list 'exec-path "C:/Program Files/7-Zip" t)
-;; скрыть все меню
+;; Turn off mouse interface early in startup to avoid momentary display
+(when (display-graphic-p)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1))
+
 (when (system-is-windows)
   (setenv "PATH"
           (concat
@@ -19,14 +24,11 @@
   (defadvice shell (after my-shell-advice)
     (set-buffer-process-coding-system 'cp1251 'cp1251))
   (ad-activate 'shell)
-  
-  (tooltip-mode -1)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
-  (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
   )
+
+
+(setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
+(setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
 
 ;; Интерфейс
 (global-linum-mode 1)
@@ -69,49 +71,50 @@
   scroll-preserve-screen-position 1)
 
 
+(set-face-attribute 'default nil :height 100)
 ;; Fira Code
 ;;(set-face-attribute 'default nil :family "Sauce Code Powerline" :height 110)
-(defun my-fira-code ()
-  "Fira Code"
-  (when (window-system)
-    (set-face-attribute 'default nil :family "Fira Code" :height 100))
-  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-                 (36 . ".\\(?:>\\)")
-                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-                 ;;(46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-                 (48 . ".\\(?:x[a-zA-Z]\\)")
-                 (58 . ".\\(?:::\\|[:=]\\)")
-                 (59 . ".\\(?:;;\\|;\\)")
-                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-                 (91 . ".\\(?:]\\)")
-                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-                 (94 . ".\\(?:=\\)")
-                 (119 . ".\\(?:ww\\)")
-                 (123 . ".\\(?:-\\)")
-                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-                 )
-               ))
-    (dolist (char-regexp alist)
-      (set-char-table-range composition-function-table (car char-regexp)
-                            `([,(cdr char-regexp) 0 font-shape-gstring])))))
+;; (defun my-fira-code ()
+;;   "Fira Code"
+;;   (when (window-system)
+;;     (set-face-attribute 'default nil :family "Fira Code" :height 100))
+;;   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+;;                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+;;                  (36 . ".\\(?:>\\)")
+;;                  (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+;;                  (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+;;                  (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+;;                  (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+;;                  (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+;;                  ;;(46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+;;                  (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+;;                  (48 . ".\\(?:x[a-zA-Z]\\)")
+;;                  (58 . ".\\(?:::\\|[:=]\\)")
+;;                  (59 . ".\\(?:;;\\|;\\)")
+;;                  (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+;;                  (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+;;                  (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+;;                  (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+;;                  (91 . ".\\(?:]\\)")
+;;                  (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+;;                  (94 . ".\\(?:=\\)")
+;;                  (119 . ".\\(?:ww\\)")
+;;                  (123 . ".\\(?:-\\)")
+;;                  (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+;;                  (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+;;                  )
+;;                ))
+;;     (dolist (char-regexp alist)
+;;       (set-char-table-range composition-function-table (car char-regexp)
+;;                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
-(defun my-ligature ()
-  "Enable font ligature."
-  (if (fboundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode)
-    (my-fira-code)))
+;; (defun my-ligature ()
+;;   "Enable font ligature."
+;;   (if (fboundp 'mac-auto-operator-composition-mode)
+;;       (mac-auto-operator-composition-mode)
+;;     (my-fira-code)))
 
-(my-ligature)
+;; (my-ligature)
 
 ;; Show-paren-mode settings
 ;;(show-paren-mode t) ;; включить выделение выражений между {},[],()
@@ -151,3 +154,12 @@
       (toggle-read-only)))
   
 (ad-activate 'ibuffer-update-title-and-summary)
+
+(defun my-minibuffer-setup-hook ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun my-minibuffer-exit-hook ()
+  (setq gc-cons-threshold 800000))
+
+(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
