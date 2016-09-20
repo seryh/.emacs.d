@@ -40,7 +40,7 @@
 (use-package clj-refactor
   :ensure t
   :init
-  (add-hook 'clojure-mode-hook 'clj-refactor-mode)
+  (add-hook 'clojure-mode-hook 'clj-refactor-mode 'paredit-mode)
   :config
   ;; Configure the Clojure Refactoring prefix:
   (cljr-add-keybindings-with-prefix "C-c .")

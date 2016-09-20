@@ -1,8 +1,3 @@
-(define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
-(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
-(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-(define-key projectile-mode-map [?\s-g] 'projectile-grep)
-
 ;; функция для смены ориентации 2 окон
 (defun toggle-window-split ()
   (interactive)
@@ -55,8 +50,8 @@
            (dired-move-to-filename))))))
 
 
-(defun find-project-file (file)
-  (find-file (expand-file-name file (projectile-project-root))))
+;;(defun find-project-file (file)
+;;  (find-file (expand-file-name file (projectile-project-root))))
 
 ;; файло диалог shift - F1
 (global-set-key (kbd "M-<f1>")  
@@ -68,7 +63,7 @@
  ("C-x C-b" . ibuffer))
 
 (global-set-key (kbd "M-<f2>") 'ibuffer)
-(global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
+;;(global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
 (global-set-key (kbd "M-<f4>") 'magit-status)
 (global-set-key (kbd "M-<f5>") 'imenu)
 (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
@@ -136,15 +131,15 @@
 (define-key seryh-menu "g" 'gulpjs-start-task) 
 
 ;; projectile-mode-kbd
-(defun my-projectile-mode-config ()
-  "For use in `projectile-mode-hook'."
-  (local-set-key (kbd "M-<f1>")  ;; открывает директорию с проектом в котором находится
-                 (lambda ()
-                   (interactive)
-                   (projectile-dired))))
+;;(defun my-projectile-mode-config ()
+;;  "For use in `projectile-mode-hook'."
+;;  (local-set-key (kbd "M-<f1>")  ;; открывает директорию с проектом в котором находится
+;;                 (lambda ()
+;;                   (interactive)
+;;                   (projectile-dired))))
 
 ;; add to hook
-(add-hook 'projectile-mode-hook 'my-projectile-mode-config)
+;;(add-hook 'projectile-mode-hook 'my-projectile-mode-config)
 
 ;; Resize the current window
 (defun win-resize-top-or-bot ()

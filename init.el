@@ -56,7 +56,7 @@
     
     web-mode
     rainbow-delimiters
-    projectile    ;; простая навигация по проектам
+    ;;projectile    ;; простая навигация по проектам
     ido           ;; интерактивное управление буферами и файлами;
     ido-ubiquitous
     ido-vertical-mode
@@ -107,7 +107,24 @@
 (setq company-idle-delay 0.1)
 (global-company-mode)
 (global-undo-tree-mode)
-(autopair-global-mode) 
+
+
+(defvar autopair-modes '(clojure-mode))
+(defun turn-on-autopair-mode () (autopair-mode 1))
+(dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
+
+(require 'paredit)
+(defadvice paredit-mode (around disable-autopairs-around (arg))
+  "Disable autopairs mode if paredit-mode is turned on"
+  ad-do-it
+  (if (null ad-return-value)
+      (autopair-mode 1)
+    (autopair-mode 0)
+    ))
+
+(ad-activate 'paredit-mode)
+
+;;(autopair-global-mode) 
 ;;(ac-js2-mode t)
 
 ;; ------------------------------------------------------- [ IDO ]
@@ -147,12 +164,12 @@
 ;; load concrete packages
 (add-to-list 'load-path ".")
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
-(load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
+;;(load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
-(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
+;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 
 (require 'gulpjs)
 
