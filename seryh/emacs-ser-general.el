@@ -126,6 +126,35 @@
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
 
+;; Ido-mode customizations
+(require 'cl-lib) ; Used: cl-letf.
+(setq ido-decorations
+      (quote
+       ("\n-> "           ; Opening bracket around prospect list
+        ""                ; Closing bracket around prospect list
+        "\n   "           ; separator between prospects
+        "\n   ..."        ; appears at end of truncated list of prospects
+        "["               ; opening bracket around common match string
+        "]"               ; closing bracket around common match string
+        " [No match]"     ; displayed when there is no match
+        " [Matched]"      ; displayed if there is a single match
+        " [Not readable]" ; current diretory is not readable
+        " [Too big]"      ; directory too big
+        " [Confirm]")))   ; confirm creation of new file or buffer
+
+(add-hook 'ido-setup-hook
+          (lambda ()
+            (define-key ido-completion-map [down] 'ido-next-match)
+            (define-key ido-completion-map [up] 'ido-prev-match)
+            (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))
+
+;; Save on tab-out
+(add-hook 'focus-out-hook
+          (lambda ()
+            (cl-letf (((symbol-function 'message) #'format))
+              (save-some-buffers t))))
+
 ;;------------------ [ibuffer]
 (setq ibuffer-saved-filter-groups
       (quote (("default"

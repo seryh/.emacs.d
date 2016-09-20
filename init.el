@@ -50,6 +50,7 @@
     magit
     powerline
     moe-theme
+    cl-lib
 
     ;; clojure
     cider         
