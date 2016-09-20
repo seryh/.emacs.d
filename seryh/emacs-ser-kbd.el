@@ -64,6 +64,9 @@
                   (interactive)
                   (dired "~")))
 
+(bind-keys*
+ ("C-x C-b" . ibuffer))
+
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
 (global-set-key (kbd "M-<f4>") 'magit-status)
