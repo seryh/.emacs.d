@@ -23,7 +23,7 @@
 
   ;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
   ;;(add-hook 'cider-mode-hook 'company-mode)
-  ;;(add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
   ;;(add-hook 'cider-repl-mode-hook 'superword-mode)
   ;;(add-hook 'cider-repl-mode-hook 'company-mode)
   ;;(add-hook 'cider-test-report-mode 'jcf-soft-wrap)
@@ -40,7 +40,7 @@
 (use-package clj-refactor
   :ensure t
   :init
-  (add-hook 'clojure-mode-hook 'clj-refactor-mode 'paredit-mode)
+  (add-hook 'clojure-mode-hook 'clj-refactor-mode)
   :config
   ;; Configure the Clojure Refactoring prefix:
   (cljr-add-keybindings-with-prefix "C-c .")

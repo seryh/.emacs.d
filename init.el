@@ -51,6 +51,7 @@
     powerline
     moe-theme
     cl-lib
+    etags-table
 
     ;; clojure
     cider         
@@ -96,6 +97,7 @@
 
 (require 'org-install)
 (require 'ibuffer)
+(require 'paredit)
 ;;(require 'cider)
 
 ;; ------------------------------------------------------- [ bookmark ]
@@ -114,20 +116,11 @@
 (defvar autopair-modes '(clojure-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
-
-(require 'paredit)
-(defadvice paredit-mode (around disable-autopairs-around (arg))
-  "Disable autopairs mode if paredit-mode is turned on"
-  ad-do-it
-  (if (null ad-return-value)
-      (autopair-mode 1)
-    (autopair-mode 0)
-    ))
-
-(ad-activate 'paredit-mode)
-
 ;;(autopair-global-mode) 
 ;;(ac-js2-mode t)
+
+(require 'etags-table)
+(setq etags-table-search-up-depth 5)
 
 ;; ------------------------------------------------------- [ IDO ]
 (require 'ido)
