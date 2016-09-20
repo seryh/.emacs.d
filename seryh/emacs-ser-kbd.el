@@ -53,19 +53,15 @@
 ;;(defun find-project-file (file)
 ;;  (find-file (expand-file-name file (projectile-project-root))))
 
-;; файло диалог shift - F1
-(global-set-key (kbd "M-<f1>")  
-                (lambda ()
-                  (interactive)
-                  (dired "~")))
-
 (bind-keys*
  ("C-x C-b" . ibuffer))
 
+(global-set-key (kbd "M-<f1>")  
+                (lambda () (interactive) (dired ".")))
 (global-set-key (kbd "M-<f2>") 'ibuffer)
-;;(global-set-key (kbd "M-<f3>") 'projectile-ibuffer)
+(global-set-key (kbd "M-<f3>") 'imenu)
 (global-set-key (kbd "M-<f4>") 'magit-status)
-(global-set-key (kbd "M-<f5>") 'imenu)
+
 (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
 (global-set-key (kbd "<f6>") 'bookmark-jump)
 (global-set-key (kbd "<f7>") 'bookmark-set)
