@@ -216,7 +216,7 @@
      (tern-ac-setup)))
 
 ;; ------------------ [ autopair-mode ]
-(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode))
+(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode clojure-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode) 
@@ -225,8 +225,7 @@
 (setq web-mode-enable-current-element-highlight t)
 (setq web-mode-enable-current-column-highlight t)
 (setq web-mode-engines-alist
-      '(("php"    . "\\.phtml\\'"))
-      )
+      '(("php"    . "\\.phtml\\'")))
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
 ;; To enter an Emacs command like C-x C-f while the mark is active, use one of the
