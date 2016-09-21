@@ -92,6 +92,7 @@
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
 
+(auto-revert-mode t)
 (powerline-moe-theme)
 (moe-dark)
 
@@ -111,12 +112,6 @@
 (setq company-idle-delay 0.1)
 (global-company-mode)
 (global-undo-tree-mode)
-
-
-(defvar autopair-modes '(clojure-mode))
-(defun turn-on-autopair-mode () (autopair-mode 1))
-(dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
-;;(autopair-global-mode) 
 ;;(ac-js2-mode t)
 
 (require 'etags-table)
@@ -207,8 +202,7 @@
             (emmet-mode t)))
 
 (add-hook 'dired-mode-hook (lambda ()
-                             (hl-line-mode t)
-                             (auto-revert-mode t)))
+                             (hl-line-mode t)))
 
 (add-hook 'ibuffer-hook
           (lambda ()
@@ -220,6 +214,12 @@
   '(progn
      (require 'tern-auto-complete)
      (tern-ac-setup)))
+
+;; ------------------ [ autopair-mode ]
+(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode))
+(defun turn-on-autopair-mode () (autopair-mode 1))
+(dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
+;;(autopair-global-mode) 
 
 ;; ------------------ [ web-mode ]
 (setq web-mode-enable-current-element-highlight t)

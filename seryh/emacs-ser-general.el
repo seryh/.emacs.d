@@ -32,6 +32,7 @@
 
 (setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
+(setq auto-revert-verbose nil) ;; отключить вывод сообщений "Reverting buffer %s." 
 
 ;; Интерфейс
 (global-linum-mode 1)
