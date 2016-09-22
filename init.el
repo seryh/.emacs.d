@@ -216,7 +216,7 @@
      (tern-ac-setup)))
 
 ;; ------------------ [ autopair-mode ]
-(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode clojure-mode))
+(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode) 

@@ -70,4 +70,6 @@
 
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
  ("M-SPC" . set-mark-command)   ;; Выделение
+
+ ("<delete>" . delete-forward-char)
  )
