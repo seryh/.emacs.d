@@ -69,7 +69,7 @@
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
     company       ;; popup 
-    sass-mode 
+    scss-mode 
     ;;tern        ;; автокомплит для js нуждается в npm install -g tern
     ;;tern-auto-complete 
     emmet-mode    ;; zen-coding автокомплит для html - C-j 
@@ -175,7 +175,7 @@
   :init (setq markdown-command "multimarkdown"))
 
 (setq auto-mode-alist
-      (append '(("\\.scss$". sass-mode)
+      (append '(("\\.scss$". scss-mode)
                 ("\\.css$". web-mode)
                 ("\\.html$". web-mode)
                 ("\\.phtml$". web-mode)
@@ -187,10 +187,6 @@
                 (".emacs". emacs-lisp-mode))))
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
-
-(add-hook 'scss-mode-hook 
-          (lambda ()
-            (sass-mode)))
 
 (add-hook 'clojure-mode-hook 
           (lambda () 
@@ -216,7 +212,7 @@
      (tern-ac-setup)))
 
 ;; ------------------ [ autopair-mode ]
-(defvar autopair-modes '(sass-mode web-mode js2-mode emacs-lisp-mode))
+(defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode) 
