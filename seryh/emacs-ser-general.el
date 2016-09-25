@@ -76,72 +76,20 @@
 
 
 (set-face-attribute 'default nil :height 100)
-;; Fira Code
-;;(set-face-attribute 'default nil :family "Sauce Code Powerline" :height 110)
-;; (defun my-fira-code ()
-;;   "Fira Code"
-;;   (when (window-system)
-;;     (set-face-attribute 'default nil :family "Fira Code" :height 100))
-;;   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-;;                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-;;                  (36 . ".\\(?:>\\)")
-;;                  (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-;;                  (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-;;                  (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-;;                  (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-;;                  (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-;;                  ;;(46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-;;                  (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-;;                  (48 . ".\\(?:x[a-zA-Z]\\)")
-;;                  (58 . ".\\(?:::\\|[:=]\\)")
-;;                  (59 . ".\\(?:;;\\|;\\)")
-;;                  (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-;;                  (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-;;                  (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-;;                  (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-;;                  (91 . ".\\(?:]\\)")
-;;                  (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-;;                  (94 . ".\\(?:=\\)")
-;;                  (119 . ".\\(?:ww\\)")
-;;                  (123 . ".\\(?:-\\)")
-;;                  (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-;;                  (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-;;                  )
-;;                ))
-;;     (dolist (char-regexp alist)
-;;       (set-char-table-range composition-function-table (car char-regexp)
-;;                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
-
-;; (defun my-ligature ()
-;;   "Enable font ligature."
-;;   (if (fboundp 'mac-auto-operator-composition-mode)
-;;       (mac-auto-operator-composition-mode)
-;;     (my-fira-code)))
-
-;; (my-ligature)
 
 ;; Show-paren-mode settings
 ;;(show-paren-mode t) ;; включить выделение выражений между {},[],()
 ;;(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
 
 (when (eq system-type 'darwin)
-
-  ;; default Latin font (e.g. Consolas)
   (set-face-attribute 'default nil :family "Consolas")
-
-  ;; default font size (point * 10)
-  ;;
+  
   ;; WARNING!  Depending on the default font,
   ;; if the size is not supported very well, the frame will be clipped
   ;; so that the beginning of the buffer may not be visible correctly. 
   (set-face-attribute 'default nil :height 155)
 
-  ;; use specific font for Korean charset.
-  ;; if you want to use different font size for specific charset,
-  ;; add :size POINT-SIZE in the font-spec.
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
-
-  ;; you may want to add different for other charset in this way.
   )
 
 (setq which-key-idle-delay 1.0)
