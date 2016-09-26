@@ -266,19 +266,7 @@
 
 (which-key-mode t)
 (desktop-save-mode t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "d:\\Dropbox\\home\\.emacs.d\\bookmarks")
- '(buffer-face-mode-face (quote (:background "#1a0b19")))
- '(cider-lein-parameters "with-profile +windows repl :headless"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
+(setq custom-file "~/.emacs.d/seryh/emacs-ser-vars.el")
+(load custom-file)
 
