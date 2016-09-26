@@ -138,7 +138,7 @@
       (quote (("default"
                    ("dired" (mode . dired-mode))
                    ("web"  (or
-                            (mode . sass-mode)
+                            (mode . scss-mode)
                             (mode . js2-mode)
                             (mode . web-mode)))
                    ("emacs" (or
