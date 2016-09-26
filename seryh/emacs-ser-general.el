@@ -10,6 +10,9 @@
 (when (not (display-graphic-p))
   (menu-bar-mode -1))
 
+
+(set-face-attribute 'default nil :height 100)
+
 (when (system-is-windows)
   (setenv "PATH"
           (concat
@@ -18,6 +21,9 @@
            "C:\\Program Files\\7-Zip;"
            (getenv "PATH")))
 
+  (set-face-attribute 'default nil
+                      :family "Fira Code"
+                      :height 100)
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
   (setq default-process-coding-system '(windows-1251 . windows-1251))
@@ -73,9 +79,6 @@
   scroll-step 1
   scroll-conservatively 1
   scroll-preserve-screen-position 1)
-
-
-(set-face-attribute 'default nil :height 100)
 
 ;; Show-paren-mode settings
 ;;(show-paren-mode t) ;; включить выделение выражений между {},[],()
