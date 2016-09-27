@@ -52,7 +52,8 @@
     moe-theme
     cl-lib
     etags-table
-
+    hl-line+
+    diff-hl
     ;; clojure
     cider         
     paredit
@@ -109,7 +110,7 @@
 ;; ------------------------------------------------------- [ Company ]
 (require 'company)
 (setq company-minimum-prefix-length 2)
-(setq company-idle-delay 0.1)
+;;(setq company-idle-delay 0.1)
 (global-company-mode)
 (global-undo-tree-mode)
 ;;(ac-js2-mode t)
@@ -189,6 +190,12 @@
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 
+;; * Diff HL
+(global-diff-hl-mode)
+(diff-hl-flydiff-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
 (add-hook 'clojure-mode-hook 
           (lambda () 
             (rainbow-delimiters-mode t)))
@@ -220,7 +227,7 @@
 
 ;; ------------------ [ web-mode ]
 (setq web-mode-enable-current-element-highlight t)
-(setq web-mode-enable-current-column-highlight t)
+;;(setq web-mode-enable-current-column-highlight t)
 (setq web-mode-engines-alist
       '(("php"    . "\\.phtml\\'")))
 

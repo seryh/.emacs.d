@@ -73,6 +73,9 @@
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
 (fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n" 
 
+(require 'hl-line+) 
+(global-hl-line-mode t)
+
 ;; scroll lag fix
 (setq redisplay-dont-pause t
   scroll-margin 1
