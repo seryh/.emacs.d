@@ -69,7 +69,9 @@
  ("M-D" . backward-kill-word) ;; Backspace
 
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
- ("M-SPC" . set-mark-command)   ;; Выделение
+ 
+ ("M-SPC" . set-mark-command)  
+ ("M-p" . mark-defun) 
 
  ("<delete>" . delete-forward-char)
  )
