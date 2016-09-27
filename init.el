@@ -122,8 +122,10 @@
 (require 'ido)
 (require 'ido-ubiquitous)
 (require 'ido-vertical-mode)
+
 (require 'smex) ; Not needed if you use package.el
 (require 'magit)
+(require 'expand-region)
 
 (global-magit-file-mode t)
 (ido-mode t)
@@ -135,10 +137,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; ------------------------------------------------------- [ auto-indent ]
 (setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files

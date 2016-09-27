@@ -71,7 +71,8 @@
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
  
  ("M-SPC" . set-mark-command)  
- ("M-p" . mark-defun) 
+ ("M-=" . mark-defun)
+ ("C-=" . er/expand-region) 
 
  ("<delete>" . delete-forward-char)
  )
