@@ -69,7 +69,9 @@
     
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
-    company       ;; popup 
+    company       ;; popup
+    auto-complete
+    
     scss-mode 
     ;;tern        ;; автокомплит для js нуждается в npm install -g tern
     ;;tern-auto-complete 
@@ -106,15 +108,6 @@
 (require 'bookmark+)
 ;;(bmkp-toggle-auto-light-when-jump)
 ;;(bmkp-toggle-auto-light-when-set)
-
-;; ------------------------------------------------------- [ Company ]
-(require 'company)
-(setq company-minimum-prefix-length 2)
-(setq company-tooltip-limit 20)
-(setq company-tooltip-align-annotations 't)
-(setq company-idle-delay .3)
-(setq company-begin-commands '(self-insert-command))
-(global-company-mode)
 
 (global-undo-tree-mode)
 ;;(ac-js2-mode t)
@@ -168,6 +161,7 @@
 ;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 
 (require 'gulpjs)
+(require 'auto-complete)
 
 ;; needed https://github.com/fletcher/peg-multimarkdown/wiki/How-do-I-install-MultiMarkdown%3F
 (use-package markdown-mode
@@ -177,6 +171,15 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+;; ------------------------------------------------------- [ Company ]
+(require 'company)
+(setq company-minimum-prefix-length 2)
+(setq company-tooltip-limit 20)
+(setq company-tooltip-align-annotations 't)
+(setq company-idle-delay .3)
+(setq company-begin-commands '(self-insert-command))
+;;(global-company-mode)
 
 (setq auto-mode-alist
       (append '(("\\.scss$". scss-mode)
@@ -199,13 +202,28 @@
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
 (add-hook 'clojure-mode-hook 
-          (lambda () 
+          (lambda ()
+            (company-mode)
             (rainbow-delimiters-mode t)))
 
 (add-hook 'web-mode-hook 
-          (lambda () 
+          (lambda ()
+            (auto-complete-mode)
             (hs-minor-mode t)
             (emmet-mode t)))
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (auto-complete-mode)))
+
+
+(add-hook 'scss-mode-hook
+          (lambda ()
+            (auto-complete-mode)))
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (company-mode)))
 
 (add-hook 'dired-mode-hook (lambda ()
                              (hl-line-mode t)))
@@ -216,10 +234,10 @@
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))) )
 
-(eval-after-load 'tern
-  '(progn
-     (require 'tern-auto-complete)
-     (tern-ac-setup)))
+;; (eval-after-load 'tern
+;;   '(progn
+;;      (require 'tern-auto-complete)
+;;      (tern-ac-setup)))
 
 ;; ------------------ [ autopair-mode ]
 (defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
