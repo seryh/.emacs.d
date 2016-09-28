@@ -2,6 +2,7 @@
   :ensure t
   :init
   (setq js-basic-indent 2)
+  (setq js2-strict-inconsistent-return-warning nil)
   (setq-default js2-basic-indent 2
                 js2-basic-offset 2
                 js2-auto-indent-p t
@@ -15,8 +16,7 @@
 
   (add-hook 'js2-mode-hook
             (lambda ()
-              (rainbow-delimiters-mode t)
-              (hs-minor-mode t)
+              (hs-minor-mode t)            ;; hide/show
               (js2-imenu-extras-mode t)
               
               ;;(tern-mode t) 
