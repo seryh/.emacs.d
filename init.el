@@ -110,8 +110,12 @@
 ;; ------------------------------------------------------- [ Company ]
 (require 'company)
 (setq company-minimum-prefix-length 2)
-;;(setq company-idle-delay 0.1)
+(setq company-tooltip-limit 20)
+(setq company-tooltip-align-annotations 't)
+(setq company-idle-delay .3)
+(setq company-begin-commands '(self-insert-command))
 (global-company-mode)
+
 (global-undo-tree-mode)
 ;;(ac-js2-mode t)
 
