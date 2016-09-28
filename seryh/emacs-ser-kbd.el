@@ -112,6 +112,11 @@
           'face (list :background (match-string-no-properties 0)))))))
   (font-lock-fontify-buffer))
 
+(defun ser/my-revert-buffer-noconfirm ()
+  "Call `revert-buffer' with the NOCONFIRM argument set."
+  (interactive)
+  (revert-buffer nil t))
+
 ;; modes
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
@@ -124,7 +129,8 @@
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
 (define-key seryh-menu "r" 'indent-region) ;; reformat
 (define-key seryh-menu "w" 'whitespace-mode)
-(define-key seryh-menu "g" 'gulpjs-start-task) 
+(define-key seryh-menu "g" 'gulpjs-start-task)
+(define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm) 
 
 ;; projectile-mode-kbd
 ;;(defun my-projectile-mode-config ()
