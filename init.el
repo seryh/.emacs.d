@@ -201,11 +201,6 @@
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
-(add-hook 'clojure-mode-hook 
-          (lambda ()
-            (company-mode)
-            (rainbow-delimiters-mode t)))
-
 (add-hook 'web-mode-hook 
           (lambda ()
             (auto-complete-mode)
