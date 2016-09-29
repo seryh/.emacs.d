@@ -117,18 +117,6 @@
   (interactive)
   (revert-buffer nil t))
 
-(defun ser/commit (arg)
-  "Push whatever can be pushed upstream.
-   Then if the repo can be staged then stage it and commit it.
-   If Ctrl-U is prefixed then only stage the current file and commit that."
-  (interactive "P") ;; Note that interactive requires an argument.
-  (magit-push-current-to-upstream nil)
-  (if arg
-      (magit-stage-modified)
-    (magit-stage-file (buffer-file-name)))
-  (when (magit-commit-assert nil)
-    (magit-commit)))
-
 ;; modes
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
@@ -142,7 +130,6 @@
 (define-key seryh-menu "r" 'indent-region) ;; reformat
 (define-key seryh-menu "w" 'whitespace-mode)
 (define-key seryh-menu "g" 'gulpjs-start-task)
-(define-key seryh-menu "c" 'ser/commit)
 (define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm) 
 
 ;; projectile-mode-kbd
