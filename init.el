@@ -116,6 +116,15 @@
 (setq etags-table-search-up-depth 5)
 
 ;; ------------------------------------------------------- [ IDO ]
+(setq ido-ignore-buffers
+      '("\\` " "*Messages*" "*GNU Emacs*" "*Calendar*" "*Completions*" "TAGS"
+        "*magit-process*" "*Flycheck error message*" "*Ediff Registry*"
+        "*Ibuffer*" "*epc con " "#" "*magit" "*Help*" "*tramp"
+        "*anaconda-mode*" "*anaconda-doc*" "*info*"
+        "*Shell Command Output*" "*Compile-Log*" "*Python*"
+        "*notes*" "*Reftex Select*" "*Shell Command Output*"
+        "*.+ output*" "*TeX Help*"))
+(setq ido-ignore-files '("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"))
 (require 'ido)
 (require 'ido-ubiquitous)
 (require 'ido-vertical-mode)
