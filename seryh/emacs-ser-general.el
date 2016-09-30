@@ -42,8 +42,11 @@
 
 ;; Интерфейс
 (global-linum-mode 1)
-(show-paren-mode 1)                 ;; show pair parentheses
-  
+
+;; Show-paren-mode settings
+(show-paren-mode t) ;; включить выделение выражений между {},[],()
+(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
+
 (setq-default
  uniquify-buffer-name-style (quote forward)
  size-indication-mode t            ;; размер файла в %-ах
@@ -82,10 +85,6 @@
   scroll-step 1
   scroll-conservatively 1
   scroll-preserve-screen-position 1)
-
-;; Show-paren-mode settings
-;;(show-paren-mode t) ;; включить выделение выражений между {},[],()
-;;(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Consolas")
