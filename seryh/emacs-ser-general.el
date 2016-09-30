@@ -46,6 +46,8 @@
 ;; Show-paren-mode settings
 (show-paren-mode t) ;; включить выделение выражений между {},[],()
 (setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
+(set-face-background 'show-paren-match-face "purple4")
+
 
 (setq-default
  uniquify-buffer-name-style (quote forward)
