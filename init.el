@@ -83,7 +83,6 @@
     )
   "A list of packages to ensure are installed at launch.")
 
-;;(load (ser/get-config-dir "seryh/emacs-ser-theme.el"))
 
 ;; Automaticaly install any missing packages
 (dolist (p my-packages)
@@ -94,6 +93,7 @@
 (require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
+(moe-theme-set-color 'purple)
 
 (auto-revert-mode t)
 (powerline-moe-theme)
@@ -238,10 +238,6 @@
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))) )
 
-;; (eval-after-load 'tern
-;;   '(progn
-;;      (require 'tern-auto-complete)
-;;      (tern-ac-setup)))
 
 ;; ------------------ [ autopair-mode ]
 (defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
