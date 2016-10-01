@@ -115,6 +115,10 @@
 (require 'etags-table)
 (setq etags-table-search-up-depth 5)
 
+;; ------------------------------------------------------- [ epa https://www.gnupg.org/ ]
+(require 'epa-file)
+(epa-file-enable)
+
 ;; ------------------------------------------------------- [ IDO ]
 (setq ido-ignore-buffers
       '("\\` " "*Messages*" "*GNU Emacs*" "*Calendar*" "*Completions*" "TAGS"
@@ -196,6 +200,7 @@
                 ("\\.html$". web-mode)
                 ("\\.phtml$". web-mode)
                 ("\\.org$". org-mode)
+                ("\\.gpg$". org-mode)
                 ("\\.php$". web-mode)
                 ("\\.clj$". clojure-mode)
                 ("\\.end$". clojure-mode)
