@@ -78,6 +78,21 @@
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
 (fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n" 
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(font-lock-warning-face ((((class color) (min-colors 89)) (:weight bold :foreground "brown")))))
+
+
+
+(defvar label-hl-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
+(defun turn-on-label-hl-mode () (font-lock-add-keywords
+                                 nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+                                        1 font-lock-warning-face t))))
+(dolist (mode label-hl-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-label-hl-mode))
+
 (require 'hl-line+) 
 (global-hl-line-mode t)
 
