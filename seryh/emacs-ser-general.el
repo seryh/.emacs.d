@@ -67,8 +67,7 @@
 (setq-default case-fold-search t)                  ;; Поиск без учёта регистра
 
 ;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
-(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t
-;;(setq jit-lock-defer-time 0.05)                
+(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t            
 
 ;; optimization
 (setq jit-lock-defer-time 0.05)
@@ -104,12 +103,13 @@
 (require 'hl-line+) 
 (global-hl-line-mode t)
 
-;; scroll lag fix
-(setq
-  scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
+;; scroll fix
+;;   scroll-margin 1
+;;   scroll-step 1
+;;   scroll-preserve-screen-position 1
+(setq scroll-conservatively 10000)
+(setq linum-delay t)
+
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Consolas")
@@ -179,7 +179,7 @@
             (ibuffer-switch-to-saved-filter-groups "default")))
 
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
-   (save-excursion
+  (save-excursion
       (set-buffer "*Ibuffer*")
       (toggle-read-only 0)
       (goto-char 1)

@@ -52,7 +52,9 @@
     moe-theme
     cl-lib
     etags-table
+    
     scroll-restore
+    
     hl-line+
     diff-hl
     ;; clojure
@@ -130,6 +132,7 @@
 (setq scroll-restore-cursor-type t)
 ;; Jump back to the original cursor position after scrolling
 (setq scroll-restore-jump-back t)
+
 
 
 ;; ------------------------------------------------------- [ IDO ]
