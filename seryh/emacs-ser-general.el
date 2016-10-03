@@ -108,7 +108,7 @@
 (setq
   scroll-margin 1
   scroll-step 1
-  scroll-conservatively 1
+  scroll-conservatively 10000
   scroll-preserve-screen-position 1)
 
 (when (eq system-type 'darwin)
