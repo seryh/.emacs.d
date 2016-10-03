@@ -61,6 +61,7 @@
 (setq echo-keystrokes 0.001)                 ;; Мгновенное отображение набранных сочетаний клавиш
 (setq use-dialog-boxes nil)                  ;; Не использовать диалоговые окна
 (setq cursor-in-non-selected-windows nil)    ;; Не показывать курсоры в неактивных окнах
+(setq blink-cursor-mode nil)                 ;; Не мигать курсором
 (setq default-tab-width 4)                   ;; размер табуляции
 (setq-default indent-tabs-mode nil)          ;; отступ только пробелами
 (setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
@@ -75,11 +76,11 @@
 (setq redisplay-dont-pause t)
 (setq tooltip-delay 0.15)
 
-(setq font-lock-maximum-decoration t)        ;; Максимальное использование различных начертаний шрифтов
+(setq font-lock-maximum-decoration t)              ;; Максимальное использование различных начертаний шрифтов
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
-(setq read-file-name-completion-ignore-case t) ;; Дополнение имён файлов без учёта регистра
-(file-name-shadow-mode t)                    ;; Затенять игнорируемую часть имени файла
-;;(setq resize-mini-windows nil)                 ;; Изменять при необходимости размер минибуфера по вертикали
+(setq read-file-name-completion-ignore-case t)     ;; Дополнение имён файлов без учёта регистра
+(file-name-shadow-mode t)                          ;; Затенять игнорируемую часть имени файла
+;;(setq resize-mini-windows nil)                   ;; Изменять при необходимости размер минибуфера по вертикали
 ;;(setq resize-minibuffer nil)
 (auto-image-file-mode t)                     ;; Показывать картинки
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
