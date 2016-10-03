@@ -115,7 +115,7 @@
 (require 'etags-table)
 (setq etags-table-search-up-depth 5)
 
-;; ------------------------------------------------------- [ epa https://www.gnupg.org/ ]
+;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
 (epa-file-enable)
 
