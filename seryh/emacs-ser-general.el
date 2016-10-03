@@ -35,8 +35,6 @@
   (ad-activate 'shell)
   )
 
-
-(setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
 (setq auto-revert-verbose nil) ;; отключить вывод сообщений "Reverting buffer %s." 
 
@@ -67,7 +65,17 @@
 (setq-default indent-tabs-mode nil)          ;; отступ только пробелами
 (setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
 (setq-default case-fold-search t)                  ;; Поиск без учёта регистра
-(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере
+
+;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
+(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t
+;;(setq jit-lock-defer-time 0.05)                
+
+;; optimization
+(setq jit-lock-defer-time 0.05)
+(setq fast-but-imprecise-scrolling t)        ;; быстрая навигация курсором но не точная
+(setq redisplay-dont-pause t)
+(setq tooltip-delay 0.15)
+
 (setq font-lock-maximum-decoration t)        ;; Максимальное использование различных начертаний шрифтов
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
 (setq read-file-name-completion-ignore-case t) ;; Дополнение имён файлов без учёта регистра
@@ -97,7 +105,7 @@
 (global-hl-line-mode t)
 
 ;; scroll lag fix
-(setq redisplay-dont-pause t
+(setq
   scroll-margin 1
   scroll-step 1
   scroll-conservatively 1
