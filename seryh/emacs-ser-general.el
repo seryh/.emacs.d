@@ -76,6 +76,10 @@
 (setq redisplay-dont-pause t)
 (setq tooltip-delay 0.15)
 
+;; Mac Emacs settings
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+
 (setq font-lock-maximum-decoration t)              ;; Максимальное использование различных начертаний шрифтов
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
 (setq read-file-name-completion-ignore-case t)     ;; Дополнение имён файлов без учёта регистра
