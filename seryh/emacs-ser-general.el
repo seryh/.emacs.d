@@ -75,6 +75,7 @@
 (setq fast-but-imprecise-scrolling t)        ;; быстрая навигация курсором но не точная
 (setq redisplay-dont-pause t)
 (setq tooltip-delay 0.15)
+(setq load-prefer-newer t)
 
 ;; Mac Emacs settings
 (setq mac-option-modifier 'meta)
