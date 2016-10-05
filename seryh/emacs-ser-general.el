@@ -53,7 +53,7 @@
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
  cursor-type 'box                  ;; bar, hollow, hbar, box
-)
+ )
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
@@ -169,16 +169,17 @@
 ;;------------------ [ibuffer]
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-                   ("dired" (mode . dired-mode))
-                   ("web"  (or
-                            (mode . scss-mode)
-                            (mode . js2-mode)
-                            (mode . web-mode)))
-                   ("emacs" (or
-                             (name . "^\\*scratch\\*$")
-                             (name . "^\\*Messages\\*$")))
-                   ("clojure" (or
-                               (mode . clojure-mode)))))))
+               ("dired" (mode . dired-mode))
+               ("org"   (mode . org-mode))
+               ("web"  (or
+                        (mode . scss-mode)
+                        (mode . js2-mode)
+                        (mode . web-mode)))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")))
+               ("clojure" (or
+                           (mode . clojure-mode)))))))
 
 (add-hook 'ibuffer-mode-hook
           (lambda ()
@@ -186,16 +187,16 @@
 
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
   (save-excursion
-      (set-buffer "*Ibuffer*")
-      (toggle-read-only 0)
-      (goto-char 1)
-      (search-forward "-\n" nil t)
-      (delete-region 1 (point))
-      (let ((window-min-height 1)) 
-        ;; save a little screen estate
-        (shrink-window-if-larger-than-buffer))
-      (toggle-read-only)))
-  
+    (set-buffer "*Ibuffer*")
+    (toggle-read-only 0)
+    (goto-char 1)
+    (search-forward "-\n" nil t)
+    (delete-region 1 (point))
+    (let ((window-min-height 1)) 
+      ;; save a little screen estate
+      (shrink-window-if-larger-than-buffer))
+    (toggle-read-only)))
+
 (ad-activate 'ibuffer-update-title-and-summary)
 
 (defun my-minibuffer-setup-hook ()
