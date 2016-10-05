@@ -176,7 +176,7 @@
                         (mode . js2-mode)
                         (mode . web-mode)))
                ("emacs" (or
-                         (name . "^\\*.+\\*$")))
+                         (name . "^\\*.+\*$")))
                ("clojure" (or
                            (mode . clojure-mode)))))))
 
