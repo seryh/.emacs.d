@@ -176,8 +176,7 @@
                         (mode . js2-mode)
                         (mode . web-mode)))
                ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")))
+                         (name . "^\\*.+\\*$")))
                ("clojure" (or
                            (mode . clojure-mode)))))))
 
