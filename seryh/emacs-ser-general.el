@@ -100,7 +100,7 @@
 
 
 
-(defvar label-hl-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
+(defvar label-hl-modes '(scss-mode web-mode clojure-mode js2-mode emacs-lisp-mode))
 (defun turn-on-label-hl-mode () (font-lock-add-keywords
                                  nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
                                         1 font-lock-warning-face t))))
