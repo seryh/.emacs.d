@@ -52,7 +52,7 @@
     moe-theme
     cl-lib
     etags-table
-    
+    org-bullets
     scroll-restore
     
     hl-line+
@@ -228,6 +228,7 @@
 ;; * Diff HL
 (global-diff-hl-mode)
 (diff-hl-flydiff-mode)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
