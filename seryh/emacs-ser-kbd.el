@@ -112,6 +112,15 @@
           'face (list :background (match-string-no-properties 0)))))))
   (font-lock-fontify-buffer))
 
+(defun ser/duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank))
+
 (defun ser/my-revert-buffer-noconfirm ()
   "Call `revert-buffer' with the NOCONFIRM argument set."
   (interactive)
@@ -130,6 +139,7 @@
 (define-key seryh-menu "r" 'indent-region) ;; reformat
 (define-key seryh-menu "w" 'whitespace-mode)
 (define-key seryh-menu "g" 'gulpjs-start-task)
+(define-key seryh-menu "d" 'ser/duplicate-line)
 (define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm) 
 
 ;; projectile-mode-kbd
