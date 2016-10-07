@@ -95,7 +95,8 @@
  
  ("M-SPC" . set-mark-command)  
  ("M-=" . mark-defun)
- ("C-=" . er/expand-region) 
-
- ("<delete>" . delete-forward-char)
+ ("C-=" . er/expand-region)
  )
+
+
+;; ("<delete>" . delete-forward-char)

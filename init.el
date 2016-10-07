@@ -165,7 +165,7 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; ------------------------------------------------------- [ auto-indent ]
-(setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files
+;; (setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files
 (setq auto-indent-key-for-end-of-line-then-newline "<M-return>")
 (setq auto-indent-key-for-end-of-line-insert-char-then-newline "<C-M-return>")
 (require 'auto-indent-mode)

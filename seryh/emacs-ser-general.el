@@ -39,7 +39,7 @@
 (setq auto-revert-verbose nil) ;; отключить вывод сообщений "Reverting buffer %s." 
 
 ;; Интерфейс
-(global-linum-mode 1)
+;;(global-linum-mode 1)
 
 ;; Show-paren-mode settings
 (show-paren-mode t) ;; включить выделение выражений между {},[],()
