@@ -56,14 +56,14 @@
     scroll-restore
     
     hl-line+
-    diff-hl
+    
     ;; clojure
     cider         
     paredit
     
     web-mode
     rainbow-delimiters
-    ;;projectile    ;; простая навигация по проектам
+    
     ido           ;; интерактивное управление буферами и файлами;
     ido-ubiquitous
     ido-vertical-mode
@@ -225,12 +225,7 @@
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 
-;; * Diff HL
-(global-diff-hl-mode)
-(diff-hl-flydiff-mode)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
 (add-hook 'web-mode-hook 
           (lambda ()
