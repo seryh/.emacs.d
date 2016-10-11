@@ -53,9 +53,8 @@
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
  cursor-type 'hbar                 ;; bar, hollow, hbar, box
+ set-cursor-color "magenta"
  )
-
-(set-cursor-color "magenta") 
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
