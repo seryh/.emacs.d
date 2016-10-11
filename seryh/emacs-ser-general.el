@@ -42,18 +42,20 @@
 ;;(global-linum-mode 1)
 
 ;; Show-paren-mode settings
-(show-paren-mode t) ;; включить выделение выражений между {},[],()
+(show-paren-mode t)                 ;; включить выделение выражений между {},[],()
 (setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
 (set-face-background 'show-paren-match-face "purple4")
-
+(set-face-foreground 'show-paren-match "#def")
 
 (setq-default
  uniquify-buffer-name-style (quote forward)
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
- cursor-type 'box                  ;; bar, hollow, hbar, box
+ cursor-type 'hbar                 ;; bar, hollow, hbar, box
  )
+
+(set-cursor-color "magenta") 
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
@@ -65,7 +67,10 @@
 (setq default-tab-width 4)                   ;; размер табуляции
 (setq-default indent-tabs-mode nil)          ;; отступ только пробелами
 (setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
-(setq-default case-fold-search t)                  ;; Поиск без учёта регистра
+(setq-default case-fold-search t)            ;; Поиск без учёта регистра
+
+;;(require 'hl-line+) 
+;;(global-hl-line-mode t)                      ;; подсветка текущей строки
 
 ;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
 (global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t            
@@ -105,9 +110,6 @@
                                  nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
                                         1 font-lock-warning-face t))))
 (dolist (mode label-hl-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-label-hl-mode))
-
-(require 'hl-line+) 
-(global-hl-line-mode t)
 
 ;; scroll fix
 ;;   scroll-margin 1
