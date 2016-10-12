@@ -192,15 +192,6 @@
 (require 'gulpjs)
 (require 'auto-complete)
 
-;; needed https://github.com/fletcher/peg-multimarkdown/wiki/How-do-I-install-MultiMarkdown%3F
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
 ;; ------------------------------------------------------- [ Company ]
 (require 'company)
 (setq company-minimum-prefix-length 2)
@@ -255,6 +246,15 @@
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))) )
 
+;; ----------------------------------------------- [markdown-mode]
+;; needed https://github.com/fletcher/peg-multimarkdown/wiki/How-do-I-install-MultiMarkdown%3F
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 ;; ------------------ [ autopair-mode ]
 (defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
