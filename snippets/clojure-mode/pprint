@@ -1,0 +1,3 @@
+#name: pprint
+# --
+(clojure.pprint/pprint $0)
