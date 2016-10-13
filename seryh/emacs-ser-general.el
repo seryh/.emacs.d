@@ -43,7 +43,7 @@
 
 ;; Show-paren-mode settings
 (show-paren-mode t)                 ;; включить выделение выражений между {},[],()
-(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
+;;(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
 (set-face-background 'show-paren-match-face "purple4")
 (set-face-foreground 'show-paren-match "#def")
 
