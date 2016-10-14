@@ -47,14 +47,16 @@
 (set-face-background 'show-paren-match-face "purple4")
 (set-face-foreground 'show-paren-match "#def")
 
+
 (setq-default
  uniquify-buffer-name-style (quote forward)
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
- cursor-type 'hbar                 ;; bar, hollow, hbar, box
- set-cursor-color "magenta"
+ cursor-type 'hbar
  )
+
+(set-cursor-color "magenta")
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
@@ -207,3 +209,5 @@
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
+
+
