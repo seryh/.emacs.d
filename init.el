@@ -313,4 +313,3 @@
 
 (setq custom-file "~/.emacs.d/seryh/emacs-ser-vars.el")
 (load custom-file)
-
