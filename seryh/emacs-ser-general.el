@@ -212,3 +212,4 @@
 (add-hook 'input-method-activate-hook
           (lambda () (set-cursor-color "magenta")))
 
+(setq default-frame-alist '((cursor-color . "magenta")))
