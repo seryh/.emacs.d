@@ -58,7 +58,7 @@
 (setq-default indent-tabs-mode nil)          ;; отступ только пробелами
 (setq initial-scratch-message nil)           ;; Scratch buffer settings. Очищаем его.
 (setq-default case-fold-search t)            ;; Поиск без учёта регистра
-
+(setq-default word-wrap t) 
 ;;(require 'hl-line+) 
 ;;(global-hl-line-mode t)                      ;; подсветка текущей строки
 
