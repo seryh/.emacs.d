@@ -204,9 +204,9 @@
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
- cursor-type 'hbar
  )
 
+(setq cursor-type 'hbar)
 (set-cursor-color "magenta")
 
 (add-hook 'input-method-activate-hook
