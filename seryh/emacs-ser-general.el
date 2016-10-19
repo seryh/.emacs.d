@@ -204,6 +204,7 @@
  size-indication-mode t            ;; размер файла в %-ах
  transient-mark-mode t
  show-paren-delay 0                ;; set paren show delay
+ cursor-type 'hbar
  )
 
 (defun ser/set-cursor-magenta ()
@@ -212,7 +213,8 @@
   (setq cursor-type 'hbar)
   (set-cursor-color "magenta"))
 
+
 (ser/set-cursor-magenta)
 
-(add-hook 'focus-in-hook (lambda () (ser/set-cursor-magenta)))
-(add-hook 'input-method-activate-hook (lambda () (ser/set-cursor-magenta)))
+(add-hook 'after-init-hook (lambda () (set-cursor-color "magenta")))
+(add-hook 'input-method-activate-hook (lambda () (set-cursor-color "magenta")))
