@@ -206,10 +206,13 @@
  show-paren-delay 0                ;; set paren show delay
  )
 
-(setq cursor-type 'hbar)
-(set-cursor-color "magenta")
+(defun ser/set-cursor-magenta ()
+  "set cursor style"
+  (interactive)
+  (setq cursor-type 'hbar)
+  (set-cursor-color "magenta"))
 
-(add-hook 'focus-in-hook
-          (lambda ()
-            (setq cursor-type 'hbar)
-            (set-cursor-color "magenta")))
+(ser/set-cursor-magenta)
+
+(add-hook 'focus-in-hook (lambda () (ser/set-cursor-magenta)))
+(add-hook 'input-method-activate-hook (lambda () (ser/set-cursor-magenta)))
