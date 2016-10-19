@@ -209,7 +209,7 @@
 (setq cursor-type 'hbar)
 (set-cursor-color "magenta")
 
-(add-hook 'input-method-activate-hook
-          (lambda () (set-cursor-color "magenta")))
-
-(setq default-frame-alist '((cursor-color . "magenta")))
+(add-hook 'focus-in-hook
+          (lambda ()
+            (setq cursor-type 'hbar)
+            (set-cursor-color "magenta")))
