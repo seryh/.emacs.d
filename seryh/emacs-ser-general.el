@@ -213,8 +213,7 @@
   (setq cursor-type 'hbar)
   (set-cursor-color "magenta"))
 
-(with-timeout (1)
-  (ser/set-cursor-magenta))
+(ser/set-cursor-magenta)
 
 (add-hook 'after-init-hook (lambda () (set-cursor-color "magenta")))
 (add-hook 'input-method-activate-hook (lambda () (set-cursor-color "magenta")))
