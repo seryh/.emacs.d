@@ -217,3 +217,10 @@
 
 (add-hook 'after-init-hook (lambda () (set-cursor-color "magenta")))
 (add-hook 'input-method-activate-hook (lambda () (set-cursor-color "magenta")))
+
+;; ------------------------------------------------------------- [org-mode prettify]
+;;(add-hook 'org-mode-hook
+;;          (lambda ()
+;;            (push '("- [X]" . "✓") prettify-symbols-alist)
+;;            (push '("- [ ]" . "✗") prettify-symbols-alist)
+;;            (prettify-symbols-mode 1)))

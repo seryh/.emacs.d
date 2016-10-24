@@ -21,7 +21,10 @@
               
               ;;(tern-mode t) 
               ;;(ac-js2-mode t)
-              (push '("function" . ?ƒ) prettify-symbols-alist)
+              (push '("function" . ?λ) prettify-symbols-alist)
+              (push '("!=" . ?≠) prettify-symbols-alist)
+              (push '(">=" . ?≥) prettify-symbols-alist)
+              (push '("<=" . ?≤) prettify-symbols-alist)
               (prettify-symbols-mode 1)))
   
   )
