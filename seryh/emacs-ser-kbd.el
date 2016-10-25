@@ -137,6 +137,7 @@
 (define-key seryh-menu "6" 'ser/hRGB)
 (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
 (define-key seryh-menu "r" 'indent-region) ;; reformat
+(define-key seryh-menu "p" 'ser/pretty-text)
 (define-key seryh-menu "w" 'whitespace-mode)
 (define-key seryh-menu "g" 'gulpjs-start-task)
 (define-key seryh-menu "d" 'ser/duplicate-line)
