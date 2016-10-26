@@ -21,3 +21,7 @@
                (lambda (&key data &allow-other-keys)
                  (insert (assoc-default 'result data)))))))
 
+;; kdb
+;;(define-prefix-command 'seryh-menu)
+;;(global-set-key "\M-m" 'seryh-menu)
+;;(define-key seryh-menu "p" 'ser/pretty-text)
