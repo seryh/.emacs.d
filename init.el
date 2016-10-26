@@ -55,7 +55,6 @@
     cl-lib
     etags-table
     org-bullets
-    scroll-restore
     
     hl-line+
     
@@ -126,18 +125,6 @@
 ;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
 (epa-file-enable)
-
-;; ------------------------------------------------------- [ scroll restore ]
-
-(require 'scroll-restore)
-(scroll-restore-mode 1)
-;; Allow scroll-restore to modify the cursor face
-(setq scroll-restore-handle-cursor t)
-;; Make the cursor invisible while POINT is off-screen
-(setq scroll-restore-cursor-type t)
-;; Jump back to the original cursor position after scrolling
-(setq scroll-restore-jump-back t)
-
 
 
 ;; ------------------------------------------------------- [ IDO ]
