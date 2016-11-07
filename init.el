@@ -87,10 +87,6 @@
     )
   "A list of packages to ensure are installed at launch.")
 
-(setq-default cursor-type 'hbar)
-(setq cursor-type 'hbar)
-(set-cursor-color "magenta")
-
 ;; Automaticaly install any missing packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
