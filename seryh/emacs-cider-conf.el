@@ -9,7 +9,6 @@
 (use-package cider
   :ensure t
   :commands (cider cider-connect cider-jack-in)
-
   :init
   (setq cider-auto-select-error-buffer t
         ;;cider-repl-pop-to-buffer-on-connect nil
@@ -39,7 +38,8 @@
               ("C-c C-v C-c" . cider-send-and-evaluate-sexp)
               ("C-c C-p"     . cider-eval-print-last-sexp))
 
-  :config
+  :config      
+  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
   (use-package slamhound))
 
 ;; "\e\er" - M-ESC er
@@ -52,3 +52,5 @@
   ;; Configure the Clojure Refactoring prefix:
   (cljr-add-keybindings-with-prefix "C-c .")
   :diminish clj-refactor-mode)
+
+(provide 'emacs-cider-conf)

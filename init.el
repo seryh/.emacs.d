@@ -191,15 +191,18 @@
 ;;(global-company-mode)
 
 (setq auto-mode-alist
-      (append '(("\\.scss$". scss-mode)
+      (append '(
+                ("\\.clj$" . clojure-mode)
+                ("\\.edn$" . clojure-mode)
+                ("\\.cljs$" . clojurescript-mode)
+
+                ("\\.scss$". scss-mode)
                 ("\\.css$". web-mode)
                 ("\\.html$". web-mode)
                 ("\\.phtml$". web-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
                 ("\\.php$". web-mode)
-                ("\\.clj$". clojure-mode)
-                ("\\.end$". clojure-mode)
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
 
