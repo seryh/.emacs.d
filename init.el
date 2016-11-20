@@ -47,8 +47,10 @@
     xml
     use-package
     yasnippet
+    
     bookmark+
-    undo-tree
+    redo+
+    
     magit
     powerline
     moe-theme
@@ -111,8 +113,8 @@
 (require 'bookmark+)
 ;;(bmkp-toggle-auto-light-when-jump)
 ;;(bmkp-toggle-auto-light-when-set)
+(require 'redo+)
 
-(global-undo-tree-mode)
 ;;(ac-js2-mode t)
 
 (require 'etags-table)
