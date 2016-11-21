@@ -170,7 +170,8 @@
                ("emacs" (or
                          (name . "^\\*.+\*$")))
                ("clojure" (or
-                           (mode . clojure-mode)))))))
+                           (mode . clojure-mode)
+                           (mode . clojurescript-mode)))))))
 
 (add-hook 'ibuffer-mode-hook
           (lambda ()
