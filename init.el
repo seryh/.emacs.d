@@ -195,6 +195,7 @@
 (setq auto-mode-alist
       (append '(
                 ("\\.clj$" . clojure-mode)
+                ("\\.cljc$" . clojure-mode)
                 ("\\.edn$" . clojure-mode)
                 ("\\.cljs$" . clojurescript-mode)
 
