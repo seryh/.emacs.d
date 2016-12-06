@@ -26,7 +26,12 @@
                                  (paredit-mode t)
                                  (rainbow-delimiters-mode t) 
                                  (company-mode t)
-                                 (hs-minor-mode t)))
+                                 (hs-minor-mode t)
+                                 (push '("<=" . ?≤) prettify-symbols-alist)
+                                 (push '(">=" . ?≥) prettify-symbols-alist)
+                                 (push '("\\(fn\\[\[[:space:]]" . ?λ)  prettify-symbols-alist)
+                                 (prettify-symbols-mode 1)
+                                 ))
   
   (add-hook 'cider-repl-mode-hook 'company-mode)
   (add-hook 'cider-repl-mode-hook 'paredit-mode)
