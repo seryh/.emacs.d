@@ -232,6 +232,11 @@
           (lambda ()
             (company-mode)))
 
+;; (add-hook 'org-mode-hook 
+;;           (lambda () 
+;;             (drag-stuff-mode -1) 
+;;             (linum-mode -1)))
+
 (add-hook 'dired-mode-hook (lambda ()
                              (hl-line-mode t)))
 
