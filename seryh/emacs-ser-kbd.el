@@ -79,8 +79,8 @@
 
 (global-set-key "\C-c\C-r" 'replace-string) 
 
-(global-set-key (kbd "C--") 'undo) ;; по умолчанию емакс уходит в бакграунд 
-(global-set-key (kbd "M--") 'redo)
+(global-set-key (kbd "C-z") 'undo) ;; по умолчанию емакс уходит в бакграунд 
+(global-set-key (kbd "M-z") 'redo)
 
 
 (defun ser/run-profile (profile)

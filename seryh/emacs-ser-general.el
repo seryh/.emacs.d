@@ -153,10 +153,10 @@
             (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))
 
 ;; Save on tab-out
-(add-hook 'focus-out-hook
-          (lambda ()
-            (cl-letf (((symbol-function 'message) #'format))
-              (save-some-buffers t))))
+;; (add-hook 'focus-out-hook
+;;           (lambda ()
+;;             (cl-letf (((symbol-function 'message) #'format))
+;;               (save-some-buffers t))))
 
 ;;------------------ [ibuffer]
 (setq ibuffer-saved-filter-groups
