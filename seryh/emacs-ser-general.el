@@ -191,15 +191,6 @@
 
 (ad-activate 'ibuffer-update-title-and-summary)
 
-(defun my-minibuffer-setup-hook ()
-  (setq gc-cons-threshold most-positive-fixnum))
-
-(defun my-minibuffer-exit-hook ()
-  (setq gc-cons-threshold 800000))
-
-(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
-(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
-
 (setq-default
  uniquify-buffer-name-style (quote forward)
  size-indication-mode t            ;; размер файла в %-ах
