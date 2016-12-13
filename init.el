@@ -37,13 +37,18 @@
   (byte-recompile-directory "~/.emacs.d/elpa" 0 t))
 
 ;; Оптимизация работы редактора
-;; limit on number of Lisp variable bindings & unwind-protects
-(setq max-specpdl-size (* 10 max-specpdl-size)) ; 10 * 1 M (default)
-;; limit serving to catch infinite recursions for you before they
-;; cause actual stack overflow in C, which would be fatal for Emacs
-(setq max-lisp-eval-depth (* 10 max-lisp-eval-depth)) ; 10 * 400 (default)
-;; speed up things by preventing garbage collections
-(setq gc-cons-threshold (* 10 gc-cons-threshold)) ; 10 * 400 KB (default)
+(setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
+(setq debug-on-error t)    ; now you should get a backtrace
+(setq max-lisp-eval-depth 10000)
+
+(defun my-minibuffer-setup-hook ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun my-minibuffer-exit-hook ()
+  (setq gc-cons-threshold 800000))
+
+(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
 ;; Add in your own as you wish:
 (defvar my-packages
