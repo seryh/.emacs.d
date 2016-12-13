@@ -31,6 +31,11 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(defun my-package-recompile()
+  "Recompile all packages"
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d/elpa" 0 t))
+
 ;; Оптимизация работы редактора
 ;; limit on number of Lisp variable bindings & unwind-protects
 (setq max-specpdl-size (* 10 max-specpdl-size)) ; 10 * 1 M (default)
