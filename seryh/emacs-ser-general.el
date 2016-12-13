@@ -177,7 +177,6 @@
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
 
-<<<<<<< HEAD
 (defun my-minibuffer-setup-hook ()
   (setq gc-cons-threshold most-positive-fixnum))
 
