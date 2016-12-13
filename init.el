@@ -106,6 +106,7 @@
 
 (yas-global-mode 1)
 (require 'powerline)
+(require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
 (moe-theme-set-color 'purple)
@@ -188,6 +189,7 @@
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
 (load (ser/get-config-dir "seryh/stab-mode.el"))
+(load (ser/get-config-dir "seryh/emacs-powerline-conf"))
 ;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 
 (require 'gulpjs)
