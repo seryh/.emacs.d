@@ -60,7 +60,7 @@
     
     bookmark+
     redo+
-    
+  
     magit
     powerline
     moe-theme
@@ -249,8 +249,14 @@
 ;;             (drag-stuff-mode -1) 
 ;;             (linum-mode -1)))
 
+(require 'dired-x)
+(setq-default dired-omit-files-p t) ; Buffer-local variable
+(setq dired-omit-files "^#\\|*~\\|^\\.$")
+
 (add-hook 'dired-mode-hook (lambda ()
                              (hl-line-mode t)))
+
+
 
 (add-hook 'ibuffer-hook
           (lambda ()
