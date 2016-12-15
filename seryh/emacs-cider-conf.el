@@ -12,11 +12,11 @@
   :init
   (setq cider-auto-select-error-buffer t
         ;;cider-repl-pop-to-buffer-on-connect nil
-        cider-repl-use-clojure-font-lock t
-        cider-repl-wrap-history t
-        cider-repl-history-size 1000
+        ;;cider-repl-use-clojure-font-lock t
+        ;;cider-repl-wrap-history t
+        cider-repl-history-size 500
         cider-show-error-buffer t
-        nrepl-hide-special-buffers t
+        ;;nrepl-hide-special-buffers t
         ;; Stop error buffer from popping up while working in buffers other than the REPL:
         nrepl-popup-stacktraces nil)
 
@@ -24,11 +24,11 @@
 
   (add-hook 'clojure-mode-hook (lambda ()
                                  (paredit-mode t)
-                                 (rainbow-delimiters-mode t) 
+                                 ;;(rainbow-delimiters-mode t) 
                                  (company-mode t)
-                                 (hs-minor-mode t)
-                                 (push '("<=" . ?≤) prettify-symbols-alist)
-                                 (push '(">=" . ?≥) prettify-symbols-alist)
+                                 (hs-minor-mode t) ;;show/hide block
+                                 ;;(push '("<=" . ?≤) prettify-symbols-alist)
+                                 ;;(push '(">=" . ?≥) prettify-symbols-alist)
                                  (push '("\\(fn\\[\[[:space:]]" . ?λ)  prettify-symbols-alist)
                                  (prettify-symbols-mode 1)
                                  ))
