@@ -24,7 +24,7 @@
 
   (add-hook 'clojure-mode-hook (lambda ()
                                  (paredit-mode t)
-                                 ;;(rainbow-delimiters-mode t) 
+                                 (rainbow-delimiters-mode t) 
                                  (company-mode t)
                                  (hs-minor-mode t) ;;show/hide block
                                  ;;(push '("<=" . ?≤) prettify-symbols-alist)
