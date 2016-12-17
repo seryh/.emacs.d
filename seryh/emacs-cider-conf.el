@@ -39,13 +39,15 @@
   ;;(add-hook 'cider-repl-mode-hook 'company-mode)
   ;;(add-hook 'cider-test-report-mode 'jcf-soft-wrap)
 
-  :bind (:map cider-mode-map
-              ("C-c C-v C-c" . cider-send-and-evaluate-sexp)
-              ("C-c C-p"     . cider-eval-print-last-sexp))
+  ;; :bind (:map cider-mode-map
+  ;;             ("C-c C-v C-c" . cider-send-and-evaluate-sexp)
+  ;;             ("C-c C-p"     . cider-eval-print-last-sexp))
 
-  :config      
-  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
-  (use-package slamhound))
+   :config      
+   (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+  ;; (use-package slamhound)
+  
+  )
 
 ;; "\e\er" - M-ESC er
 
