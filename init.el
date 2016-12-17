@@ -295,9 +295,9 @@
 (transient-mark-mode 1) ;; No region when it is not highlighted
 ;;(setq cua-keep-region-after-copy t) ;; оставлять регион после копирования
 ;; shift + click select region
-(define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
-(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
-(put 'mouse-set-point 'CUA 'move)
+;;(define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
+;;(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
+;;(put 'mouse-set-point 'CUA 'move)
 
 
 ;; ------------------------------------------------- [ input method settings ]
