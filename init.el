@@ -113,7 +113,8 @@
 
 (auto-revert-mode t)
 (powerline-moe-theme)
-(moe-dark)
+(moe-light)
+;;(moe-dark)
 
 (require 'org-install)
 (require 'ibuffer)
