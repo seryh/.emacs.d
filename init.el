@@ -110,11 +110,12 @@
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
 (moe-theme-set-color 'purple)
+;;(moe-theme-set-color 'cyan)
 
 (auto-revert-mode t)
 (powerline-moe-theme)
-(moe-light)
-;;(moe-dark)
+;;(moe-light)
+(moe-dark)
 
 (require 'org-install)
 (require 'ibuffer)
