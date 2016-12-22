@@ -3,6 +3,7 @@
   :init
   (setq js-basic-indent 2)
   (setq js2-strict-inconsistent-return-warning nil)
+  (setq truncate-lines 0)
   (setq-default js2-basic-indent 2
                 js2-basic-offset 2
                 js2-auto-indent-p t

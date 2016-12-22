@@ -16,6 +16,7 @@
         ;;cider-repl-wrap-history t
         cider-repl-history-size 500
         cider-show-error-buffer t
+        truncate-lines 0
         ;;nrepl-hide-special-buffers t
         ;; Stop error buffer from popping up while working in buffers other than the REPL:
         nrepl-popup-stacktraces nil)
