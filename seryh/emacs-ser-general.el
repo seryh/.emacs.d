@@ -47,6 +47,8 @@
 (set-face-background 'show-paren-match-face "purple4")
 (set-face-foreground 'show-paren-match "#def")
 
+(set-face-background 'fringe "black-5")  ;; gray20 or black-5
+
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
 (setq inhibit-startup-message t)             ;; Не показываем сообщение при старте
