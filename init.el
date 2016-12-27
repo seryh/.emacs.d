@@ -292,6 +292,12 @@
 ;; To enter an Emacs command like C-x C-f while the mark is active, use one of the
 ;; following methods: either hold Shift together with the prefix key, e.g., S-C-x C-f,
 ;; or quickly type the prefix key twice, e.g., C-x C-x C-f.
+
+;; https://www.emacswiki.org/emacs/PcSelectionMode
+(if (fboundp 'pc-selection-mode)
+    (pc-selection-mode)
+  (require 'pc-select))
+
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (transient-mark-mode 1) ;; No region when it is not highlighted
