@@ -284,7 +284,7 @@
 
 ;; ------------------ [ web-mode ]
 (setq web-mode-enable-current-element-highlight t)
-;;(setq web-mode-enable-current-column-highlight t)
+(setq web-mode-enable-current-column-highlight t)
 (setq web-mode-engines-alist
       '(("php"    . "\\.phtml\\'")))
 
