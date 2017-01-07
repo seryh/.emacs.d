@@ -82,13 +82,6 @@
 (global-set-key (kbd "C-z") 'undo) ;; по умолчанию емакс уходит в бакграунд 
 (global-set-key (kbd "M-z") 'redo)
 
-
-(defun ser/run-profile (profile)
-  "Set cider profile."
-  (interactive "sEnter profiles: ")
-  (let ((cider-lein-parameters (concat "with-profile " profile " repl :headless")))
-    (cider-jack-in)))
-
 (defun ser/hRGB ()
   "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer"
   (interactive)

@@ -2,6 +2,19 @@
   (interactive "P")
   (cider-interactive-eval "(System/exit 0)"))
 
+(defun ser/clj-run-profile (profile)
+  "Set cider profile."
+  (interactive "sEnter profiles: ")
+  (let ((cider-lein-parameters (concat "with-profile " profile " repl :headless")))
+    (cider-jack-in)))
+
+(defun ser/cljs-run-profile (profile)
+  "Set cider profile."
+  (interactive "sEnter profiles: ")
+  (let ((cider-lein-parameters (concat "with-profile " profile " repl :headless")))
+    (cider-jack-in-clojurescript)))
+
+
 (eval-after-load 'clojure-mode
   '(progn
      (define-key clojure-mode-map (kbd "<f12>") 'stop-clj-process)))
