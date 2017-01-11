@@ -125,7 +125,7 @@
 ;;(require 'cider)
 
 ;; --------------------------------------------------------[ helm ]
-(helm-autoresize-mode t)
+;;(helm-autoresize-mode t)
 
 ;; ------------------------------------------------------- [ bookmark ]
 (require 'bookmark+)

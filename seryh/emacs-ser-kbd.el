@@ -127,7 +127,9 @@
 (define-key nav-menu "2" 'helm-multi-swoop)
 (define-key nav-menu "3" 'elm-multi-swoop-all)
 
+;; -------------------- [helm kdb]
 (global-set-key (kbd "C-f") 'helm-swoop)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
