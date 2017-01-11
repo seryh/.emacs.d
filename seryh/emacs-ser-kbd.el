@@ -123,14 +123,18 @@
 
 (define-prefix-command 'nav-menu)
 (define-key nav-menu "1" 'helm-swoop)
-(define-key nav-menu (kbd "<left>") 'helm-swoop-back-to-last-point)
 (define-key nav-menu "2" 'helm-multi-swoop)
-(define-key nav-menu "3" 'elm-multi-swoop-all)
+(define-key nav-menu "3" 'helm-multi-swoop-all)
+(define-key nav-menu "4" 'helm-find)
+
+(define-key nav-menu (kbd "<left>") 'helm-swoop-back-to-last-point)
 
 ;; -------------------- [helm kdb]
 (global-set-key (kbd "C-f") 'helm-swoop)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
 
+;; -------------------- [seryh menu]
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
 (define-key seryh-menu "1" 'js2-mode)
