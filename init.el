@@ -124,6 +124,9 @@
 (require 'paredit)
 ;;(require 'cider)
 
+;; --------------------------------------------------------[ helm ]
+(helm-autoresize-mode t)
+
 ;; ------------------------------------------------------- [ bookmark ]
 (require 'bookmark+)
 ;;(bmkp-toggle-auto-light-when-jump)
