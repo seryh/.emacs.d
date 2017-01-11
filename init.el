@@ -60,6 +60,8 @@
     
     bookmark+
     redo+
+    
+    helm-swoop
   
     magit
     powerline

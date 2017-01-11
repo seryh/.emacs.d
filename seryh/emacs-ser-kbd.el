@@ -120,6 +120,15 @@
   (revert-buffer nil t))
 
 ;; modes
+
+(define-prefix-command 'nav-menu)
+(define-key nav-menu "1" 'helm-swoop)
+(define-key nav-menu (kbd "<left>") 'helm-swoop-back-to-last-point)
+(define-key nav-menu "2" 'helm-multi-swoop)
+(define-key nav-menu "3" 'elm-multi-swoop-all)
+
+(global-set-key (kbd "C-f") 'helm-swoop)
+
 (define-prefix-command 'seryh-menu)
 (global-set-key "\M-m" 'seryh-menu)
 (define-key seryh-menu "1" 'js2-mode)
@@ -134,7 +143,10 @@
 (define-key seryh-menu "w" 'whitespace-mode)
 (define-key seryh-menu "g" 'gulpjs-start-task)
 (define-key seryh-menu "d" 'ser/duplicate-line)
-(define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm) 
+(define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm)
+(define-key seryh-menu (kbd "<SPC>") 'nav-menu)
+
+
 
 ;; projectile-mode-kbd
 ;;(defun my-projectile-mode-config ()
