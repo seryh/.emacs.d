@@ -149,6 +149,7 @@
 (define-key seryh-menu "w" 'whitespace-mode)
 (define-key seryh-menu "g" 'gulpjs-start-task)
 (define-key seryh-menu "d" 'ser/duplicate-line)
+(define-key seryh-menu "t" 'untabify)
 (define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm)
 (define-key seryh-menu (kbd "<SPC>") 'nav-menu)
 
