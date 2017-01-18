@@ -60,11 +60,11 @@
                 (lambda () (interactive) (dired ".")))
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'imenu)
-(global-set-key (kbd "M-<f4>") 'magit-status)
 
-(global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
-(global-set-key (kbd "<f6>") 'bookmark-jump)
-(global-set-key (kbd "<f7>") 'bookmark-set)
+;; (global-set-key (kbd "M-<f4>") 'magit-status)
+;; (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
+;; (global-set-key (kbd "<f6>") 'bookmark-jump)
+;; (global-set-key (kbd "<f7>") 'bookmark-set)
 
 (global-set-key [f2] 'save-buffer)
 
@@ -118,41 +118,6 @@
   "Call `revert-buffer' with the NOCONFIRM argument set."
   (interactive)
   (revert-buffer nil t))
-
-;; modes
-
-(define-prefix-command 'nav-menu)
-(define-key nav-menu "1" 'helm-swoop)
-(define-key nav-menu "2" 'helm-multi-swoop)
-(define-key nav-menu "3" 'helm-multi-swoop-all)
-(define-key nav-menu "4" 'helm-find)
-
-(define-key nav-menu (kbd "<left>") 'helm-swoop-back-to-last-point)
-
-;; -------------------- [helm kdb]
-(global-set-key (kbd "C-f") 'helm-swoop)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-mini)
-
-;; -------------------- [seryh menu]
-(define-prefix-command 'seryh-menu)
-(global-set-key "\M-m" 'seryh-menu)
-(define-key seryh-menu "1" 'js2-mode)
-(define-key seryh-menu "2" 'web-mode)
-(define-key seryh-menu "3" 'conf-mode)
-(define-key seryh-menu "4" 'rainbow-delimiters-mode)
-(define-key seryh-menu "5" 'org-mode)
-(define-key seryh-menu "6" 'ser/hRGB)
-(define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
-(define-key seryh-menu "r" 'replace-string)        ;; replace
-(define-key seryh-menu "p" 'ser/pretty-text)
-(define-key seryh-menu "w" 'whitespace-mode)
-(define-key seryh-menu "g" 'gulpjs-start-task)
-(define-key seryh-menu "d" 'ser/duplicate-line)
-(define-key seryh-menu "t" 'untabify)
-(define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm)
-(define-key seryh-menu (kbd "<SPC>") 'nav-menu)
-
 
 
 ;; projectile-mode-kbd
@@ -275,7 +240,7 @@
 (global-set-key (kbd "C-c c") 'my-clear-message)
 
 
-;; -------------------------------------------------- [ hydra ]
+;; -------------------------------------------------- [ hydra ibuffer]
 
 
 (defhydra hydra-ibuffer (:color pink :columns 3 :hint nil)
@@ -366,3 +331,65 @@
 (bind-keys :map ibuffer-mode-map
            ("M-o" . nil)             ; ibuffer-visit-buffer-1-window
            ("SPC" . hydra-ibuffer/body))
+
+;; ------------------------------------------------------------ [hydra seryh menu]
+
+
+
+;; (define-prefix-command 'nav-menu)
+;; (define-key nav-menu "1" 'helm-swoop)
+;; (define-key nav-menu "2" 'helm-multi-swoop)
+;; (define-key nav-menu "3" 'helm-multi-swoop-all)
+;; (define-key nav-menu "4" 'helm-find)
+;; (define-key nav-menu (kbd "<left>") 'helm-swoop-back-to-last-point)
+
+;; -------------------- [seryh menu]
+;; (define-prefix-command 'seryh-menu)
+;; (global-set-key "\M-m" 'seryh-menu)
+;; (define-key seryh-menu "1" 'js2-mode)
+;; (define-key seryh-menu "2" 'web-mode)
+;; (define-key seryh-menu "3" 'conf-mode)
+;; (define-key seryh-menu "4" 'rainbow-delimiters-mode)
+;; (define-key seryh-menu "5" 'org-mode)
+;; (define-key seryh-menu "6" 'ser/hRGB)
+;; (define-key seryh-menu "l" 'toggle-truncate-lines) ;; режим word-wrap
+;; (define-key seryh-menu "r" 'replace-string)        ;; replace
+;; (define-key seryh-menu "p" 'ser/pretty-text)
+;; (define-key seryh-menu "w" 'whitespace-mode)
+;; (define-key seryh-menu "g" 'gulpjs-start-task)
+;; (define-key seryh-menu "d" 'ser/duplicate-line)
+;; (define-key seryh-menu "t" 'untabify)
+;; (define-key seryh-menu (kbd "<ESC>") 'ser/my-revert-buffer-noconfirm)
+;; (define-key seryh-menu (kbd "<SPC>") 'nav-menu)
+
+
+(defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
+  "Seryh-menu"
+  ("ESC" ser/my-revert-buffer-noconfirm "reopen")
+  ("1" ser/hRGB "RGB-show") ;; подстветка #RGB
+  ("b" hydra-bookmark/body "bookmark" :color blue)
+  ("t" untabify "untab-buffer" :color blue) ;; убрать табы
+  ("f" helm-find-files "find-files" :color blue)
+  ("c" magit-status "git-commit" :color blue)
+  ("r" replace-string "replace" :color blue)
+  ("l" toggle-truncate-lines "truncate-toggle" :color blue) ;; перенос строк
+  ("w" whitespace-mode "show-whitespace" :color blue)
+  ("g" gulpjs-start-task "gulp-tasks" :color blue)
+  ("d" ser/duplicate-line "duplicate-line")
+  ("x" save-buffers-kill-terminal "Save-and-Exit")
+  ("q" nil "hide menu"))
+
+(defhydra hydra-bookmark (:color teal :columns 3 :hint nil)
+  "bookmarks"
+  ("l" bookmark-bmenu-list "list" :color blue)
+  ("j" bookmark-jump "jump to" :color blue)
+  ("s" bookmark-set "bookmark set" :color blue)
+  ("q" nil "hide menu"))
+
+(global-set-key (kbd "M-m") 'hydra-seryh-menu/body)
+
+
+;; -------------------------------------------------------- [helm kdb]
+(global-set-key (kbd "C-f") 'helm-swoop)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
