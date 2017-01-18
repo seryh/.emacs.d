@@ -108,7 +108,6 @@
 
 (yas-global-mode 1)
 (require 'powerline)
-(require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
 (moe-theme-set-color 'purple)
