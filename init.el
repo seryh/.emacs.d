@@ -53,6 +53,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
+    hydra
     request
     xml
     use-package
@@ -107,6 +108,7 @@
     (package-install p)))
 
 (yas-global-mode 1)
+(require 'hydra)
 (require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)

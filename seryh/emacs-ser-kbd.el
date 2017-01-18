@@ -274,3 +274,95 @@
 
 (global-set-key (kbd "C-c c") 'my-clear-message)
 
+
+;; -------------------------------------------------- [ hydra ]
+
+
+(defhydra hydra-ibuffer (:color pink :columns 3 :hint nil)
+  "Action"
+  ("SPC" nil)
+  ("*" hydra-ibuffer-mark/body :exit t)
+  ("%" hydra-ibuffer-regex/body :exit t)
+  ("/" hydra-ibuffer-filter/body :exit t)
+  ("s" hydra-ibuffer-sort/body "sort" :exit t)
+  ("A" ibuffer-do-view "view")
+  ("D" ibuffer-do-delete "delete")
+  ("E" ibuffer-do-eval "eval")
+  ("F" ibuffer-do-shell-command-file "shell-command-file")
+  ("I" ibuffer-do-query-replace-regexp "query-replace-regexp")
+  ("H" ibuffer-do-view-other-frame "view-other-frame")
+  ("N" ibuffer-do-shell-command-pipe-replace "shell-cmd-pipe-replace")
+  ("M" ibuffer-do-toggle-modified "toggle-modified")
+  ("o" ibuffer-visit-buffer-other-window "other window")
+  ("O" ibuffer-do-occur "occur")
+  ("P" ibuffer-do-print "print")
+  ("Q" ibuffer-do-query-replace "query-replace")
+  ("R" ibuffer-do-rename-uniquely "rename-uniquely")
+  ("S" ibuffer-do-save "save")
+  ("T" ibuffer-do-toggle-read-only "toggle-read-only")
+  ("U" ibuffer-do-replace-regexp "replace-regexp")
+  ("V" ibuffer-do-revert "revert")
+  ("W" ibuffer-do-view-and-eval "view-and-eval")
+  ("X" ibuffer-do-shell-command-pipe "shell-command-pipe"))
+
+(defhydra hydra-ibuffer-mark (:color teal :columns 5 :hint nil
+                                     :after-exit
+                                     (if (eq major-mode 'ibuffer-mode)
+                                         (hydra-ibuffer/body)))
+  "Mark"
+  ("SPC" nil)
+  ("*" ibuffer-unmark-all "unmark all")
+  ("M" ibuffer-mark-by-mode "mode")
+  ("m" ibuffer-mark-modified-buffers "modified")
+  ("u" ibuffer-mark-unsaved-buffers "unsaved")
+  ("s" ibuffer-mark-special-buffers "special")
+  ("r" ibuffer-mark-read-only-buffers "read-only")
+  ("/" ibuffer-mark-dired-buffers "dired")
+  ("e" ibuffer-mark-dissociated-buffers "dissociated")
+  ("h" ibuffer-mark-help-buffers "help")
+  ("z" ibuffer-mark-compressed-file-buffers "compressed")
+  ("%" hydra-ibuffer-regex/body "regex"))
+
+(defhydra hydra-ibuffer-regex (:color teal :hint nil
+                                      :after-exit
+                                      (if (eq major-mode 'ibuffer-mode)
+                                          (hydra-ibuffer/body)))
+  "Regex"
+  ("SPC" nil)
+  ("*" hydra-ibuffer-mark/body "mark")
+  ("f" ibuffer-mark-by-file-name-regexp "filename")
+  ("m" ibuffer-mark-by-mode-regexp "mode")
+  ("n" ibuffer-mark-by-name-regexp "name"))
+
+(defhydra hydra-ibuffer-sort (:color teal :columns 3 :hint nil
+                                     :after-exit
+                                     (if (eq major-mode 'ibuffer-mode)
+                                         (hydra-ibuffer/body)))
+  "Sort"
+  ("SPC" nil)
+  ("i" ibuffer-invert-sorting "invert")
+  ("a" ibuffer-do-sort-by-alphabetic "alphabetic")
+  ("v" ibuffer-do-sort-by-recency "recently used")
+  ("s" ibuffer-do-sort-by-size "size")
+  ("f" ibuffer-do-sort-by-filename/process "filename")
+  ("m" ibuffer-do-sort-by-major-mode "mode"))
+
+(defhydra hydra-ibuffer-filter (:color teal :columns 4 :hint nil
+                                       :after-exit
+                                       (if (eq major-mode 'ibuffer-mode)
+                                           (hydra-ibuffer/body)))
+  "Filter"
+  ("SPC" nil)
+  ("m" ibuffer-filter-by-used-mode "mode")
+  ("M" ibuffer-filter-by-derived-mode "derived mode")
+  ("n" ibuffer-filter-by-name "name")
+  ("c" ibuffer-filter-by-content "content")
+  ("e" ibuffer-filter-by-predicate "predicate")
+  ("f" ibuffer-filter-by-filename "filename")
+  (">" ibuffer-filter-by-size-gt "size")
+  ("<" ibuffer-filter-by-size-lt "size")
+  ("/" ibuffer-filter-disable "disable"))
+
+(bind-keys :map ibuffer-mode-map
+           ("M-o" . nil)             ; ibuffer-visit-buffer-1-window
+           ("SPC" . hydra-ibuffer/body))
