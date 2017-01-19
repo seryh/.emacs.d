@@ -65,31 +65,18 @@
 
 
 (bind-keys*
- ("M-i" . previous-line)
- ("M-k" . next-line)
- ("M-j" . backward-char)
- ("M-l" . forward-char)
- ("C-M-i" . move-line-up)
- ("C-M-k" . move-line-down)
 
- 
- ("M-o" . move-forward-paren)
- ("M-u" . move-backward-paren)
-
- ("M-C-j" . backward-sexp)
- ("M-C-l" . forward-sexp)
- 
  ("M-(" . move-backward-paren)
  ("M-)" . move-forward-paren)
  ("M-[" . move-backward-sqrParen)
  ("M-]" . move-forward-sqrParen)
  ("M-{" . move-backward-curlyParen)
  ("M-}" . move-forward-curlyParen)
- 
+
  ("M-f" . delete-forward-char)  ;; Delete
  ("M-d" . delete-backward-char) ;; Backspace
- ("M-F" . kill-word)  ;; Delete
- ("M-D" . backward-kill-word) ;; Backspace
+ ("M-F" . kill-word)            ;; Delete
+ ("M-D" . backward-kill-word)   ;; Backspace
 
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
  
@@ -100,3 +87,35 @@
 
 
 ;; ("<delete>" . delete-forward-char)
+
+
+;; ---------------------------------------------------------- [ hydra ]
+(defun hydra-vi/pre ()
+  (set-cursor-color "turquoise1"))
+(defun hydra-vi/post ()
+  (set-cursor-color "magenta"))
+
+
+(defhydra hydra-vi (:pre hydra-vi/pre :post hydra-vi/post :color amaranth)
+  "vi"
+  ("SPC" hydra-vi-moves/body "moves" :color blue)
+  ("l" forward-char)
+  ("h" backward-char)
+  ("j" next-line)
+  ("k" previous-line)
+  ("m" set-mark-command "mark")
+  ("a" move-beginning-of-line "beg")
+  ("e" move-end-of-line "end")
+  ("d" delete-region "del" :color blue)
+  ("y" kill-ring-save "yank" :color blue)
+  ("q" nil "quit"))
+
+
+(defhydra hydra-vi-moves (:pre hydra-vi/pre :post hydra-vi/post :color amaranth)
+  "vi moves"
+  ("j" move-line-down "line-down")
+  ("k" move-line-up "line-up")
+  ("q" nil "quit"))
+
+
+(define-key global-map (kbd "M-i") 'hydra-vi/body)
