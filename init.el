@@ -112,8 +112,7 @@
 (require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
-(moe-theme-set-color 'purple)
-;;(moe-theme-set-color 'cyan)
+(moe-theme-set-color 'w/b)
 
 (auto-revert-mode t)
 (powerline-moe-theme)
