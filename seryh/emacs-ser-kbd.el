@@ -337,7 +337,7 @@
 
 (defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
   "Seryh-menu"
-  ("ESC" ser/my-revert-buffer-noconfirm "reopen")
+  ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
   ("1" ser/hRGB "RGB-show") ;; подстветка #RGB
   ("b" hydra-bookmark/body "bookmark" :color blue)
   ("u" untabify "untab-buffer" :color blue) ;; убрать табы
