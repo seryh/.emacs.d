@@ -25,29 +25,26 @@
           (if this-win-2nd (other-window 1))))))
 
 ;; функция создания файла для dired-mode
-(eval-after-load 'dired
-  '(progn
-     (define-key dired-mode-map (kbd "C-c n") 'my-dired-create-file)
-     (defun my-dired-create-file (file)
-       "Create a file called FILE.If FILE already exists, signal an error."
-       (interactive
-        (list (read-file-name "Create file: " (dired-current-directory))))
-       (let* ((expanded (expand-file-name file))
-              (try expanded)
-              (dir (directory-file-name (file-name-directory expanded)))
-              new)
-         (if (file-exists-p expanded)
-             (error "Cannot create file %s: file exists" expanded))
-         ;; Find the topmost nonexistent parent dir (variable `new')
-         (while (and try (not (file-exists-p try)) (not (equal new try)))
-           (setq new try
-                 try (directory-file-name (file-name-directory try))))
-         (when (not (file-exists-p dir))
-           (make-directory dir t))
-         (write-region "" nil expanded t)
-         (when new
-           (dired-add-file new)
-           (dired-move-to-filename))))))
+(defun my-dired-create-file (file)
+  "Create a file called FILE.If FILE already exists, signal an error."
+  (interactive
+   (list (read-file-name "Create file: " (dired-current-directory))))
+  (let* ((expanded (expand-file-name file))
+         (try expanded)
+         (dir (directory-file-name (file-name-directory expanded)))
+         new)
+    (if (file-exists-p expanded)
+        (error "Cannot create file %s: file exists" expanded))
+    ;; Find the topmost nonexistent parent dir (variable `new')
+    (while (and try (not (file-exists-p try)) (not (equal new try)))
+      (setq new try
+            try (directory-file-name (file-name-directory try))))
+    (when (not (file-exists-p dir))
+      (make-directory dir t))
+    (write-region "" nil expanded t)
+    (when new
+      (dired-add-file new)
+      (dired-move-to-filename))))
 
 
 ;;(defun find-project-file (file)
@@ -326,7 +323,8 @@
   ("f" ibuffer-filter-by-filename "filename")
   (">" ibuffer-filter-by-size-gt "size")
   ("<" ibuffer-filter-by-size-lt "size")
-  ("/" ibuffer-filter-disable "disable"))
+  ("/" ibuffer-filter-disable "disable")
+  ("SPC" nil "Bye"))
 
 (bind-keys :map ibuffer-mode-map
            ("M-o" . nil)             ; ibuffer-visit-buffer-1-window
@@ -360,6 +358,24 @@
 
 (global-set-key (kbd "M-m") 'hydra-seryh-menu/body)
 
+
+;; ------------------------------------------------------------ [hydra dired]
+
+(eval-after-load 'dired
+  '(progn
+     (defhydra hydra-dired (:color blue)
+       "?"
+       ("cp" dired-do-copy "copy file")
+       ("cf" my-dired-create-file "create file")
+       ("mv" diredp-do-move-recursive "mv")
+       ("mk" dired-create-directory "mkdir")
+       ("q" nil "Bye")
+       ("SPC" nil "Bye"))))
+
+(defun dired-mode-hook-hydra-setup ()
+  (local-unset-key (kbd "<SPC>"))
+  (local-set-key (kbd "<SPC>") 'hydra-dired/body))
+(add-hook 'dired-mode-hook 'dired-mode-hook-hydra-setup)
 
 ;; -------------------------------------------------------- [helm kdb]
 (global-set-key (kbd "C-f") 'helm-swoop)
