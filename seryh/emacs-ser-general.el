@@ -27,7 +27,6 @@
   
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
-  (set-buffer-file-coding-system 'utf-8)
   (setq default-process-coding-system '(windows-1251 . windows-1251))
   (prefer-coding-system 'windows-1251)
   (set-language-environment 'UTF-8)
