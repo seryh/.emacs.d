@@ -1,3 +1,19 @@
+(use-package powerline)
+
+(defun my-mode-line-coding-format ()
+  (let* ((code (symbol-name buffer-file-coding-system))
+         (encoding (cond ((string-match "1251\\|win" code)
+                          "1251")
+                         ((string-match "utf-8" code)
+                          "UTF8")
+                         (code)))
+         (eol-type (coding-system-eol-type buffer-file-coding-system))
+         (eol (if (eq 0 eol-type) "UNIX"
+                (if (eq 1 eol-type) "DOS"
+                  (if (eq 2 eol-type) "MAC"
+                    "???")))))
+    (concat encoding "|" eol)))
+
 (setq-default mode-line-format
               '("%e"
                 (:eval
@@ -9,6 +25,12 @@
                               ;; (powerline-buffer-size nil 'l)
                               (powerline-buffer-id nil 'l)
 
+                              (powerline-raw " ")
+                              (powerline-arrow-right nil face1)
+                              (powerline-raw (my-mode-line-coding-format) face1 'l)
+                              (powerline-raw " " face1)
+                              (powerline-arrow-left face1 nil)
+                              
                               (powerline-raw "%4l" nil 'r)
                               (powerline-raw ":" nil)
                               (powerline-raw "%3c" nil 'r)
@@ -24,7 +46,6 @@
                               ))
                         (rhs (list
                               (powerline-raw global-mode-string face2 'r)
-
                               
                               (powerline-arrow-left face1 nil)
                               (powerline-raw " ")
@@ -45,4 +66,5 @@
                     (powerline-render center)
                     (powerline-fill face1 (powerline-width rhs))
                     (powerline-render rhs))))))
+
 (provide 'emacs-powerline-conf)
