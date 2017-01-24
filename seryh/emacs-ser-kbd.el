@@ -334,27 +334,31 @@
 
 
 (defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
-  "Seryh-menu"
+  "seryh-menu"
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
-  ("1" ser/hRGB "RGB-show") ;; подстветка #RGB
+  ("1" ser/hRGB "RGB-show")    ;; подстветка #RGB
+  ("2" linum-mode "line-show")
+  ("w" whitespace-mode "show-whitespace" :color blue)
+  
   ("b" hydra-bookmark/body "bookmark" :color blue)
   ("u" untabify "untab-buffer" :color blue) ;; убрать табы
   ("f" helm-find-files "find-files" :color blue)
   ("g" magit-status "git-commit" :color blue)
   ("r" replace-string "replace" :color blue)
   ("l" toggle-truncate-lines "truncate-toggle" :color blue) ;; перенос строк
-  ("w" whitespace-mode "show-whitespace" :color blue)
   ("t" gulpjs-start-task "gulp-tasks" :color blue)
   ("d" ser/duplicate-line "duplicate-line")
   ("x" save-buffers-kill-terminal "Save-and-Exit")
-  ("q" nil "hide menu"))
+  ("q" nil "hide menu")
+  ("SPC" nil))
 
 (defhydra hydra-bookmark (:color teal :columns 3 :hint nil)
   "bookmarks"
   ("l" bookmark-bmenu-list "list" :color blue)
   ("j" bookmark-jump "jump to" :color blue)
   ("s" bookmark-set "bookmark set" :color blue)
-  ("q" nil "hide menu"))
+  ("q" nil "hide menu")
+  ("SPC" nil))
 
 (global-set-key (kbd "M-m") 'hydra-seryh-menu/body)
 
@@ -370,7 +374,7 @@
        ("mv" diredp-do-move-recursive "mv")
        ("mk" dired-create-directory "mkdir")
        ("q" nil "Bye")
-       ("SPC" nil "Bye"))))
+       ("SPC" nil))))
 
 (defun dired-mode-hook-hydra-setup ()
   (local-unset-key (kbd "<SPC>"))
