@@ -47,6 +47,13 @@
       (dired-move-to-filename))))
 
 
+(defun ser/copy-line (arg)
+  "Copy lines (as many as prefix argument) in the kill ring"
+  (interactive "p")
+  (kill-ring-save (line-beginning-position)
+                  (line-beginning-position (+ 1 arg)))
+  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+
 ;;(defun find-project-file (file)
 ;;  (find-file (expand-file-name file (projectile-project-root))))
 
@@ -343,6 +350,7 @@
   ("b" hydra-bookmark/body "bookmark" :color blue)
   ("u" untabify "untab-buffer" :color blue) ;; убрать табы
   ("f" helm-find-files "find-files" :color blue)
+  ("c" ser/copy-line "copy-line" :color blue)
   ("g" magit-status "git-commit" :color blue)
   ("r" replace-string "replace" :color blue)
   ("l" toggle-truncate-lines "truncate-toggle" :color blue) ;; перенос строк
