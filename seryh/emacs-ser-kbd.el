@@ -347,17 +347,33 @@
   ("2" linum-mode "line-show")
   ("w" whitespace-mode "show-whitespace" :color blue)
   
-  ("b" hydra-bookmark/body "bookmark" :color blue)
-  ("u" untabify "untab-buffer" :color blue) ;; убрать табы
-  ("f" helm-find-files "find-files" :color blue)
-  ("c" ser/copy-line "copy-line" :color blue)
-  ("g" magit-status "git-commit" :color blue)
-  ("r" replace-string "replace" :color blue)
+  ("b" hydra-bookmark/body "bookmark"     :color blue)
+  ("u" untabify            "untab-buffer" :color blue) ;; убрать табы
+  ("f" helm-find-files     "find-files"   :color blue)
+  ("c" ser/copy-line       "copy-line"    :color blue)
+  ("g" magit-status        "git-commit"   :color blue)
+  ("r" replace-string      "replace"      :color blue)
   ("l" toggle-truncate-lines "truncate-toggle" :color blue) ;; перенос строк
-  ("t" gulpjs-start-task "gulp-tasks" :color blue)
-  ("d" ser/duplicate-line "duplicate-line")
+  ("t" gulpjs-start-task     "gulp-tasks"      :color blue)
+  ("d" ser/duplicate-line    "duplicate-line")
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
+
+  ;; русская раскладка
+
+
+  ("и" hydra-bookmark/body nil)
+  ("г" untabify            nil) ;; убрать табы
+  ("а" helm-find-files     nil)
+  ("с" ser/copy-line       nil)
+  ("п" magit-status        nil)
+  ("к" replace-string      nil)
+  ("д" toggle-truncate-lines nil) ;; перенос строк
+  ("е" gulpjs-start-task     nil)
+  ("в" ser/duplicate-line    nil)
+  ("ч" save-buffers-kill-terminal nil)
+  ("й" nil "hide menu")
+  
   ("SPC" nil))
 
 (defhydra hydra-bookmark (:color teal :columns 3 :hint nil)
