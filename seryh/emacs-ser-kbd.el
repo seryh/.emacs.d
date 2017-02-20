@@ -362,17 +362,17 @@
   ;; русская раскладка
 
 
-  ("и" hydra-bookmark/body nil)
-  ("г" untabify            nil) ;; убрать табы
-  ("а" helm-find-files     nil)
-  ("с" ser/copy-line       nil)
-  ("п" magit-status        nil)
-  ("к" replace-string      nil)
-  ("д" toggle-truncate-lines nil) ;; перенос строк
-  ("е" gulpjs-start-task     nil)
-  ("в" ser/duplicate-line    nil)
+  ("и" hydra-bookmark/body nil :color blue)
+  ("г" untabify            nil :color blue) ;; убрать табы
+  ("а" helm-find-files     nil :color blue)
+  ("с" ser/copy-line       nil :color blue)
+  ("п" magit-status        nil :color blue)
+  ("к" replace-string      nil :color blue)
+  ("д" toggle-truncate-lines nil :color blue) ;; перенос строк
+  ("е" gulpjs-start-task     nil :color blue)
+  ("в" ser/duplicate-line    nil :color blue)
   ("ч" save-buffers-kill-terminal nil)
-  ("й" nil "hide menu")
+  ("й" nil)
   
   ("SPC" nil))
 
