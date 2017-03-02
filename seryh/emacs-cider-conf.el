@@ -45,6 +45,7 @@
                                  ;;(push '(">=" . ?≥) prettify-symbols-alist)
                                  (push '("\\(fn\\[\[[:space:]]" . ?λ)  prettify-symbols-alist)
                                  (prettify-symbols-mode 1)
+                                 (aggressive-indent-mode t)
                                  ))
   
   (add-hook 'cider-repl-mode-hook 'company-mode)

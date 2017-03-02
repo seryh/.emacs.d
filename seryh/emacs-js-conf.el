@@ -19,6 +19,7 @@
             (lambda ()
               (hs-minor-mode t)            ;; hide/show
               (js2-imenu-extras-mode t)
+              (aggressive-indent-mode t)
               
               ;;(tern-mode t) 
               ;;(ac-js2-mode t)

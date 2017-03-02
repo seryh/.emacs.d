@@ -53,6 +53,8 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
+    aggressive-indent
+    
     hydra
     request
     xml
@@ -263,6 +265,7 @@
 (add-hook 'web-mode-hook 
           (lambda ()
             (auto-complete-mode)
+            (aggressive-indent-mode t)
             (hs-minor-mode t)
             (emmet-mode t)))
 
@@ -273,6 +276,7 @@
 
 (add-hook 'scss-mode-hook
           (lambda ()
+            (aggressive-indent-mode t)
             (auto-complete-mode)))
 
 (add-hook 'emacs-lisp-mode-hook
