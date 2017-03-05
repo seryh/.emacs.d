@@ -86,8 +86,8 @@
  )
 
 
-;; ("<delete>" . delete-forward-char)
 
+;; ("<delete>" . delete-forward-char)
 
 ;; ---------------------------------------------------------- [ hydra ]
 (defun hydra-vi/pre ()
@@ -98,7 +98,8 @@
 
 (defhydra hydra-vi (:pre hydra-vi/pre :post hydra-vi/post :color amaranth)
   "vi"
-  ("SPC" hydra-vi-moves/body "moves" :color blue)
+  ("<down>" move-line-down "line-down")
+  ("<up>" move-line-up "line-up")
   ("l" forward-char)
   ("h" backward-char)
   ("j" next-line)
@@ -109,13 +110,5 @@
   ("d" delete-region "del" :color blue)
   ("y" kill-ring-save "yank" :color blue)
   ("q" nil "quit"))
-
-
-(defhydra hydra-vi-moves (:pre hydra-vi/pre :post hydra-vi/post :color amaranth)
-  "vi moves"
-  ("j" move-line-down "line-down")
-  ("k" move-line-up "line-up")
-  ("q" nil "quit"))
-
 
 (define-key global-map (kbd "M-i") 'hydra-vi/body)

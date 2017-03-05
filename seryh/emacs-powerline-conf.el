@@ -8,9 +8,9 @@
                           "UTF8")
                          (code)))
          (eol-type (coding-system-eol-type buffer-file-coding-system))
-         (eol (if (eq 0 eol-type) "UNIX"
-                (if (eq 1 eol-type) "DOS"
-                  (if (eq 2 eol-type) "MAC"
+         (eol (if (eq 0 eol-type) "LF"
+                (if (eq 1 eol-type) "CRLF"
+                  (if (eq 2 eol-type) "LF"
                     "???")))))
     (concat encoding "|" eol)))
 
