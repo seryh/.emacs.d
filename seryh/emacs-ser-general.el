@@ -21,9 +21,13 @@
            "C:\\Program Files\\7-Zip;"
            (getenv "PATH")))
 
+  ;; (set-face-attribute 'default nil
+  ;;                     :family "Fira Code"
+  ;;                     :height 100)
+  
   (set-face-attribute 'default nil
-                      :family "Fira Code"
-                      :height 100)
+                      :family "Liberation Mono"
+                      :height 105)
   
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
@@ -36,7 +40,7 @@
   (ad-activate 'shell))
 
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
-(setq auto-revert-verbose nil) ;; отключить вывод сообщений "Reverting buffer %s." 
+(setq auto-revert-verbose nil)    ;; отключить вывод сообщений "Reverting buffer %s." 
 
 ;; Интерфейс
 ;;(global-linum-mode 1)
@@ -98,11 +102,11 @@
 
 
 
-(defvar label-hl-modes '(scss-mode web-mode clojure-mode js2-mode emacs-lisp-mode))
-(defun turn-on-label-hl-mode () (font-lock-add-keywords
-                                 nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
-                                        1 font-lock-warning-face t))))
-(dolist (mode label-hl-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-label-hl-mode))
+;; (defvar label-hl-modes '(scss-mode web-mode clojure-mode js2-mode emacs-lisp-mode))
+;; (defun turn-on-label-hl-mode () (font-lock-add-keywords
+;;                                  nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+;;                                         1 font-lock-warning-face t))))
+;; (dolist (mode label-hl-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-label-hl-mode))
 
 ;; scroll fix
 ;;   scroll-margin 1
@@ -206,11 +210,4 @@
 (ser/set-cursor-magenta)
 
 (add-hook 'after-init-hook (lambda () (set-cursor-color "magenta")))
-(add-hook 'input-method-activate-hook (lambda () (set-cursor-color "magenta")))
-
-;; ------------------------------------------------------------- [org-mode prettify]
-;;(add-hook 'org-mode-hook
-;;          (lambda ()
-;;            (push '("- [X]" . "✓") prettify-symbols-alist)
-;;            (push '("- [ ]" . "✗") prettify-symbols-alist)
-;;            (prettify-symbols-mode 1)))
+;;(add-hook 'input-method-activate-hook (lambda () (set-cursor-color "magenta")))

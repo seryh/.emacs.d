@@ -237,13 +237,6 @@
       (define-key isearch-mode-map "\C-e" 'isearch-edit-string)
 ))
 
-(defun my-clear-message ()
-  (interactive)
-  (message nil))
-
-(global-set-key (kbd "C-c c") 'my-clear-message)
-
-
 ;; -------------------------------------------------- [ hydra ibuffer]
 
 
