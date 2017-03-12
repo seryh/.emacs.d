@@ -63,6 +63,7 @@
 (global-set-key (kbd "M-<f1>")  
                 (lambda () (interactive) (dired ".")))
 (global-set-key (kbd "M-<f2>") 'ibuffer)
+(global-set-key (kbd "<apps>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'imenu)
 
 ;; (global-set-key (kbd "M-<f4>") 'magit-status)
