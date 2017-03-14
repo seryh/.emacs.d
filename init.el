@@ -313,6 +313,15 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+;; ------------------------------------ [beacon]
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  (setq beacon-color "magenta")
+  (setq beacon-blink-duration 0.1))
+
 ;; ------------------ [ autopair-mode ]
 (defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
