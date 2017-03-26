@@ -72,26 +72,24 @@
  ("M-]" . move-forward-sqrParen)
  ("M-{" . move-backward-curlyParen)
  ("M-}" . move-forward-curlyParen)
-
  ("M-f" . delete-forward-char)  ;; Delete
  ("M-d" . delete-backward-char) ;; Backspace
  ("M-F" . kill-word)            ;; Delete
  ("M-D" . backward-kill-word)   ;; Backspace
-
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
- 
- ("M-SPC" . set-mark-command)
- )
+ ("M-SPC" . set-mark-command))
 
-;; expand-region ;; семантическое выделение региона
+;; семантическое выделение региона
 (use-package expand-region
   :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region)
   (global-set-key (kbd "M-=") 'er/mark-defun))
 
-
-;; ("<delete>" . delete-forward-char)
+;; мультикурсор на регионе
+(use-package iedit
+  :ensure t
+  :bind (("C-+" . iedit-mode)))
 
 ;; ---------------------------------------------------------- [ hydra ]
 (defun hydra-vi/pre ()
