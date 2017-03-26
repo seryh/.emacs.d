@@ -79,7 +79,6 @@
     cider         
     paredit
     
-    web-mode
     rainbow-delimiters
     
     ido           ;; интерактивное управление буферами и файлами;
@@ -240,19 +239,16 @@
 ;;(global-company-mode)
 
 (setq auto-mode-alist
-      (append '(
-                ("\\.clj$" . clojure-mode)
+      (append '(("\\.clj$" . clojure-mode)
                 ("\\.cljc$" . clojure-mode)
                 ("\\.edn$" . clojure-mode)
                 ("\\.cljs$" . clojurescript-mode)
 
                 ("\\.scss$". scss-mode)
-                ("\\.css$". web-mode)
-                ("\\.html$". web-mode)
-                ("\\.phtml$". web-mode)
+                
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
-                ("\\.php$". web-mode)
+                
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
 
@@ -268,12 +264,6 @@
 ;;             (linum-mode -1)))
 
 
-(add-hook 'web-mode-hook 
-          (lambda ()
-            (auto-complete-mode)
-            (aggressive-indent-mode t)
-            (hs-minor-mode t)
-            (emmet-mode t)))
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -324,17 +314,43 @@
   (setq beacon-color "magenta")
   (setq beacon-blink-duration 0.1))
 
-;; ------------------ [ autopair-mode ]
+;; ------------------------------------ [ web-mode ]
+(use-package web-mode
+  :ensure t
+  :config
+      (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+      
+      (setq web-mode-engines-alist
+            '(("php"    . "\\.phtml\\'")))
+      
+      ;; (setq web-mode-ac-sources-alist
+      ;;       '(("css" . (ac-source-css-property))
+      ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+
+      (setq web-mode-enable-auto-closing t)
+  :init
+      (add-hook 'web-mode-hook 
+                (lambda ()
+                  (auto-complete-mode)
+                  (aggressive-indent-mode t)
+                  (hs-minor-mode t) ;; hide/show block C-.
+                  (emmet-mode t)    ;; zencoding-mode
+                  ))
+      )
+
+(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem 
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
+
+
+;; ------------------------------------ [ autopair-mode ] -- автозакрытие скобок
 (defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode) 
-
-;; ------------------ [ web-mode ]
-(setq web-mode-enable-current-element-highlight t)
-(setq web-mode-enable-current-column-highlight t)
-(setq web-mode-engines-alist
-      '(("php"    . "\\.phtml\\'")))
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
 ;; To enter an Emacs command like C-x C-f while the mark is active, use one of the
