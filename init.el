@@ -100,7 +100,6 @@
     autopair      ;; автозакрытие ковычек и скобок
     which-key     ;; which-key - буфер с шорткат подсказками https://github.com/justbur/emacs-which-key
     buffer-move   ;; перемещение буфера buf-move-<pos>
-    expand-region ;; семантическое выделение региона
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -189,7 +188,6 @@
 
 (require 'smex) ; Not needed if you use package.el
 (require 'magit)
-(require 'expand-region)
 
 (global-magit-file-mode t)
 (ido-mode t)

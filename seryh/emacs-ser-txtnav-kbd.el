@@ -80,11 +80,15 @@
 
  ("M-n" . reindent-then-newline-and-indent) ;; Enter
  
- ("M-SPC" . set-mark-command)  
- ("M-=" . mark-defun)
- ("C-=" . er/expand-region)
+ ("M-SPC" . set-mark-command)
  )
 
+;; expand-region ;; семантическое выделение региона
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region)
+  (global-set-key (kbd "M-=") 'er/mark-defun))
 
 
 ;; ("<delete>" . delete-forward-char)
