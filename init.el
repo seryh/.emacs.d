@@ -258,7 +258,15 @@
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 
+;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-src-fontify-natively t)
+
+;; (add-hook 'org-mode-hook 
+;;           (lambda () 
+;;             (drag-stuff-mode -1) 
+;;             (linum-mode -1)))
+
 
 (add-hook 'web-mode-hook 
           (lambda ()
@@ -281,10 +289,6 @@
           (lambda ()
             (company-mode)))
 
-;; (add-hook 'org-mode-hook 
-;;           (lambda () 
-;;             (drag-stuff-mode -1) 
-;;             (linum-mode -1)))
 
 (require 'dired-x)
 (setq-default dired-omit-files-p t) ; Buffer-local variable
