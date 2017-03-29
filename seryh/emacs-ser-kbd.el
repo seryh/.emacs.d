@@ -65,6 +65,7 @@
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "<apps>") 'ibuffer)
 (global-set-key (kbd "M-<f3>") 'imenu)
+(global-set-key (kbd "<f5>") 'ser/my-revert-buffer-noconfirm)
 
 ;; (global-set-key (kbd "M-<f4>") 'magit-status)
 ;; (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
