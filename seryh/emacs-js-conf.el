@@ -1,6 +1,10 @@
 (use-package js2-mode
   :ensure t
   :init
+
+  ;; фикс перезаписи буфера при <backspace>
+  (bind-key "<backspace>" '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+  
   (setq js-basic-indent 2)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq truncate-lines 0)
@@ -13,7 +17,6 @@
                 js2-global-externs (list "define" "iwayWidgets" "window" "module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "jQuery" "$"))
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
 
   (add-hook 'js2-mode-hook
             (lambda ()
