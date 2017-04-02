@@ -1,11 +1,56 @@
-;; seryh
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+(require 'package)
+
+;; OLD package settings
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/"))
+
+;; (when (< emacs-major-version 24)
+;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+;; (package-initialize)
+
+(defvar gnu '("gnu" . "https://elpa.gnu.org/packages/"))
+(defvar melpa '("melpa" . "https://melpa.org/packages/"))
+(defvar melpa-stable '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; Add marmalade to package repos
+(setq package-archives nil)
+(add-to-list 'package-archives melpa-stable t)
+(add-to-list 'package-archives melpa t)
+(add-to-list 'package-archives gnu t)
+
+(package-initialize)
+
+(defun packages-install (&rest packages)
+  (message "running packages-install")
+  (mapc (lambda (package)
+          (let ((name (car package))
+                (repo (cdr package)))
+            (when (not (package-installed-p name))
+              (let ((package-archives (list repo)))
+                (package-initialize)
+                (package-install name)))))
+        packages)
+  (package-initialize)
+  (delete-other-windows))
+
+
+;; Install extensions if they're missing
+(defun init--install-packages ()
+  (message "Lets install some packages")
+  (packages-install
+   ;; Since use-package this is the only entry here
+   ;; ALWAYS try to use use-package!
+   (cons 'use-package melpa)
+   ))
+
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
+
+;; -------------------------------------------------------------
+
 
 ;; System-type definition
 (defun system-is-linux()

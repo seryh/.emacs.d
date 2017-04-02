@@ -114,3 +114,12 @@
   ("q" nil "quit"))
 
 (define-key global-map (kbd "M-i") 'hydra-vi/body)
+
+
+;; ------------------------------------- [bm закладки]
+(use-package bm
+  :ensure t
+  :bind (("C-c =" . bm-toggle)
+         ("C-c [" . bm-previous)
+         ("C-c ]" . bm-next)))
+

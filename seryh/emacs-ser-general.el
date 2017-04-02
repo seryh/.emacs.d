@@ -70,7 +70,12 @@
 ;;(global-hl-line-mode t)                      ;; подсветка текущей строки
 
 ;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
-(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t            
+(global-font-lock-mode t)                    ;; Поддержка различных начертаний шрифтов в буфере - t
+
+
+
+
+(setq ns-pop-up-frames nil) ;; Don’t open files from the workspace in a new frame
 
 ;; optimization
 (setq jit-lock-defer-time 0.05)
