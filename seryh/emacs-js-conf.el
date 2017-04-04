@@ -1,10 +1,6 @@
 (use-package js2-mode
   :ensure t
   :init
-
-  ;; фикс перезаписи буфера при <backspace>
-  (bind-key "<backspace>" '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
-  
   (setq js-basic-indent 2)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq truncate-lines 0)
@@ -17,12 +13,20 @@
                 js2-global-externs (list "define" "iwayWidgets" "window" "module" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "jQuery" "$"))
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+  
+  (defun my-kbd-config ()
+
+    ;; фикс перезаписи буфера при <backspace>
+    (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+
+  )
 
   (add-hook 'js2-mode-hook
             (lambda ()
               (hs-minor-mode t)            ;; hide/show
               (js2-imenu-extras-mode t)
               (aggressive-indent-mode t)
+              (my-kbd-config)
               
               ;;(tern-mode t) 
               ;;(ac-js2-mode t)
@@ -34,7 +38,7 @@
   
   )
 
-;; (use-package color-identifiers-mode
-;;   :ensure t
-;;   :init
-;;   (add-hook 'js2-mode-hook 'color-identifiers-mode))
+(use-package color-identifiers-mode
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'color-identifiers-mode))
