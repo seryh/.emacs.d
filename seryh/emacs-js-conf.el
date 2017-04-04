@@ -31,10 +31,14 @@
               ;;(tern-mode t) 
               ;;(ac-js2-mode t)
               (push '("function" . ?λ) prettify-symbols-alist)
-              (push '("!=" . ?≠) prettify-symbols-alist)
-              (push '(">=" . ?≥) prettify-symbols-alist)
-              (push '("<=" . ?≤) prettify-symbols-alist)
-              (prettify-symbols-mode 1)))
+              
+              ;;(push '("!=" . ?≠) prettify-symbols-alist)
+              ;;(push '(">=" . ?≥) prettify-symbols-alist)
+              ;;(push '("<=" . ?≤) prettify-symbols-alist)
+              
+              (prettify-symbols-mode 1)
+
+              ))
   
   )
 
