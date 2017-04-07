@@ -31,8 +31,8 @@
 (defun tab-region (N)
   (interactive "p")
   (if (use-region-p)
-      (ser/indent-region 4) ; region was selected, call indent-region
-    (insert "    ") ; else insert four spaces as expected
+      (ser/indent-region 4) ;; region was selected, call indent-region
+      (insert "    ")       ;; else insert four spaces as expected
     )
   )
 
