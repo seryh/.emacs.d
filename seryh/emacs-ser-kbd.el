@@ -338,19 +338,21 @@
 (defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
   "seryh-menu"
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
-  ("1" ser/hRGB "RGB-show")    ;; подстветка #RGB
-  ("2" linum-mode "line-show")
-  ("w" whitespace-mode "show-whitespace" :color blue)
+  ("1" ser/hRGB "RGB-show" :color blue)    ;; подстветка #RGB
+  ("2" linum-mode "line-show" :color blue)
+
+  (";" iedit-mode "find region"     :color blue)
   
+  ("w" whitespace-mode "show-whitespace" :color blue)
   ("b" hydra-bookmark/body "bookmark"     :color blue)
   ("u" untabify            "untab-buffer" :color blue) ;; убрать табы
   ("f" helm-find-files     "find-files"   :color blue)
   ("c" ser/copy-line       "copy-line"    :color blue)
   ("g" magit-status        "git-commit"   :color blue)
   ("r" replace-string      "replace"      :color blue)
-  ("l" toggle-truncate-lines "truncate-toggle" :color blue) ;; перенос строк
+  ("l" toggle-truncate-lines "truncate-toggle" :color blue)
   ("t" gulpjs-start-task     "gulp-tasks"      :color blue)
-  ("d" ser/duplicate-line    "duplicate-line")
+  ("d" ser/duplicate-line    "duplicate-line"  :color blue)
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
 
@@ -363,7 +365,7 @@
   ("с" ser/copy-line       nil :color blue)
   ("п" magit-status        nil :color blue)
   ("к" replace-string      nil :color blue)
-  ("д" toggle-truncate-lines nil :color blue) ;; перенос строк
+  ("д" toggle-truncate-lines nil :color blue)
   ("е" gulpjs-start-task     nil :color blue)
   ("в" ser/duplicate-line    nil :color blue)
   ("ч" save-buffers-kill-terminal nil)
