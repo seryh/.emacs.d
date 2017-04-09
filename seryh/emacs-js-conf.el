@@ -19,6 +19,7 @@
 
     ;; фикс перезаписи буфера при <backspace>
     (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+    (local-set-key (kbd "C-j") 'yas-expand)
 
     )
 

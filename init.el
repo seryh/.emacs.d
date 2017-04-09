@@ -267,7 +267,7 @@
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 (load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
-(load (ser/get-config-dir "seryh/stab-mode.el"))
+;;(load (ser/get-config-dir "seryh/stab-mode.el"))
 (load (ser/get-config-dir "seryh/emacs-powerline-conf"))
 ;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 

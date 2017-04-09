@@ -44,7 +44,6 @@
             (define-key map (kbd "<backtab>") 'untab-region)
             (define-key map (kbd "<tab>") 'tab-region)
             (define-key map (kbd "<C-tab>") 'indent-region)
-            (define-key map (kbd "C-j") 'yas-expand)
             map))
 
 (add-hook 'clojure-mode-hook 'stab-mode)
