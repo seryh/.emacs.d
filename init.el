@@ -409,6 +409,7 @@
 
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(setq cua-enable-cua-keys nil)        ;; disable the overriding of standard Emacs binding by CUA mode
 (transient-mark-mode 1) ;; No region when it is not highlighted
 ;;(setq cua-keep-region-after-copy t) ;; оставлять регион после копирования
 ;; shift + click select region
