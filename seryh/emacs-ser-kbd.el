@@ -66,11 +66,6 @@
 (global-set-key (kbd "<apps>") 'ibuffer)
 (global-set-key (kbd "<f5>") 'ser/my-revert-buffer-noconfirm)
 
-;; (global-set-key (kbd "M-<f4>") 'magit-status)
-;; (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
-;; (global-set-key (kbd "<f6>") 'bookmark-jump)
-;; (global-set-key (kbd "<f7>") 'bookmark-set)
-
 (global-set-key [f2] 'save-buffer)
 
 ;;(windmove-default-keybindings) ;; переопределить перемещение по буферу на Shift-<arrow>
