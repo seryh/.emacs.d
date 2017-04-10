@@ -64,7 +64,6 @@
                 (lambda () (interactive) (dired ".")))
 (global-set-key (kbd "M-<f2>") 'ibuffer)
 (global-set-key (kbd "<apps>") 'ibuffer)
-(global-set-key (kbd "M-<f3>") 'imenu)
 (global-set-key (kbd "<f5>") 'ser/my-revert-buffer-noconfirm)
 
 ;; (global-set-key (kbd "M-<f4>") 'magit-status)
@@ -353,12 +352,11 @@
   ("l" toggle-truncate-lines "truncate-toggle" :color blue)
   ("t" gulpjs-start-task     "gulp-tasks"      :color blue)
   ("d" ser/duplicate-line    "duplicate-line"  :color blue)
+  ("i" imenu                 "imenu"           :color blue)
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
 
   ;; русская раскладка
-
-
   ("и" hydra-bookmark/body nil :color blue)
   ("г" untabify            nil :color blue) ;; убрать табы
   ("а" helm-find-files     nil :color blue)
@@ -368,6 +366,7 @@
   ("д" toggle-truncate-lines nil :color blue)
   ("е" gulpjs-start-task     nil :color blue)
   ("в" ser/duplicate-line    nil :color blue)
+  ("ш" imenu                 nil :color blue)
   ("ч" save-buffers-kill-terminal nil)
   ("й" nil)
   
