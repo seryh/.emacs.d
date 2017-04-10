@@ -330,24 +330,29 @@
 
 
 (defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
-  "seryh-menu"
-  ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
-  ("1" ser/hRGB "RGB-show" :color blue)    ;; подстветка #RGB
-  ("2" linum-mode "line-show" :color blue)
-
-  (";" iedit-mode "find region"     :color blue)
+  "
+  ^Mode^             ^Tools^           ^Actions^          ^Search
+  ^^^^^^^^-----------------------------------------------------------------
+  _1_: RGB-show      _b_: bookmark    _u_: untab       _;_: region
+  _2_: line-show     _g_: GIT         _c_: copy-line   _f_: files
+  _w_: whitespace    _t_: gulp        _d_: duble-line  _r_: replace 
+  _l_: trun-lines    _i_: imenu"
   
-  ("w" whitespace-mode "show-whitespace" :color blue)
-  ("b" hydra-bookmark/body "bookmark"     :color blue)
-  ("u" untabify            "untab-buffer" :color blue) ;; убрать табы
-  ("f" helm-find-files     "find-files"   :color blue)
-  ("c" ser/copy-line       "copy-line"    :color blue)
-  ("g" magit-status        "git-commit"   :color blue)
-  ("r" replace-string      "replace"      :color blue)
-  ("l" toggle-truncate-lines "truncate-toggle" :color blue)
-  ("t" gulpjs-start-task     "gulp-tasks"      :color blue)
-  ("d" ser/duplicate-line    "duplicate-line"  :color blue)
-  ("i" imenu                 "imenu"           :color blue)
+  ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
+  ("1" ser/hRGB nil   :color blue)    ;; подстветка #RGB
+  ("2" linum-mode nil :color blue)
+  (";" iedit-mode nil :color blue)
+  ("w" whitespace-mode nil :color blue)
+  ("b" hydra-bookmark/body nil :color blue)
+  ("u" untabify            nil :color blue) ;; убрать табы
+  ("f" helm-find-files     nil :color blue)
+  ("c" ser/copy-line       nil :color blue)
+  ("g" magit-status        nil :color blue)
+  ("r" replace-string      nil :color blue)
+  ("l" toggle-truncate-lines nil :color blue)
+  ("t" gulpjs-start-task     nil :color blue)
+  ("d" ser/duplicate-line    nil :color blue)
+  ("i" imenu                 nil :color blue)
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
 
