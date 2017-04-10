@@ -359,6 +359,13 @@
   (setq beacon-color "magenta")
   (setq beacon-blink-duration 0.1))
 
+;; -------------------------------------- [hungry-delete]
+
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+
 ;; ------------------------------------ [ web-mode ]
 (use-package web-mode
   :ensure t
