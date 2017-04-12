@@ -14,7 +14,9 @@
 (set-face-attribute 'default nil :height 100)
 
 (when (system-is-windows)
-  (setq default-directory "C:\\Users\\Seryh\\Downloads")
+  
+  ;;(setq default-directory "C:\\Users\\Seryh\\Downloads")
+  
   (setenv "PATH"
           (concat
            "C:\\msys64\\usr\\bin;"
