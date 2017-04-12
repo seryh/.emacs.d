@@ -12,7 +12,9 @@
                 (if (eq 1 eol-type) "CRLF"
                   (if (eq 2 eol-type) "LF"
                     "???")))))
-    (concat encoding "|" eol)))
+    ;;(concat encoding "|" eol)
+    (concat eol)
+    ))
 
 (setq-default mode-line-format
               '("%e"
