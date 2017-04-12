@@ -99,18 +99,24 @@
 
 
 (defhydra hydra-vi (:pre hydra-vi/pre :post hydra-vi/post :color amaranth)
-  "vi"
-  ("<down>" move-line-down "line-down")
-  ("<up>" move-line-up "line-up")
-  ("l" forward-char)
-  ("h" backward-char)
-  ("j" next-line)
-  ("k" previous-line)
-  ("m" set-mark-command "mark")
-  ("a" move-beginning-of-line "beg")
-  ("e" move-end-of-line "end")
-  ("d" delete-region "del" :color blue)
-  ("y" kill-ring-save "yank" :color blue)
+  "txt-pow:"
+  ("<down>" move-line-down "mv-line-down" :color amaranth)
+  ("<up>" move-line-up "mv-line-up"       :color amaranth)
+  
+  ("a" move-beginning-of-line          :color amaranth)
+  ("e" move-end-of-line                :color amaranth)
+  ("f" forward-char                    :color amaranth)
+  ("b" backward-char                   :color amaranth)
+
+  ("p" previous-line                   :color amaranth)
+  ("n" next-line                       :color amaranth)
+  
+  ("m" set-mark-command "mark"         :color amaranth)
+  
+  ("d" ser/duplicate-line "dupl-line"  :color amaranth)
+  ("k" kill-line "del-line"            :color amaranth)
+  
+  
   ("q" nil "quit"))
 
 (define-key global-map (kbd "M-i") 'hydra-vi/body)
