@@ -385,6 +385,15 @@
 
 ;; ------------------------------------------------------------ [hydra dired]
 
+;; TODO: if unix system use another shell command
+(defun ser/browse-dired ()
+  "Run explorer on the directory of the current buffer."
+   (interactive)
+   (shell-command
+    (concat "explorer "
+     (replace-regexp-in-string "/" "\\"
+      (file-name-directory (expand-file-name default-directory)) t t))))
+
 (eval-after-load 'dired
   '(progn
      (defhydra hydra-dired (:color blue)
@@ -393,7 +402,8 @@
        ("cf" my-dired-create-file "create file")
        ("mv" diredp-do-move-recursive "mv")
        ("mk" dired-create-directory "mkdir")
-       ("q" nil "Bye")
+       ("b"  ser/browse-dired "browse")
+       ("q"  nil "Bye")
        ("SPC" nil))))
 
 (defun dired-mode-hook-hydra-setup ()
