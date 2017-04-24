@@ -69,7 +69,8 @@
                               (powerline-arrow-left face1 nil)
                               (powerline-raw " ")
                               (powerline-raw "%6p" nil 'r)
-                              (powerline-hud face2 face1)))
+                              ;;(powerline-hud face2 face1)
+                              ))
                         (center (list
                                  (powerline-raw " " face1)
                                  (powerline-arrow-right face1 face2)
