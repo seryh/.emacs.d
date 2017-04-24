@@ -16,6 +16,22 @@
     (concat eol)
     ))
 
+
+(defun set-my-face ()
+  (set-face-background 'mode-line "#ff1493")
+  (set-face-foreground 'mode-line "#ffffff")
+  (set-face-background 'powerline-active1 "#1a1a1a")
+  (set-face-foreground 'powerline-active1 "#ffffff")
+  (set-face-background 'powerline-active2 "#1a1a1a")
+  (set-face-foreground 'powerline-active2 "#ffffff")
+
+  (set-face-background 'mode-line-inactive "#1a1a1a")
+  (set-face-foreground 'mode-line-inactive "#cdc9c9")
+  
+  )
+
+(set-my-face)
+
 (setq-default mode-line-format
               '("%e"
                 (:eval
@@ -23,6 +39,7 @@
                         (face1 (if active 'powerline-active1 'powerline-inactive1))
                         (face2 (if active 'powerline-active2 'powerline-inactive2))
                         (lhs (list
+                              
                               (powerline-raw "%*" nil 'l)
                               ;; (powerline-buffer-size nil 'l)
                               (powerline-buffer-id nil 'l)
@@ -60,7 +77,8 @@
                                  (powerline-raw " :" face2)
                                  (powerline-minor-modes face2 'l)
                                  (powerline-raw " " face2)
-                                 (powerline-arrow-left face2 face1))))
+                                 (powerline-arrow-left face2 face1)
+                                 )))
 
                    (concat
                    (powerline-render lhs)
