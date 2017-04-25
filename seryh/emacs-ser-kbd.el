@@ -331,16 +331,20 @@
 
 (defhydra hydra-seryh-menu (:color pink :columns 4 :hint nil)
   "
-  ^Mode^             ^Tools^           ^Actions^          ^Search
-  ^^^^^^^^-----------------------------------------------------------------
-  _1_: RGB-show      _b_: bookmark    _u_: untab       _;_: region
-  _2_: line-show     _g_: GIT         _c_: copy-line   _f_: files
-  _w_: whitespace    _t_: gulp        _d_: duble-line  _r_: replace 
+  ^Mode^             ^Tools^           ^Actions^          ^Search             ^JS          
+  ^^^^^^^^-------------------------------------------------------------------------------------------------
+  _1_: RGB-show      _b_: bookmark    _u_: untab       _;_: region         _3_: indium-scratch         
+  _2_: line-show     _g_: GIT         _c_: copy-line   _f_: files          _4_: indium-connect-to-chrome 
+  _w_: whitespace    _t_: gulp        _d_: duble-line  _r_: replace               
   _l_: trun-lines    _i_: imenu"
   
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
   ("1" ser/hRGB nil   :color blue)    ;; подстветка #RGB
   ("2" linum-mode nil :color blue)
+  
+  ("3" indium-scratch nil :color blue)
+  ("4" indium-connect-to-chrome nil :color blue)
+  
   (";" iedit-mode nil :color blue)
   ("w" whitespace-mode nil :color blue)
   ("b" hydra-bookmark/body nil :color blue)

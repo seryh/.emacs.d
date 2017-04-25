@@ -1,3 +1,10 @@
+;; js mode conf
+
+
+;; example
+;; https://github.com/CSRaghunandan/.emacs.d/blob/b269a0c63e34c5bd2c1d7f19cb40f9c7bd2e1255/setup-files/setup-js.el
+
+
 (use-package js2-mode
   :ensure t
   :init
@@ -47,6 +54,14 @@
               ))
   
   )
+
+
+
+;; indium: javascript awesome development environment
+;; https://github.com/NicolasPetton/indium
+(use-package indium
+  :ensure t
+  :config (add-hook 'js2-mode-hook 'indium-interaction-mode))
 
 ;;(use-package color-identifiers-mode
 ;;  :ensure t
