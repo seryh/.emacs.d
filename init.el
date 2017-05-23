@@ -458,3 +458,4 @@
 (load custom-file)
 
 
+(put 'narrow-to-region 'disabled nil)
