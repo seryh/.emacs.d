@@ -101,7 +101,7 @@
     aggressive-indent
     
     hydra
-    request
+    ;; request
     xml
     use-package
     yasnippet

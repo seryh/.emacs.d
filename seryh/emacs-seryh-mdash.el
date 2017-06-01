@@ -1,6 +1,6 @@
 ;; http://mdash.ru
-
-(require 'request)
+;;(require 'request)
+(load (ser/get-config-dir "seryh/request/request.el"))
 (require 'xml)
 
 (defun decode-entities (html)
@@ -15,13 +15,19 @@
     (request
      "http://mdash.ru/api.v1.php?Text.paragraphs=off"
      :type "POST"
-     :data (concat "text=" (decode-entities o-text))
+     ;;:data (concat "text=" (decode-entities o-text))
+     :data (concat "text=" o-text)
      :parser 'json-read
-     :success (function*
-               (lambda (&key data &allow-other-keys)
-                 (insert (assoc-default 'result data)))))))
+     :success
+     (cl-function
+      (lambda (&key data &allow-other-keys)
+        (insert (assoc-default 'result data))
+        )))))
 
 ;; kdb
 ;;(define-prefix-command 'seryh-menu)
 ;;(global-set-key "\M-m" 'seryh-menu)
 ;;(define-key seryh-menu "p" 'ser/pretty-text)
+
+
+
