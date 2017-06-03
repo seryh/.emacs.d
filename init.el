@@ -55,8 +55,12 @@
 ;; System-type definition
 (defun system-is-linux()
   (string-equal system-type "gnu/linux"))
+
 (defun system-is-windows()
   (string-equal system-type "windows-nt"))
+
+(defun system-is-mac()
+  (string-equal system-type "darwin"))
 
 (setq user-full-name "Seryh Oleg"
       user-mail-address "o.seryh@gmail.com")
@@ -213,6 +217,11 @@
 
 ;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
+
+(when (system-is-mac)
+  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
+  )
+
 (epa-file-enable)
 
 
