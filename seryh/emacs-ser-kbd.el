@@ -206,6 +206,7 @@
 ;; (global-set-key (kbd "<M-up>") 'windmove-up)            
 ;; (global-set-key (kbd "<M-down>") 'windmove-down)       
 (global-set-key (kbd "<scroll>") 'other-window)
+(global-set-key (kbd "<Scroll_Lock>") 'other-window)
 
 ;; Swap current buffer with buffer in direction of arrow
 (global-set-key (kbd "C-x t <right>") 'buf-move-right)
