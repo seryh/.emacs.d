@@ -25,6 +25,15 @@
                        "describe" "it" "expect" "before" "after"))
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+
+  (use-package rjsx-mode
+    :ensure t
+    :init
+    (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+    (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
+    (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
+    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode)))
   
   (defun my-kbd-config ()
 
