@@ -135,6 +135,22 @@
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
 
+
+(defmacro with-system (type &rest body)
+  "Evaluate BODY if `system-type' equals TYPE."
+  (declare (indent defun))
+  `(when (eq system-type ',type)
+     ,@body))
+
+(with-system gnu/linux
+  (set-face-attribute 'default nil
+                      :family "Source Code Pro"
+                      :height 104
+                      :weight 'normal
+                      :width 'normal)
+  )
+
+
 (setq which-key-idle-delay 1.0)
 (setq which-key-separator " → " )
 
