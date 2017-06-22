@@ -10,6 +10,8 @@
   :init
   (setq js-basic-indent 2)
   (setq js2-strict-inconsistent-return-warning nil)
+  (setq js2-strict-missing-semi-warning nil)
+  (setq js2-missing-semi-one-line-override nil)
   (setq truncate-lines 0)
   (setq-default
    js2-basic-indent 2
