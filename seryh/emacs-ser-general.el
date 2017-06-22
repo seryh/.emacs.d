@@ -197,6 +197,7 @@
                ("web"  (or
                         (mode . scss-mode)
                         (mode . js2-mode)
+                        (mode . rjsx-mode)
                         (mode . web-mode)))
                ("emacs" (or
                          (name . "^\\*.+\*$")))
