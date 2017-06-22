@@ -77,6 +77,9 @@
   :ensure t
   :config (add-hook 'js2-mode-hook 'indium-interaction-mode))
 
+(use-package json-mode
+  :ensure t)
+
 ;;(use-package color-identifiers-mode
 ;;  :ensure t
 ;;  :init
