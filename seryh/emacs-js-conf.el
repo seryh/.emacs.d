@@ -12,6 +12,9 @@
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-missing-semi-one-line-override nil)
+  (setq js2-strict-trailing-comma-warning nil)
+  (setq js2-mode-show-strict-warnings nil)
+
   (setq truncate-lines 0)
   (setq-default
    js2-basic-indent 2
