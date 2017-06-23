@@ -4,6 +4,27 @@
 ;; example
 ;; https://github.com/CSRaghunandan/.emacs.d/blob/b269a0c63e34c5bd2c1d7f19cb40f9c7bd2e1255/setup-files/setup-js.el
 
+(with-system gnu/linux
+  
+  ;; (use-package ac-js2
+  ;;   :ensure t)
+
+  ;; автокомплит для js нуждается в npm install -g tern
+  (use-package tern
+    :ensure t)
+  
+  (use-package tern-auto-complete
+    :ensure t)
+  
+  (use-package color-identifiers-mode
+    :ensure t
+    :init
+    (add-hook 'js2-mode-hook 'color-identifiers-mode)
+    (add-hook 'rjsx-mode-hook 'color-identifiers-mode)
+    )
+  )
+
+
 
 (use-package js2-mode
   :ensure t
@@ -55,8 +76,11 @@
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
               
-              ;;(tern-mode t) 
-              ;;(ac-js2-mode t)
+              (with-system gnu/linux
+                (tern-mode t) 
+                ;;(ac-js2-mode t)
+                )
+
               (push '("function" . ?λ) prettify-symbols-alist)
               
               ;;(push '("!=" . ?≠) prettify-symbols-alist)
@@ -79,8 +103,3 @@
 
 (use-package json-mode
   :ensure t)
-
-;;(use-package color-identifiers-mode
-;;  :ensure t
-;;  :init
-;;  (add-hook 'js2-mode-hook 'color-identifiers-mode))

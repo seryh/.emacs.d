@@ -13,6 +13,11 @@
 
 (set-face-attribute 'default nil :height 100)
 
+(with-system gnu/linux
+
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin"))))
+
 (when (system-is-windows)
   
   ;;(setq default-directory "C:\\Users\\Seryh\\Downloads")
@@ -135,12 +140,6 @@
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
 
-
-(defmacro with-system (type &rest body)
-  "Evaluate BODY if `system-type' equals TYPE."
-  (declare (indent defun))
-  `(when (eq system-type ',type)
-     ,@body))
 
 (with-system gnu/linux
   (set-face-attribute 'default nil

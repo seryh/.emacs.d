@@ -52,6 +52,12 @@
 ;; -------------------------------------------------------------
 
 
+(defmacro with-system (type &rest body)
+  "Evaluate BODY if `system-type' equals TYPE."
+  (declare (indent defun))
+  `(when (eq system-type ',type)
+     ,@body))
+
 ;; System-type definition
 (defun system-is-linux()
   (string-equal system-type "gnu/linux"))
