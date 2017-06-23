@@ -75,7 +75,7 @@
               (js2-imenu-extras-mode t)
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
-              
+              (rainbow-delimiters-mode t)
               (with-system gnu/linux
                 (tern-mode t) 
                 ;;(ac-js2-mode t)
