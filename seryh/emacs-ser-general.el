@@ -14,7 +14,7 @@
 (set-face-attribute 'default nil :height 100)
 
 (with-system gnu/linux
-
+  (setq frame-title-format "%f")
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin"))))
 
