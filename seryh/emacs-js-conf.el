@@ -61,7 +61,8 @@
     (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
     (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
     (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
-    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode)))
+    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
+    (setq js2-basic-offset 2))
   
   (defun my-kbd-config ()
 
@@ -73,6 +74,7 @@
 
   (add-hook 'js2-mode-hook
             (lambda ()
+              (setq js2-basic-offset 2)
               (hs-minor-mode t)            ;; hide/show
               (js2-imenu-extras-mode t)
               ;;(aggressive-indent-mode t)
@@ -105,3 +107,5 @@
 
 (use-package json-mode
   :ensure t)
+
+
