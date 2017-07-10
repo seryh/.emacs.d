@@ -286,6 +286,7 @@
 (load (ser/get-config-dir "seryh/emacs-powerline-conf"))
 ;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 
+
 (require 'gulpjs)
 (require 'auto-complete)
 
@@ -306,6 +307,7 @@
 
                 ("\\.scss$". scss-mode)
                 
+                ("\\.conf$". conf-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
                 
@@ -313,6 +315,8 @@
                 (".emacs". emacs-lisp-mode))))
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
+
+(load (ser/get-config-dir "seryh/emacs-go-conf.el"))
 
 ;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

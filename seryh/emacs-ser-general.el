@@ -193,6 +193,7 @@
       (quote (("default"
                ("dired" (mode . dired-mode))
                ("org"   (mode . org-mode))
+               ("golang" (mode . go-mode))
                ("web"  (or
                         (mode . scss-mode)
                         (mode . js2-mode)
