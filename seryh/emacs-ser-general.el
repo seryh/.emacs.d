@@ -194,6 +194,7 @@
                ("dired" (mode . dired-mode))
                ("org"   (mode . org-mode))
                ("golang" (mode . go-mode))
+               ("php" (mode . php-mode))
                ("web"  (or
                         (mode . scss-mode)
                         (mode . js2-mode)
