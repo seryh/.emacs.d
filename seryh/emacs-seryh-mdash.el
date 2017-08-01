@@ -24,6 +24,14 @@
         (insert (assoc-default 'result data))
         )))))
 
+
+(defun ser/php-gettext (start end)
+  (interactive "r")
+  (let ((o-text (buffer-substring start end)))
+    (kill-region start end)
+    (insert (concat "<?= __(\"" o-text "\") ?>") )
+    ))
+
 ;; kdb
 ;;(define-prefix-command 'seryh-menu)
 ;;(global-set-key "\M-m" 'seryh-menu)

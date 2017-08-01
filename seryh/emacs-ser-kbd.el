@@ -339,7 +339,8 @@
   _1_: RGB-show      _b_: bookmark    _u_: untab       _;_: region         _3_: indium-scratch         
   _2_: line-show     _g_: GIT         _c_: copy-line   _f_: files          _4_: indium-connect-to-chrome 
   _w_: whitespace    _t_: gulp        _d_: duble-line  _r_: replace               
-  _l_: trun-lines    _i_: imenu       _p_: pretty-region"
+  _l_: trun-lines    _i_: imenu       _p_: pretty-region
+                                  _o_: php-gettext-region"
   
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
   ("1" ser/hRGB nil   :color blue)    ;; подстветка #RGB
@@ -361,6 +362,7 @@
   ("d" ser/duplicate-line    nil :color blue)
   ("i" imenu                 nil :color blue)
   ("p" ser/pretty-text       nil :color blue)
+  ("o" ser/php-gettext       nil :color blue)
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
 
@@ -376,6 +378,7 @@
   ("в" ser/duplicate-line    nil :color blue)
   ("ш" imenu                 nil :color blue)
   ("з" ser/pretty-text       nil :color blue)
+  ("щ" ser/php-gettext       nil :color blue)
   ("ч" save-buffers-kill-terminal nil)
   ("й" nil)
   
