@@ -5,11 +5,12 @@
   :mode "\\.php?$"
   :init
   (add-hook 'php-mode-hook (lambda ()
-                                 ;;(paredit-mode t)
-                                 (company-mode t)
-                                 (hs-minor-mode t) ;;show/hide block
-                                 ;;(aggressive-indent-mode t)
-                                 ))
+                             ;;(paredit-mode t)
+
+                             (company-mode t)
+                             (hs-minor-mode t) ;;show/hide block
+                             ;;(aggressive-indent-mode t)
+                             ))
 
 
   )

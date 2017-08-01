@@ -137,7 +137,7 @@
     rainbow-delimiters
     
     ido           ;; интерактивное управление буферами и файлами;
-    ido-ubiquitous
+
     ido-vertical-mode
     smex
     auto-indent-mode
@@ -242,7 +242,7 @@
         "*.+ output*" "*TeX Help*"))
 (setq ido-ignore-files '("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"))
 (require 'ido)
-(require 'ido-ubiquitous)
+
 (require 'ido-vertical-mode)
 
 (require 'smex) ; Not needed if you use package.el
@@ -316,7 +316,7 @@
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-go-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
+;;(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
 
 ;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -393,9 +393,9 @@
       (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
       
-      ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode)) move to php-mode
-      ;; (setq web-mode-engines-alist
-      ;;       '(("php" . "\\.phtml\\'")))
+      (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+      (setq web-mode-engines-alist
+            '(("php" . "\\.phtml\\'")))
 
       (setq web-mode-engines-alist
             '(("\\.phtml\\'")))
