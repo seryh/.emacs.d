@@ -265,6 +265,10 @@
   (progn
     (yas/load-directory "~/.emacs.d/snippets")))
 
+
+(use-package general
+  :ensure t)
+
 ;; load concrete packages
 (add-to-list 'load-path ".")
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
