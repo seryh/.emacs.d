@@ -140,7 +140,6 @@
 
     ido-vertical-mode
     smex
-    auto-indent-mode
     
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
@@ -259,13 +258,6 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; ------------------------------------------------------- [ auto-indent ]
-;; (setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files
-(setq auto-indent-key-for-end-of-line-then-newline "<M-return>")
-(setq auto-indent-key-for-end-of-line-insert-char-then-newline "<C-M-return>")
-(require 'auto-indent-mode)
-(auto-indent-global-mode)
-(setq auto-indent-indent-style 'conservative)
 
 ;;(setq ac-js2-evaluate-calls t)
 (require 'yasnippet)
@@ -316,7 +308,7 @@
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-go-conf.el"))
-;;(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
+(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
 
 ;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -393,9 +385,9 @@
       (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
       
-      (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
-      (setq web-mode-engines-alist
-            '(("php" . "\\.phtml\\'")))
+      ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+      ;; (setq web-mode-engines-alist
+      ;;       '(("php" . "\\.phtml\\'")))
 
       (setq web-mode-engines-alist
             '(("\\.phtml\\'")))
