@@ -1,6 +1,7 @@
 (general-define-key :keymaps 'php-mode-map
                     "M-," (defhydra hydra-php (:hint nil :color blue :exit t :columns 4)
                             "PHP Helper"
+                            ("p" psysh "psysh-repl")
                             ;; TODO
                             ;; ("]" ac-php-find-symbol-at-point "find-symbol-at-point")
                             ;; ("t" ac-php-location-stack-back "location-stack-back")
@@ -12,6 +13,9 @@
   :ensure t)
 
 (use-package ac-php
+  :ensure t)
+
+(use-package psysh
   :ensure t)
 
 (use-package company-php
