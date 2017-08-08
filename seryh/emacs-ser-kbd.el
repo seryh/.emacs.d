@@ -353,7 +353,7 @@
   ("w" whitespace-mode nil :color blue)
   ("b" hydra-bookmark/body nil :color blue)
   ("u" untabify            nil :color blue) ;; убрать табы
-  ("f" helm-find-files     nil :color blue)
+  ("f" helm-find           nil :color blue)
   ("c" ser/copy-line       nil :color blue)
   ("g" magit-status        nil :color blue)
   ("r" replace-string      nil :color blue)
@@ -369,7 +369,7 @@
   ;; русская раскладка
   ("и" hydra-bookmark/body nil :color blue)
   ("г" untabify            nil :color blue) ;; убрать табы
-  ("а" helm-find-files     nil :color blue)
+  ("а" helm-find           nil :color blue)
   ("с" ser/copy-line       nil :color blue)
   ("п" magit-status        nil :color blue)
   ("к" replace-string      nil :color blue)

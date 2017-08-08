@@ -18,6 +18,10 @@
 (use-package psysh
   :ensure t)
 
+
+(use-package geben
+  :ensure t)
+
 (use-package company-php
   :ensure t)
 
