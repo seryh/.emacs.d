@@ -64,20 +64,14 @@
   (move-line (if (null n) 1 n)))
 
 
-(bind-keys*
-
- ("M-(" . move-backward-paren)
- ("M-)" . move-forward-paren)
- ("M-[" . move-backward-sqrParen)
- ("M-]" . move-forward-sqrParen)
- ("M-{" . move-backward-curlyParen)
- ("M-}" . move-forward-curlyParen)
- ("M-f" . delete-forward-char)  ;; Delete
- ("M-d" . delete-backward-char) ;; Backspace
- ("M-F" . kill-word)            ;; Delete
- ("M-D" . backward-kill-word)   ;; Backspace
- ("M-n" . reindent-then-newline-and-indent) ;; Enter
- ("M-SPC" . set-mark-command))
+;; todo move to hydra
+;; (bind-keys*
+;;  ("M-(" . move-backward-paren)
+;;  ("M-)" . move-forward-paren)
+;;  ("M-[" . move-backward-sqrParen)
+;;  ("M-]" . move-forward-sqrParen)
+;;  ("M-{" . move-backward-curlyParen)
+;;  ("M-}" . move-forward-curlyParen))
 
 ;; семантическое выделение региона
 (use-package expand-region
