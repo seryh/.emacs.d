@@ -12,6 +12,7 @@
 
 
 (set-face-attribute 'default nil :height 100)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (with-system gnu/linux
   (setq frame-title-format "%f")
