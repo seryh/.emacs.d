@@ -250,7 +250,6 @@
 (global-magit-file-mode t)
 (ido-mode t)
 (ido-everywhere 1)
-(ido-ubiquitous-mode 1)
 (ido-vertical-mode 1)
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
 (global-set-key (kbd "M-x") 'smex)
