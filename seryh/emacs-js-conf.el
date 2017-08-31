@@ -76,7 +76,7 @@
             (lambda ()
               (setq js2-basic-offset 2)
               (hs-minor-mode t)            ;; hide/show
-              (paredit-mode t)
+              ;;(paredit-mode t) ;; херит C-j
               (js2-imenu-extras-mode t)
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
