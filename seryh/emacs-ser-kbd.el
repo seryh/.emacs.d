@@ -54,6 +54,19 @@
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
+
+(defun ser/my-put-file-name-on-clipboard ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
+
 ;;(defun find-project-file (file)
 ;;  (find-file (expand-file-name file (projectile-project-root))))
 
@@ -340,7 +353,8 @@
   _2_: line-show     _g_: GIT         _c_: copy-line   _f_: files          _4_: indium-connect-to-chrome 
   _w_: whitespace    _t_: gulp        _d_: duble-line  _r_: replace               
   _l_: trun-lines    _i_: imenu       _p_: pretty-region
-                                  _o_: php-gettext-region"
+                                  _o_: php-gettext-region
+                                  _C_: copy-path"
   
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
   ("1" ser/hRGB nil   :color blue)    ;; подстветка #RGB
@@ -355,6 +369,7 @@
   ("u" untabify            nil :color blue) ;; убрать табы
   ("f" helm-find           nil :color blue)
   ("c" ser/copy-line       nil :color blue)
+  ("C" ser/my-put-file-name-on-clipboard nil :color blue)
   ("g" magit-status        nil :color blue)
   ("r" replace-string      nil :color blue)
   ("l" toggle-truncate-lines nil :color blue)
@@ -371,6 +386,7 @@
   ("г" untabify            nil :color blue) ;; убрать табы
   ("а" helm-find           nil :color blue)
   ("с" ser/copy-line       nil :color blue)
+  ("С" ser/my-put-file-name-on-clipboard nil :color blue)
   ("п" magit-status        nil :color blue)
   ("к" replace-string      nil :color blue)
   ("д" toggle-truncate-lines nil :color blue)
@@ -402,8 +418,9 @@
   "Run explorer on the directory of the current buffer."
    (interactive)
    (shell-command
-    (concat "explorer "
-     (replace-regexp-in-string "/" "\\"
+    (concat "browse "
+     ;; TODO: if windows sysmtem use replace-regexp-in-string "/" "\\"
+     (replace-regexp-in-string "/" "\/"
       (file-name-directory (expand-file-name default-directory)) t t))))
 
 (eval-after-load 'dired
