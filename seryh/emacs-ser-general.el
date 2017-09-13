@@ -196,16 +196,23 @@
                ("org"   (mode . org-mode))
                ("golang" (mode . go-mode))
                ("php" (mode . php-mode))
+               ("JavaScript" (or
+                              (mode . js2-mode)
+                              (mode . rjsx-mode)))
+                              
+               ("scss" (or
+                        (mode . scss-mode)))
+               
                ("web"  (or
-                        (mode . scss-mode)
-                        (mode . js2-mode)
-                        (mode . rjsx-mode)
                         (mode . web-mode)))
+               
                ("emacs" (or
                          (name . "^\\*.+\*$")))
                ("clojure" (or
                            (mode . clojure-mode)
                            (mode . clojurescript-mode)))))))
+
+(setq ibuffer-show-empty-filter-groups nil)
 
 (add-hook 'ibuffer-mode-hook
           (lambda ()
