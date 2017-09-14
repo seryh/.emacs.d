@@ -444,3 +444,7 @@
 (global-set-key (kbd "C-f") 'helm-swoop)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
+
+;; --------------------------------------------------------[ multicursor ]
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
