@@ -120,8 +120,11 @@
     redo+
     
     helm-swoop
-  
+
+    ;; git
     magit
+    diff-hl
+    
     powerline
     moe-theme
     cl-lib
@@ -245,9 +248,22 @@
 (require 'ido-vertical-mode)
 
 (require 'smex) ; Not needed if you use package.el
-(require 'magit)
 
+;; ----------- [ magit ]
+(require 'magit)
 (global-magit-file-mode t)
+
+(with-system gnu/linux
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (global-diff-hl-mode 1)
+  )
+
+(when (eq system-type 'darwin)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (global-diff-hl-mode 1)
+  )
+;; -------------------------------
+
 (ido-mode t)
 (ido-everywhere 1)
 (ido-vertical-mode 1)
