@@ -336,6 +336,8 @@
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-go-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-php-conf.el"))
+(with-system gnu/linux
+(load (ser/get-config-dir "seryh/emacs-docker-conf.el")))
 
 ;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
