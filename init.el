@@ -329,6 +329,10 @@
                 ("\\.conf$". conf-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
+
+                ("\\.yaml$". conf-mode)
+                ("\\.yml$". conf-mode)
+                ("Makefile$". makefile-mode)
                 
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
