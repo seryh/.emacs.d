@@ -446,7 +446,7 @@
 
 
 ;; ------------------------------------ [ autopair-mode ] -- автозакрытие скобок
-(defvar autopair-modes '(scss-mode web-mode js2-mode emacs-lisp-mode))
+(defvar autopair-modes '(scss-mode web-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode) 

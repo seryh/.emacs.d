@@ -72,9 +72,11 @@
 
     )
 
+
   (add-hook 'js2-mode-hook
             (lambda ()
               (setq js2-basic-offset 2)
+              (autopair-mode t)
               (hs-minor-mode t)            ;; hide/show
               ;;(paredit-mode t) ;; херит C-j
               (js2-imenu-extras-mode t)
@@ -94,6 +96,12 @@
               
               (prettify-symbols-mode 1)
 
+              ))
+
+  
+  (add-hook 'rjsx-mode-hook
+            (lambda ()
+              (autopair-mode 0)
               ))
   
   )
