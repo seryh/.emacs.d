@@ -1,8 +1,7 @@
 (require 'package)
 
 ;; OLD package settings
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; (when (< emacs-major-version 24)
 ;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -124,8 +123,8 @@
     use-package
     yasnippet
     
-    bookmark+
-    redo+
+    ;;bookmark+
+    ;;redo+
     
     helm-swoop
 
@@ -136,10 +135,10 @@
     powerline
     moe-theme
     cl-lib
-    etags-table
+    ;;etags-table
     org-bullets
     
-    hl-line+
+    ;;hl-line+
     
     ;; clojure
     cider         
@@ -221,15 +220,17 @@
 (helm-mode 1)
 
 ;; ------------------------------------------------------- [ bookmark ]
-(require 'bookmark+)
+;;(require 'bookmark+)
 ;;(bmkp-toggle-auto-light-when-jump)
 ;;(bmkp-toggle-auto-light-when-set)
-(require 'redo+)
+
+(load (ser/get-config-dir "seryh/redo+.el"))
+(load (ser/get-config-dir "seryh/hl-line+.el"))
 
 ;;(ac-js2-mode t)
 
-(require 'etags-table)
-(setq etags-table-search-up-depth 5)
+;;(require 'etags-table)
+;;(setq etags-table-search-up-depth 5)
 
 ;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
@@ -340,6 +341,7 @@
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-go-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-php-conf.el"))
+(load (ser/get-config-dir "seryh/emacs-ser-tide.el"))
 (with-system gnu/linux
 (load (ser/get-config-dir "seryh/emacs-docker-conf.el")))
 
