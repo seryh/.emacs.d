@@ -7,6 +7,7 @@
 
   )
 
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -15,16 +16,17 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (my-kbd-config)
+  ;;(ng2-mode)
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+(use-package tide :ensure t)
 
-
-
-(use-package tide
+(use-package ng2-mode
   :ensure t
+  :mode ("\\.ts$" . ng2-mode)
   :init
   (progn
 
@@ -32,14 +34,19 @@
     (setq company-tooltip-align-annotations t)
 
     ;; formats the buffer before saving
-    (add-hook 'before-save-hook 'tide-format-before-save)
-
+    ;;(add-hook 'before-save-hook 'tide-format-before-save)
+    
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
-
+    
     (setq typescript-indent-level 2)
     (setq tide-format-options '(:placeOpenBraceOnNewLineForFunctions t :placeOpenBraceOnNewLineForControlBlocks t))
     (setq company-tooltip-align-annotations t)
 
-    ))
+    )
+
+  )
+
+
+
 
 (provide 'emacs-tide-conf)
