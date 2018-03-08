@@ -196,7 +196,10 @@
                ("org"   (mode . org-mode))
                ("golang" (mode . go-mode))
                ("php" (mode . php-mode))
-               ("TypeScript" (mode . typescript-mode))
+               ("TypeScript" (or
+                              (mode . typescript-mode)
+                              (mode . ng2-ts-mode)
+                              ))
                ("JavaScript" (or
                               (mode . js2-mode)
                               (mode . rjsx-mode)))
