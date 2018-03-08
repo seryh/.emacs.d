@@ -1,4 +1,12 @@
 
+(defun my-kbd-config ()
+
+  ;; фикс перезаписи буфера при <backspace>
+  (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+  ;;(local-set-key (kbd "C-j") 'yas-expand)
+
+  )
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -6,10 +14,14 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
+  (my-kbd-config)
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
   (company-mode +1))
+
+
+
 
 (use-package tide
   :ensure t
@@ -23,6 +35,10 @@
     (add-hook 'before-save-hook 'tide-format-before-save)
 
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+    (setq typescript-indent-level 2)
+    (setq tide-format-options '(:placeOpenBraceOnNewLineForFunctions t :placeOpenBraceOnNewLineForControlBlocks t))
+    (setq company-tooltip-align-annotations t)
 
     ))
 
