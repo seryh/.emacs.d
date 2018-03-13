@@ -20,6 +20,8 @@
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
+  (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+  (local-set-key (kbd "C-j") 'yas-expand)
   (company-mode +1))
 
 (use-package tide :ensure t)

@@ -55,15 +55,7 @@
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 
-  (use-package rjsx-mode
-    :ensure t
-    :init
-    (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-    (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
-    (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
-    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
-    (setq js2-basic-offset 2))
-  
+   
   (defun my-kbd-config ()
 
     ;; фикс перезаписи буфера при <backspace>
@@ -72,7 +64,17 @@
 
     )
 
-
+  
+  (use-package rjsx-mode
+    :ensure t
+    :init
+    
+    (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+    (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
+    (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
+    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
+    (setq js2-basic-offset 2))
+  
   (add-hook 'js2-mode-hook
             (lambda ()
               (setq js2-basic-offset 2)
@@ -102,6 +104,8 @@
   (add-hook 'rjsx-mode-hook
             (lambda ()
               (autopair-mode 0)
+              (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+              (local-set-key (kbd "C-j") 'yas-expand)
               ))
   
   )
