@@ -40,7 +40,7 @@
     
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
     
-    (setq typescript-indent-level 2)
+    (setq typescript-indent-level 4)
     (setq tide-format-options '(:placeOpenBraceOnNewLineForFunctions t :placeOpenBraceOnNewLineForControlBlocks t))
     (setq company-tooltip-align-annotations t)
 

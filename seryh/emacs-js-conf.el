@@ -29,8 +29,8 @@
 (use-package js2-mode
   :ensure t
   :init
-  (setq js-basic-indent 2)
-  (setq js2-basic-offset 2)
+  (setq js-basic-indent 4)
+  (setq js2-basic-offset 4)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-missing-semi-one-line-override nil)
@@ -40,8 +40,8 @@
   (setq truncate-lines 0)
   
   (setq-default
-   js2-basic-indent 2
-   js2-basic-offset 2
+   js2-basic-indent 4
+   js2-basic-offset 4
    js2-auto-indent-p t
    js2-cleanup-whitespace t
    js2-enter-indents-newline t
@@ -77,7 +77,7 @@
   
   (add-hook 'js2-mode-hook
             (lambda ()
-              (setq js2-basic-offset 2)
+              (setq js2-basic-offset 4)
               (autopair-mode t)
               (hs-minor-mode t)            ;; hide/show
               ;;(paredit-mode t) ;; херит C-j

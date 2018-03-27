@@ -225,12 +225,14 @@
 ;;(bmkp-toggle-auto-light-when-set)
 
 (load (ser/get-config-dir "seryh/redo+.el"))
+(load (ser/get-config-dir "seryh/pug-mode.el"))
 (load (ser/get-config-dir "seryh/hl-line+.el"))
 
 ;;(ac-js2-mode t)
 
 ;;(require 'etags-table)
 ;;(setq etags-table-search-up-depth 5)
+
 
 ;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
@@ -330,6 +332,7 @@
                 ("\\.conf$". conf-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
+                ("\\.pug$". pug-mode)
 
                 ("\\.yaml$". conf-mode)
                 ("\\.yml$". conf-mode)
