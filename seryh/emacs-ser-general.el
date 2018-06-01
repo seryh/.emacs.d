@@ -264,3 +264,19 @@
          '(85 . 50) '(100 . 100)))))
 
 (global-set-key (kbd "C-c t") 'toggle-transparency)
+
+
+
+
+
+(use-package dired-filetype-face
+  :ensure t
+  :init
+  (require 'dired-filetype-face)
+  (deffiletype-face "tstype" "Chartreuse")
+  
+  (deffiletype-face-regexp tstype
+    :regexp "^  -.*\\.\\(ts\\|html\\)$" :type-for-docstring "ts type")
+  
+  (deffiletype-setup "tstype" "tstype")
+)
