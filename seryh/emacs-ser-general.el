@@ -273,10 +273,15 @@
   :ensure t
   :init
   (require 'dired-filetype-face)
+  
   (deffiletype-face "tstype" "#FF00FF")
-  
   (deffiletype-face-regexp tstype
-    :regexp "^  -.*\\.\\(ts\\|html\\)$" :type-for-docstring "ts type")
-  
+    :regexp "^  -.*\\.\\(ts\\)$" :type-for-docstring "ts type")
   (deffiletype-setup "tstype" "tstype")
+
+
+  (deffiletype-face "webtype" "#FFFF00")
+  (deffiletype-face-regexp webtype
+    :regexp "^  -.*\\.\\(scss\\|html\\)$" :type-for-docstring "web type")
+  (deffiletype-setup "webtype" "webtype")
 )
