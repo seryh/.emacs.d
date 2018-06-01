@@ -266,7 +266,19 @@
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 
-
+(defun ser/grep (pattern extensions dir)
+  (interactive "ssearch for: \nsextensions (use ',' as separated, no *): \nD")
+  (setq includes (mapconcat (lambda (ext)
+                              (concat (format "--include=\*.{%s}" ext)))
+                            (s-split " " extensions)
+                            " "))
+  (setq cmd (format "grep -nR %s %s %s"
+                    includes
+                    pattern
+                    (concat dir "*")))
+  (setq cmd (read-from-minibuffer "run grep like this: " cmd))
+  (compilation-start cmd 'grep-mode)
+  )
 
 
 (use-package dired-filetype-face
