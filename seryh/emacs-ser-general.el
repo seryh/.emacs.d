@@ -273,7 +273,7 @@
   :ensure t
   :init
   (require 'dired-filetype-face)
-  (deffiletype-face "tstype" "Chartreuse")
+  (deffiletype-face "tstype" "#FF00FF")
   
   (deffiletype-face-regexp tstype
     :regexp "^  -.*\\.\\(ts\\|html\\)$" :type-for-docstring "ts type")
