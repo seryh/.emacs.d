@@ -57,10 +57,10 @@
 ;; Show-paren-mode settings
 (show-paren-mode t)                 ;; включить выделение выражений между {},[],()
 ;;(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
-(set-face-background 'show-paren-match-face "purple4")
-(set-face-foreground 'show-paren-match "#def")
+;;(set-face-background 'show-paren-match-face "purple4")
+;;(set-face-foreground 'show-paren-match "#def")
 
-(set-face-background 'fringe "black-5")  ;; gray20 or black-5
+;;(set-face-background 'fringe "black-5")  ;; gray20 or black-5
 
 (setq column-number-mode t)                  ;; Показывать номер текущей колонки
 (setq line-number-mode t)                    ;; Показывать номер текущей строки
@@ -131,21 +131,24 @@
 
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Consolas")
-  
+ (set-face-attribute 'default nil
+                      :family "Source Code Pro"
+                      :height 154
+                      :weight 'normal
+                      :width 'normal)
   ;; WARNING!  Depending on the default font,
   ;; if the size is not supported very well, the frame will be clipped
   ;; so that the beginning of the buffer may not be visible correctly. 
-  (set-face-attribute 'default nil :height 155)
+  (set-face-attribute 'default nil :height 154)
 
-  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  ;;(set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
 
 
 (with-system gnu/linux
   (set-face-attribute 'default nil
                       :family "Source Code Pro"
-                      :height 104
+                      :height 154
                       :weight 'normal
                       :width 'normal)
   )

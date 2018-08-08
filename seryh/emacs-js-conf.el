@@ -10,21 +10,21 @@
   ;;   :ensure t)
 
   ;; автокомплит для js нуждается в npm install -g tern
-  (use-package tern
-    :ensure t)
-  
-  (use-package tern-auto-complete
-    :ensure t)
-  
-  (use-package color-identifiers-mode
-    :ensure t
-    :init
-    (add-hook 'js2-mode-hook 'color-identifiers-mode)
-    (add-hook 'rjsx-mode-hook 'color-identifiers-mode)
-    )
+
   )
 
+(use-package tern
+  :ensure t)
 
+(use-package tern-auto-complete
+  :ensure t)
+
+(use-package color-identifiers-mode
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'color-identifiers-mode)
+  (add-hook 'rjsx-mode-hook 'color-identifiers-mode)
+  )
 
 (use-package js2-mode
   :ensure t
