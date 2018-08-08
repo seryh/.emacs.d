@@ -302,14 +302,14 @@
 (load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-seryh-mdash.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
-(load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
+;;(load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
 ;;(load (ser/get-config-dir "seryh/stab-mode.el"))
 (load (ser/get-config-dir "seryh/emacs-powerline-conf"))
 ;;(load (ser/get-config-dir "seryh/turn-off-messaging.el"))
 
 
-(require 'gulpjs)
+;;(require 'gulpjs)
 (require 'auto-complete)
 
 ;; ------------------------------------------------------- [ Company ]
@@ -351,12 +351,6 @@
 ;; -------------------------- [ org-mode ]
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-src-fontify-natively t)
-
-;; (add-hook 'org-mode-hook 
-;;           (lambda () 
-;;             (drag-stuff-mode -1) 
-;;             (linum-mode -1)))
-
 
 
 (add-hook 'js2-mode-hook
@@ -470,12 +464,6 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (setq cua-enable-cua-keys nil)        ;; disable the overriding of standard Emacs binding by CUA mode
 (transient-mark-mode 1) ;; No region when it is not highlighted
-;;(setq cua-keep-region-after-copy t) ;; оставлять регион после копирования
-;; shift + click select region
-;;(define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
-;;(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
-;;(put 'mouse-set-point 'CUA 'move)
-
 
 ;; ------------------------------------------------- [ input method settings ]
 (defun cfg:reverse-input-method (input-method)
