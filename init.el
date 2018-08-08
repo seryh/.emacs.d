@@ -342,7 +342,7 @@
                 (".emacs". emacs-lisp-mode))))
 
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-go-conf.el"))
+;;(load (ser/get-config-dir "seryh/emacs-go-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-php-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-tide.el"))
 (with-system gnu/linux
@@ -366,14 +366,6 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (company-mode)))
-
-
-(require 'dired-x)
-(setq-default dired-omit-files-p t) ; Buffer-local variable
-(setq dired-omit-files "^#\\|*~\\|^\\.$")
-
-(add-hook 'dired-mode-hook (lambda ()
-                             (hl-line-mode t)))
 
 
 
