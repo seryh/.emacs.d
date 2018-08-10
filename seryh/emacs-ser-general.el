@@ -140,7 +140,7 @@
   ;; if the size is not supported very well, the frame will be clipped
   ;; so that the beginning of the buffer may not be visible correctly. 
   (set-face-attribute 'default nil :height 154)
-
+  (set-face-attribute 'fringe nil :background "#303030" :foreground "#303030")
   ;;(set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
 
