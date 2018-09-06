@@ -94,6 +94,9 @@
 
 (global-set-key (kbd "C-z") 'undo) ;; по умолчанию емакс уходит в бакграунд 
 (global-set-key (kbd "M-z") 'redo)
+(when (eq system-type 'darwin)
+  (global-set-key (kbd "s-w") 'kill-ring-save)
+  )
 
 (defun ser/hRGB ()
   "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer"
