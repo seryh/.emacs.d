@@ -4,14 +4,9 @@
 ;; example
 ;; https://github.com/CSRaghunandan/.emacs.d/blob/b269a0c63e34c5bd2c1d7f19cb40f9c7bd2e1255/setup-files/setup-js.el
 
-(with-system gnu/linux
-  
-  ;; (use-package ac-js2
-  ;;   :ensure t)
+;; автокомплит для js нуждается в npm install -g tern
+(use-package ac-js2 :ensure t)
 
-  ;; автокомплит для js нуждается в npm install -g tern
-
-  )
 
 (use-package tern
   :ensure t)
@@ -85,10 +80,9 @@
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
               (rainbow-delimiters-mode t)
-              (with-system gnu/linux
-                (tern-mode t) 
-                ;;(ac-js2-mode t)
-                )
+              
+              (tern-mode t) 
+              (ac-js2-mode t)
 
               (push '("function" . ?λ) prettify-symbols-alist)
               
@@ -104,6 +98,8 @@
   (add-hook 'rjsx-mode-hook
             (lambda ()
               (autopair-mode 0)
+              (tern-mode t) 
+              (ac-js2-mode t)
               (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
               (local-set-key (kbd "C-j") 'yas-expand)
               ))
