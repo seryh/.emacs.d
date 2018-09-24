@@ -10,6 +10,10 @@
 (use-package flow-minor-mode
   :ensure t)
 
+
+(use-package company-tern
+  :ensure t)
+
 (use-package tern
   :ensure t)
 
@@ -22,6 +26,10 @@
   (add-hook 'js2-mode-hook 'color-identifiers-mode)
   (add-hook 'rjsx-mode-hook 'color-identifiers-mode)
   )
+
+;; (setq ac-js2-evaluate-calls t)
+;; (add-hook 'js2-mode-hook 'ac-js2-setup-auto-complete-mode)
+
 
 (use-package js2-mode
   :ensure t
@@ -82,10 +90,11 @@
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
               (rainbow-delimiters-mode t)
-
+              (company-mode t)
               (flow-js2-mode t)
-              (tern-mode t) 
-              (ac-js2-mode t)
+              (tern-mode t)
+              (company-tern t)
+              ;;(ac-js2-mode t)
 
               (push '("function" . ?λ) prettify-symbols-alist)
               
@@ -102,8 +111,10 @@
             (lambda ()
               (autopair-mode 0)
               (flow-js2-mode t)
-              (tern-mode t) 
-              (ac-js2-mode t)
+              (company-mode t)
+              (tern-mode t)
+              (company-tern t) 
+              ;;(ac-js2-mode t)
               (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
               (local-set-key (kbd "C-j") 'yas-expand)
               ))
@@ -114,9 +125,9 @@
 
 ;; indium: javascript awesome development environment
 ;; https://github.com/NicolasPetton/indium
-(use-package indium
-  :ensure t
-  :config (add-hook 'js2-mode-hook 'indium-interaction-mode))
+;; (use-package indium
+;;   :ensure t
+;;   :config (add-hook 'js2-mode-hook 'indium-interaction-mode))
 
 (use-package json-mode
   :ensure t)
