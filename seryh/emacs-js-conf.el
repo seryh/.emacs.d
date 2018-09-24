@@ -7,6 +7,8 @@
 ;; автокомплит для js нуждается в npm install -g tern
 (use-package ac-js2 :ensure t)
 
+(use-package flow-minor-mode
+  :ensure t)
 
 (use-package tern
   :ensure t)
@@ -80,7 +82,8 @@
               ;;(aggressive-indent-mode t)
               (my-kbd-config)
               (rainbow-delimiters-mode t)
-              
+
+              (flow-js2-mode t)
               (tern-mode t) 
               (ac-js2-mode t)
 
@@ -98,6 +101,7 @@
   (add-hook 'rjsx-mode-hook
             (lambda ()
               (autopair-mode 0)
+              (flow-js2-mode t)
               (tern-mode t) 
               (ac-js2-mode t)
               (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))

@@ -341,9 +341,9 @@
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
 
-
+(load (ser/get-config-dir "flow-js2-mode/flow-js2-mode.el"))
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
-;;(load (ser/get-config-dir "flow-js2-mode/flow-js2-mode.el"))
+
 ;;(load (ser/get-config-dir "flow-js2-mode/flow-js2-test-helpers.el"))
 ;;(load (ser/get-config-dir "seryh/emacs-go-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-php-conf.el"))
