@@ -426,7 +426,7 @@
   "Run explorer on the directory of the current buffer."
    (interactive)
    (shell-command
-    (concat "browse "
+    (concat "open "
      ;; TODO: if windows sysmtem use replace-regexp-in-string "/" "\\"
      (replace-regexp-in-string "/" "\/"
       (file-name-directory (expand-file-name default-directory)) t t))))
