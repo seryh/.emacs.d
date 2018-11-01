@@ -131,7 +131,10 @@
 
 
 (when (eq system-type 'darwin)
- (set-face-attribute 'default nil
+  (setq frame-title-format "%f")
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
+  (set-face-attribute 'default nil
                       :family "Source Code Pro"
                       :height 154
                       :weight 'normal
