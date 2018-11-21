@@ -16,6 +16,7 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (my-kbd-config)
+  (hs-minor-mode t)            ;; hide/show
   ;;(ng2-mode)
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
