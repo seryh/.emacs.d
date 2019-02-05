@@ -41,7 +41,7 @@
   (setq js2-missing-semi-one-line-override nil)
   (setq js2-strict-trailing-comma-warning nil)
   (setq js2-mode-show-strict-warnings nil)
-
+  (setq js2-mode-show-parse-errors nil)
   (setq truncate-lines 0)
   
   (setq-default
