@@ -225,7 +225,7 @@
 ;;(bmkp-toggle-auto-light-when-set)
 
 (load (ser/get-config-dir "seryh/redo+.el"))
-(load (ser/get-config-dir "seryh/pug-mode.el"))
+;;(load (ser/get-config-dir "seryh/pug-mode.el"))
 (load (ser/get-config-dir "seryh/hl-line+.el"))
 
 ;;(ac-js2-mode t)
@@ -332,7 +332,7 @@
                 ("\\.conf$". conf-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
-                ("\\.pug$". pug-mode)
+                ;;("\\.pug$". pug-mode)
 
                 ("\\.yaml$". conf-mode)
                 ("\\.yml$". conf-mode)

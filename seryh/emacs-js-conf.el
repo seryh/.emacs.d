@@ -31,11 +31,13 @@
 ;; (add-hook 'js2-mode-hook 'ac-js2-setup-auto-complete-mode)
 
 
+   
+
 (use-package js2-mode
   :ensure t
   :init
-  (setq js-basic-indent 4)
-  (setq js2-basic-offset 4)
+  (setq js-basic-indent 2)
+  (setq js2-basic-offset 2)
   (setq js2-strict-inconsistent-return-warning nil)
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-missing-semi-one-line-override nil)
@@ -45,8 +47,8 @@
   (setq truncate-lines 0)
   
   (setq-default
-   js2-basic-indent 4
-   js2-basic-offset 4
+   js2-basic-indent 2
+   js2-basic-offset 2
    js2-auto-indent-p t
    js2-cleanup-whitespace t
    js2-enter-indents-newline t
@@ -59,8 +61,6 @@
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-
-   
   (defun my-kbd-config ()
 
     ;; фикс перезаписи буфера при <backspace>
@@ -70,25 +70,14 @@
     )
 
   
-  (use-package rjsx-mode
-    :ensure t
-    :init
-    
-    (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-    (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
-    (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
-    (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
-    (setq js2-basic-offset 2))
-  
   (add-hook 'js2-mode-hook
             (lambda ()
-              (setq js2-basic-offset 4)
+              (setq js2-basic-offset 2)
               (autopair-mode t)
               (hs-minor-mode t)            ;; hide/show
               ;;(paredit-mode t) ;; херит C-j
               (js2-imenu-extras-mode t)
               ;;(aggressive-indent-mode t)
-              (my-kbd-config)
               (rainbow-delimiters-mode t)
               (company-mode t)
               (flow-js2-mode t)
@@ -103,22 +92,11 @@
               ;;(push '("<=" . ?≤) prettify-symbols-alist)
               
               (prettify-symbols-mode 1)
-
-              ))
-
-  
-  (add-hook 'rjsx-mode-hook
-            (lambda ()
-              (autopair-mode 0)
-              (flow-js2-mode t)
-              (company-mode t)
-              (tern-mode t)
-              (company-tern t) 
-              ;;(ac-js2-mode t)
               (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
               (local-set-key (kbd "C-j") 'yas-expand)
+
               ))
-  
+
   )
 
 
@@ -133,3 +111,30 @@
   :ensure t)
 
 
+
+
+(use-package rjsx-mode
+  :ensure t
+  :init
+  
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+  (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("^import React" . rjsx-mode))
+  (setq js2-basic-offset 2)
+
+  
+  
+  (add-hook 'rjsx-mode-hook
+            (lambda ()
+              (autopair-mode 0)
+              (flow-js2-mode t)
+              (company-mode t)
+              (tern-mode t)
+              (company-tern t) 
+              ;;(ac-js2-mode t)
+              (local-set-key (kbd "<backspace>") '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
+              (local-set-key (kbd "C-j") 'yas-expand)
+              ))
+  
+  )
