@@ -27,6 +27,9 @@
 
 (use-package tide :ensure t)
 
+;;(use-package graphql-mode :ensure t)
+
+
 (use-package ng2-mode
   :ensure t
   :mode ("\\.ts$" . ng2-mode)

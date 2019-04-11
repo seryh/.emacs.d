@@ -217,7 +217,7 @@
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)
 
-(helm-mode 1)
+;;(helm-mode 1)
 
 ;; ------------------------------------------------------- [ bookmark ]
 ;;(require 'bookmark+)
