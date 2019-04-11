@@ -275,9 +275,9 @@
   )
 ;; -------------------------------
 
-(ido-mode t)
-(ido-everywhere 1)
-(ido-vertical-mode 1)
+;; (ido-mode t)
+;; (ido-everywhere 1)
+;; (ido-vertical-mode 1)
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
