@@ -1,4 +1,3 @@
-
 (defun my-kbd-config ()
 
   ;; фикс перезаписи буфера при <backspace>
@@ -27,8 +26,14 @@
 
 (use-package tide :ensure t)
 
-;;(use-package graphql-mode :ensure t)
+(use-package graphql-mode :ensure t)
 
+
+(defun my-ng2-ts-mode-before-save-hook ()
+  (when (eq major-mode 'ng2-ts-mode)
+    (whitespace-cleanup)))
+
+(add-hook 'before-save-hook #'my-ng2-ts-mode-before-save-hook)
 
 (use-package ng2-mode
   :ensure t
@@ -41,9 +46,9 @@
 
     ;; formats the buffer before saving
     ;;(add-hook 'before-save-hook 'tide-format-before-save)
-    
+
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
-    
+
     (setq typescript-indent-level 4)
     (setq tide-format-options '(:placeOpenBraceOnNewLineForFunctions t :placeOpenBraceOnNewLineForControlBlocks t))
     (setq company-tooltip-align-annotations t)
