@@ -27,6 +27,10 @@
 
 ;;; Code:
 
+
+(use-package flow-minor-mode
+  :ensure t)
+
 (require 'js2-mode)
 (require 'flow-minor-mode)
 

@@ -141,7 +141,7 @@
     ;;hl-line+
     
     ;; clojure
-    cider         
+    ;; cider         
     paredit
     
     rainbow-delimiters
@@ -299,7 +299,7 @@
 (add-to-list 'load-path ".")
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 ;;(load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
+;;(load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
 (load (ser/get-config-dir "seryh/emacs-seryh-mdash.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 ;;(load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
@@ -340,6 +340,43 @@
                 
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
+
+
+;; ------------------------------------ [ web-mode ]
+(use-package web-mode
+  :ensure t
+  :config
+      (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
+      
+      ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+      ;; (setq web-mode-engines-alist
+      ;;       '(("php" . "\\.phtml\\'")))
+
+      (setq web-mode-engines-alist
+            '(("\\.phtml\\'")))
+      
+      ;; (setq web-mode-ac-sources-alist
+      ;;       '(("css" . (ac-source-css-property))
+      ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+
+      (setq web-mode-enable-auto-closing t)
+  :init
+      (add-hook 'web-mode-hook 
+                (lambda ()
+                  (auto-complete-mode)
+                  (aggressive-indent-mode t)
+                  (hs-minor-mode t) ;; hide/show block C-.
+                  (emmet-mode t)    ;; zencoding-mode
+                  ))
+      )
+
+(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem 
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
+;; ----------------------------------------------------------
+
 
 (load (ser/get-config-dir "flow-js2/flow-js2-mode.el"))
 (load (ser/get-config-dir "seryh/emacs-js-conf.el"))
@@ -403,40 +440,6 @@
   :ensure t
   :config
   (global-hungry-delete-mode))
-
-;; ------------------------------------ [ web-mode ]
-(use-package web-mode
-  :ensure t
-  :config
-      (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
-      
-      ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
-      ;; (setq web-mode-engines-alist
-      ;;       '(("php" . "\\.phtml\\'")))
-
-      (setq web-mode-engines-alist
-            '(("\\.phtml\\'")))
-      
-      ;; (setq web-mode-ac-sources-alist
-      ;;       '(("css" . (ac-source-css-property))
-      ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-
-      (setq web-mode-enable-auto-closing t)
-  :init
-      (add-hook 'web-mode-hook 
-                (lambda ()
-                  (auto-complete-mode)
-                  (aggressive-indent-mode t)
-                  (hs-minor-mode t) ;; hide/show block C-.
-                  (emmet-mode t)    ;; zencoding-mode
-                  ))
-      )
-
-(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem 
-(setq web-mode-enable-current-element-highlight t)
-(setq web-mode-enable-current-column-highlight t)
 
 
 ;; ------------------------------------ [ autopair-mode ] -- автозакрытие скобок
