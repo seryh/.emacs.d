@@ -25,9 +25,9 @@
 (use-package company-php
   :ensure t)
 
-(use-package php-auto-yasnippets
-  :ensure t
-  :commands yas/create-php-snippet)
+;; (use-package php-auto-yasnippets
+;;   :ensure t
+;;   :commands yas/create-php-snippet)
 
 (use-package phpunit
   :ensure t
@@ -39,7 +39,7 @@
   :ensure t
   :mode (("\\.php[0-9]?\\'" . php-mode))
   :bind (:map php-mode-map
-              ("C-c C-y" . yas/create-php-snippet)
+              ;;("C-c C-y" . yas/create-php-snippet)
               ("C-c C-t t" . phpunit-current-test)
               ("C-c C-t c" . phpunit-current-class)
               ("C-c C-t p" . phpunit-current-project))
