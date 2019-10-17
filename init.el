@@ -238,6 +238,8 @@
 (require 'epa-file)
 
 (when (system-is-mac)
+  ;; (require 'ls-lisp)
+  ;; (setq ls-lisp-use-insert-directory-program nil)
   (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
   )
 
