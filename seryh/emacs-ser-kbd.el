@@ -440,7 +440,7 @@
        ("mv" diredp-do-move-recursive "mv")
        ("mk" dired-create-directory "mkdir")
        ("b"  ser/browse-dired "browse")
-       ("o"  ns-open-file-using-panel)
+       ("o"  ns-open-file-using-panel "open file")
        ("q"  nil "Bye")
        ("SPC" nil))))
 
