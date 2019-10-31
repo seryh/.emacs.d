@@ -357,7 +357,7 @@
   _w_: whitespace    _t_: gulp        _d_: duble-line     _r_: replace               
   _l_: trun-lines    _i_: imenu       _p_: pretty-region  _F_: grep
                                   _z_: whitespace-cleanup
-                                  _o_: php-gettext-region
+                                  _o_: open-file
                                   _C_: copy-path"
   
   ("ESC" ser/my-revert-buffer-noconfirm "reopen" :color blue)
@@ -382,7 +382,7 @@
   ("F" ser/grep              nil :color blue)
   ("i" imenu                 nil :color blue)
   ("p" ser/pretty-text       nil :color blue)
-  ("o" ser/php-gettext       nil :color blue)
+  ("o" ns-open-file-using-panel nil :color blue)
   ("z" whitespace-cleanup    nil :color blue)
   ("x" save-buffers-kill-terminal "Save-and-Exit")
   ("q" nil "hide menu")
@@ -401,7 +401,7 @@
   ("А" ser/grep              nil :color blue)
   ("ш" imenu                 nil :color blue)
   ("з" ser/pretty-text       nil :color blue)
-  ("щ" ser/php-gettext       nil :color blue)
+  ("щ" ns-open-file-using-panel  nil :color blue)
   ("я" whitespace-cleanup    nil :color blue)
   ("ч" save-buffers-kill-terminal nil)
   ("й" nil)
@@ -440,6 +440,7 @@
        ("mv" diredp-do-move-recursive "mv")
        ("mk" dired-create-directory "mkdir")
        ("b"  ser/browse-dired "browse")
+       ("o"  ns-open-file-using-panel)
        ("q"  nil "Bye")
        ("SPC" nil))))
 
