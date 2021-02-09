@@ -20,9 +20,9 @@
   (setq exec-path (append exec-path '("/usr/local/bin"))))
 
 (when (system-is-windows)
-  
+
   ;;(setq default-directory "C:\\Users\\Seryh\\Downloads")
-  
+
   (setenv "PATH"
           (concat
            "C:\\msys64\\usr\\bin;"
@@ -33,11 +33,11 @@
   ;; (set-face-attribute 'default nil
   ;;                     :family "Fira Code"
   ;;                     :height 100)
-  
+
   (set-face-attribute 'default nil
                       :family "Liberation Mono"
-                      :height 105)
-  
+                      :height 154)
+
   (setq frame-title-format "%b (%f)")
   (set-file-name-coding-system 'windows-1251)
   (setq default-process-coding-system '(windows-1251 . windows-1251))
@@ -49,7 +49,7 @@
   (ad-activate 'shell))
 
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
-(setq auto-revert-verbose nil)    ;; отключить вывод сообщений "Reverting buffer %s." 
+(setq auto-revert-verbose nil)    ;; отключить вывод сообщений "Reverting buffer %s."
 
 ;; Интерфейс
 ;;(global-linum-mode 1)
@@ -75,7 +75,7 @@
 (setq-default case-fold-search t)            ;; Поиск без учёта регистра
 (setq-default word-wrap t)
 (setq auto-save-default nil)                 ;; отключить авто сохранение
-;;(require 'hl-line+) 
+;;(require 'hl-line+)
 ;;(global-hl-line-mode t)                      ;; подсветка текущей строки
 
 ;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
@@ -105,7 +105,7 @@
 ;;(setq resize-minibuffer nil)
 (auto-image-file-mode t)                     ;; Показывать картинки
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
-(fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n" 
+(fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n"
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -141,7 +141,7 @@
                       :width 'normal)
   ;; WARNING!  Depending on the default font,
   ;; if the size is not supported very well, the frame will be clipped
-  ;; so that the beginning of the buffer may not be visible correctly. 
+  ;; so that the beginning of the buffer may not be visible correctly.
   (set-face-attribute 'default nil :height 154)
   (set-face-attribute 'fringe nil :background "#303030" :foreground "#303030")
   ;;(set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
@@ -209,13 +209,13 @@
                ("JavaScript" (or
                               (mode . js2-mode)
                               (mode . rjsx-mode)))
-                              
+
                ("scss" (or
                         (mode . scss-mode)))
-               
+
                ("web"  (or
                         (mode . web-mode)))
-               
+
                ("emacs" (or
                          (name . "^\\*.+\*$")))
                ("clojure" (or
@@ -291,7 +291,7 @@
   :ensure t
   :init
   (require 'dired-filetype-face)
-  
+
   (deffiletype-face "tstype" "#FF00FF")
   (deffiletype-face-regexp tstype
     :regexp "^  -.*\\.\\(ts\\)$" :type-for-docstring "ts type")

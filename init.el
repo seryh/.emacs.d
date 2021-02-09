@@ -116,50 +116,50 @@
 (defvar my-packages
   '(
     aggressive-indent
-    
+
     hydra
     ;; request
     xml
     use-package
     yasnippet
-    
+
     ;;bookmark+
     ;;redo+
-    
+
     helm-swoop
 
     ;; git
     magit
     diff-hl
-    
+
     powerline
     moe-theme
     cl-lib
     ;;etags-table
     org-bullets
-    
+
     ;;hl-line+
-    
+
     ;; clojure
-    ;; cider         
+    ;; cider
     paredit
-    
+
     rainbow-delimiters
-    
+
     ido           ;; интерактивное управление буферами и файлами;
 
     ido-vertical-mode
     smex
-    
+
     ;;ac-js2      ;; автокомплит js
     js2-mode      ;; подстветка синтаксиса js
     company       ;; popup
     auto-complete
-    
-    scss-mode 
+
+    scss-mode
     ;;tern        ;; автокомплит для js нуждается в npm install -g tern
-    ;;tern-auto-complete 
-    emmet-mode    ;; zen-coding автокомплит для html - C-j 
+    ;;tern-auto-complete
+    emmet-mode    ;; zen-coding автокомплит для html - C-j
     autopair      ;; автозакрытие ковычек и скобок
     which-key     ;; which-key - буфер с шорткат подсказками https://github.com/justbur/emacs-which-key
     buffer-move   ;; перемещение буфера buf-move-<pos>
@@ -329,8 +329,10 @@
                 ("\\.edn$" . clojure-mode)
                 ("\\.cljs$" . clojurescript-mode)
 
-                ("\\.scss$". scss-mode)
-                
+		("\\.scss$". scss-mode)
+
+                ("\\.java$". java-mode)
+
                 ("\\.conf$". conf-mode)
                 ("\\.org$". org-mode)
                 ("\\.gpg$". org-mode)
@@ -339,7 +341,7 @@
                 ("\\.yaml$". conf-mode)
                 ("\\.yml$". conf-mode)
                 ("Makefile$". makefile-mode)
-                
+
                 ("\\.el$". emacs-lisp-mode)
                 (".emacs". emacs-lisp-mode))))
 
@@ -351,21 +353,21 @@
       (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
-      
+
       ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
       ;; (setq web-mode-engines-alist
       ;;       '(("php" . "\\.phtml\\'")))
 
       (setq web-mode-engines-alist
             '(("\\.phtml\\'")))
-      
+
       ;; (setq web-mode-ac-sources-alist
       ;;       '(("css" . (ac-source-css-property))
       ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
 
       (setq web-mode-enable-auto-closing t)
   :init
-      (add-hook 'web-mode-hook 
+      (add-hook 'web-mode-hook
                 (lambda ()
                   (auto-complete-mode)
                   (aggressive-indent-mode t)
@@ -374,7 +376,7 @@
                   ))
       )
 
-(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem 
+(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem
 (setq web-mode-enable-current-element-highlight t)
 (setq web-mode-enable-current-column-highlight t)
 ;; ----------------------------------------------------------
@@ -412,7 +414,7 @@
 
 (add-hook 'ibuffer-hook
           (lambda ()
-            (hl-line-mode t)      
+            (hl-line-mode t)
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))) )
 
@@ -447,7 +449,7 @@
 (defvar autopair-modes '(scss-mode web-mode emacs-lisp-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
-;;(autopair-global-mode) 
+;;(autopair-global-mode)
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
 ;; To enter an Emacs command like C-x C-f while the mark is active, use one of the
@@ -463,6 +465,14 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (setq cua-enable-cua-keys nil)        ;; disable the overriding of standard Emacs binding by CUA mode
 (transient-mark-mode 1) ;; No region when it is not highlighted
+
+
+;; -------------------------------------------------
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 
 ;; ------------------------------------------------- [ input method settings ]
 (defun cfg:reverse-input-method (input-method)
@@ -500,3 +510,10 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+
+(defun use-monospace ()
+  "Switch the current buffer to a monospace font."
+  (face-remap-add-relative 'default '(:family "Monospace")))
+
+(add-hook 'dired-mode-hook 'use-monospace)
