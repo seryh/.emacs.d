@@ -151,7 +151,8 @@
 (with-system gnu/linux
   (set-face-attribute 'default nil
                       :family "Source Code Pro"
-                      :height 154
+                      ;;:height 154
+                      :height 120
                       :weight 'normal
                       :width 'normal)
   )
@@ -161,10 +162,10 @@
 (setq which-key-separator " → " )
 
 (require 'which-key)
-(add-to-list 'which-key-key-replacement-alist '("TAB" . "↹"))
-(add-to-list 'which-key-key-replacement-alist '("RET" . "⏎"))
-(add-to-list 'which-key-key-replacement-alist '("DEL" . "⇤"))
-(add-to-list 'which-key-key-replacement-alist '("SPC" . "␣"))
+; (add-to-list 'which-key-key-replacement-alist '("TAB" . "↹"))
+; (add-to-list 'which-key-key-replacement-alist '("RET" . "⏎"))
+; (add-to-list 'which-key-key-replacement-alist '("DEL" . "⇤"))
+; (add-to-list 'which-key-key-replacement-alist '("SPC" . "␣"))
 
 ;; Ido-mode customizations
 (require 'cl-lib) ; Used: cl-letf.

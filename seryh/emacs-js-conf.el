@@ -11,8 +11,8 @@
   :ensure t)
 
 
-(use-package company-tern
-  :ensure t)
+; (use-package company-tern
+;   :ensure t)
 
 (use-package tern
   :ensure t)

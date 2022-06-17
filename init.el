@@ -17,7 +17,7 @@
 (add-to-list 'package-archives melpa t)
 (add-to-list 'package-archives gnu t)
 
-(package-initialize)
+;;(package-initialize)
 
 (defun packages-install (&rest packages)
   (message "running packages-install")
@@ -160,7 +160,7 @@
     ;;tern        ;; автокомплит для js нуждается в npm install -g tern
     ;;tern-auto-complete
     emmet-mode    ;; zen-coding автокомплит для html - C-j
-    autopair      ;; автозакрытие ковычек и скобок
+    ;;autopair      ;; автозакрытие ковычек и скобок
     which-key     ;; which-key - буфер с шорткат подсказками https://github.com/justbur/emacs-which-key
     buffer-move   ;; перемещение буфера buf-move-<pos>
     )
@@ -176,7 +176,7 @@
 (require 'powerline)
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
-(moe-theme-set-color 'w/b)
+;;(moe-theme-set-color 'w/b)
 
 (auto-revert-mode t)
 (powerline-moe-theme)
@@ -236,13 +236,7 @@
 
 ;; ------------------------------------------------------- [ gpg https://www.gnupg.org/ ]
 (require 'epa-file)
-
-(when (system-is-mac)
-  ;; (require 'ls-lisp)
-  ;; (setq ls-lisp-use-insert-directory-program nil)
-  (custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-  )
-
+(custom-set-variables '(epg-gpg-program  "/usr/bin/gpg"))
 (epa-file-enable)
 
 
@@ -264,7 +258,7 @@
 
 ;; ----------- [ magit ]
 (require 'magit)
-(global-magit-file-mode t)
+;;(global-magit-file-mode t)
 
 (with-system gnu/linux
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
@@ -382,13 +376,13 @@
 ;; ----------------------------------------------------------
 
 
-(load (ser/get-config-dir "flow-js2/flow-js2-mode.el"))
-(load (ser/get-config-dir "seryh/emacs-js-conf.el"))
+;;(load (ser/get-config-dir "flow-js2/flow-js2-mode.el"))
+;;(load (ser/get-config-dir "seryh/emacs-js-conf.el"))
 
 ;;(load (ser/get-config-dir "flow-js2/flow-js2-test-helpers.el"))
 ;;(load (ser/get-config-dir "seryh/emacs-go-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-ser-tide.el"))
+;;(load (ser/get-config-dir "seryh/emacs-php-conf.el"))
+;;(load (ser/get-config-dir "seryh/emacs-ser-tide.el"))
 ;;(with-system gnu/linux (load (ser/get-config-dir "seryh/emacs-docker-conf.el")))
 
 ;; -------------------------- [ org-mode ]
@@ -396,15 +390,15 @@
 (setq org-src-fontify-natively t)
 
 
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (auto-complete-mode)))
+; (add-hook 'js2-mode-hook
+;           (lambda ()
+;             (auto-complete-mode)))
 
 
-(add-hook 'scss-mode-hook
-          (lambda ()
-            (aggressive-indent-mode t)
-            (auto-complete-mode)))
+; (add-hook 'scss-mode-hook
+;           (lambda ()
+;             (aggressive-indent-mode t)
+;             (auto-complete-mode)))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
@@ -446,9 +440,9 @@
 
 
 ;; ------------------------------------ [ autopair-mode ] -- автозакрытие скобок
-(defvar autopair-modes '(scss-mode web-mode emacs-lisp-mode))
-(defun turn-on-autopair-mode () (autopair-mode 1))
-(dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
+; (defvar autopair-modes '(scss-mode web-mode emacs-lisp-mode))
+; (defun turn-on-autopair-mode () (autopair-mode 1))
+; (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
 ;;(autopair-global-mode)
 
 ;; ------------------ [ cua-mode] классическая копипаста, если есть регионы
@@ -457,9 +451,9 @@
 ;; or quickly type the prefix key twice, e.g., C-x C-x C-f.
 
 ;; https://www.emacswiki.org/emacs/PcSelectionMode
-(if (fboundp 'pc-selection-mode)
-    (pc-selection-mode)
-  (require 'pc-select))
+;;(if (fboundp 'pc-selection-mode)
+;;    (pc-selection-mode)
+;;  (require 'pc-select))
 
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
@@ -517,3 +511,5 @@
   (face-remap-add-relative 'default '(:family "Monospace")))
 
 (add-hook 'dired-mode-hook 'use-monospace)
+
+(run-at-time "3 sec" nil #'message "Use Alt+m for global menu")

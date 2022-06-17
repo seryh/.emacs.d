@@ -7,7 +7,7 @@
  '(bmkp-last-as-first-bookmark-file "~/bookmarks")
  '(buffer-face-mode-face (quote (:background "#1a0b19")))
  '(cider-lein-parameters "with-profile +office,+dev repl :headless")
- '(epg-gpg-program "/usr/local/bin/gpg")
+ '(epg-gpg-program "/usr/bin/gpg")
  '(package-selected-packages
    (quote
     (editorconfig company-tern company-mode flow-minor-mode flow-js2-mode tern-auto-complete tern ng2-mode flymake-go mode-icons indium color-identifiers-mode ace-window markdown-mode clj-refactor expand-region buffer-move which-key autopair emmet-mode scss-mode auto-complete company js2-mode auto-indent-mode smex ido-vertical-mode ido-ubiquitous rainbow-delimiters web-mode paredit cider hl-line+ org-bullets etags-table moe-theme powerline magit helm-swoop redo+ bookmark+ yasnippet use-package request))))
