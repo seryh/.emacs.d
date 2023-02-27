@@ -74,16 +74,16 @@
 ;;  ("M-}" . move-forward-curlyParen))
 
 ;; семантическое выделение региона
-(use-package expand-region
-  :ensure t
-  :config
-  (global-set-key (kbd "C-=") 'er/expand-region)
-  (global-set-key (kbd "M-=") 'er/mark-defun))
+; (use-package expand-region
+;   :ensure t
+;   :config
+;   (global-set-key (kbd "C-=") 'er/expand-region)
+;   (global-set-key (kbd "M-=") 'er/mark-defun))
 
 ;; мультикурсор на регионе
-(use-package iedit
-  :ensure t
-  :bind (("C-+" . iedit-mode)))
+; (use-package iedit
+;   :ensure t
+;   :bind (("C-+" . iedit-mode)))
 
 ;; ---------------------------------------------------------- [ hydra ]
 (defun hydra-vi/pre ()
@@ -117,9 +117,9 @@
 
 
 ;; ------------------------------------- [bm закладки]
-(use-package bm
-  :ensure t
-  :bind (("C-c =" . bm-toggle)
-         ("C-c [" . bm-previous)
-         ("C-c ]" . bm-next)))
+; (use-package bm
+;   :ensure t
+;   :bind (("C-c =" . bm-toggle)
+;          ("C-c [" . bm-previous)
+;          ("C-c ]" . bm-next)))
 

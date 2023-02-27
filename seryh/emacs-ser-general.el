@@ -19,34 +19,6 @@
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin"))))
 
-(when (system-is-windows)
-
-  ;;(setq default-directory "C:\\Users\\Seryh\\Downloads")
-
-  (setenv "PATH"
-          (concat
-           "C:\\msys64\\usr\\bin;"
-           "C:\\msys64\\mingw64\\bin;"
-           "C:\\Program Files\\7-Zip;"
-           (getenv "PATH")))
-
-  ;; (set-face-attribute 'default nil
-  ;;                     :family "Fira Code"
-  ;;                     :height 100)
-
-  (set-face-attribute 'default nil
-                      :family "Liberation Mono"
-                      :height 154)
-
-  (setq frame-title-format "%b (%f)")
-  (set-file-name-coding-system 'windows-1251)
-  (setq default-process-coding-system '(windows-1251 . windows-1251))
-  (prefer-coding-system 'windows-1251)
-  (set-language-environment 'UTF-8)
-
-  (defadvice shell (after my-shell-advice)
-    (set-buffer-process-coding-system 'cp1251 'cp1251))
-  (ad-activate 'shell))
 
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
 (setq auto-revert-verbose nil)    ;; отключить вывод сообщений "Reverting buffer %s."
@@ -87,15 +59,15 @@
 (setq ns-pop-up-frames nil) ;; Don’t open files from the workspace in a new frame
 
 ;; optimization
-(setq jit-lock-defer-time 0.05)
-(setq fast-but-imprecise-scrolling t)        ;; быстрая навигация курсором но не точная
-(setq redisplay-dont-pause t)
-(setq tooltip-delay 0.15)
-(setq load-prefer-newer t)
+; (setq jit-lock-defer-time 0.05)
+; (setq fast-but-imprecise-scrolling t)        ;; быстрая навигация курсором но не точная
+; (setq redisplay-dont-pause t)
+; (setq tooltip-delay 0.15)
+; (setq load-prefer-newer t)
 
 ;; Mac Emacs settings
-(setq mac-option-modifier 'meta)
-(setq mac-command-modifier 'super)
+; (setq mac-option-modifier 'meta)
+; (setq mac-command-modifier 'super)
 
 (setq font-lock-maximum-decoration t)              ;; Максимальное использование различных начертаний шрифтов
 (if window-system (setq scalable-fonts-allowed t)) ;; Масштабируемые шрифты в графическом интерфейсе
@@ -103,7 +75,7 @@
 (file-name-shadow-mode t)                          ;; Затенять игнорируемую часть имени файла
 ;;(setq resize-mini-windows nil)                   ;; Изменять при необходимости размер минибуфера по вертикали
 ;;(setq resize-minibuffer nil)
-(auto-image-file-mode t)                     ;; Показывать картинки
+;;(auto-image-file-mode t)                     ;; Показывать картинки
 (setq read-quoted-char-radix 16)             ;; Ввод символов по коду в десятичном счислении C-q
 (fset 'yes-or-no-p 'y-or-n-p) ;; Require typing only "y" or"n"
 
@@ -288,19 +260,19 @@
   )
 
 
-(use-package dired-filetype-face
-  :ensure t
-  :init
-  (require 'dired-filetype-face)
+; (use-package dired-filetype-face
+;   :ensure t
+;   :init
+;   (require 'dired-filetype-face)
 
-  (deffiletype-face "tstype" "#FF00FF")
-  (deffiletype-face-regexp tstype
-    :regexp "^  -.*\\.\\(ts\\)$" :type-for-docstring "ts type")
-  (deffiletype-setup "tstype" "tstype")
+;   (deffiletype-face "tstype" "#FF00FF")
+;   (deffiletype-face-regexp tstype
+;     :regexp "^  -.*\\.\\(ts\\)$" :type-for-docstring "ts type")
+;   (deffiletype-setup "tstype" "tstype")
 
 
-  (deffiletype-face "webtype" "#FFFF00")
-  (deffiletype-face-regexp webtype
-    :regexp "^  -.*\\.\\(scss\\|html\\)$" :type-for-docstring "web type")
-  (deffiletype-setup "webtype" "webtype")
-)
+;   (deffiletype-face "webtype" "#FFFF00")
+;   (deffiletype-face-regexp webtype
+;     :regexp "^  -.*\\.\\(scss\\|html\\)$" :type-for-docstring "web type")
+;   (deffiletype-setup "webtype" "webtype")
+; )

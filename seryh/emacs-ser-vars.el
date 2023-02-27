@@ -22,6 +22,6 @@
 (when (system-is-windows)
   (setq default-directory "C:\\Users\\Seryh\\Downloads"))
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/usr/bin"))
 
 (server-start) 

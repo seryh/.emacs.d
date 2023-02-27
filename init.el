@@ -129,7 +129,7 @@
     helm-swoop
 
     ;; git
-    magit
+    ;;magit
     diff-hl
 
     powerline
@@ -190,7 +190,7 @@
 
 ;; --------------------------------------------------------[ helm ]
 (require 'helm)
-(require 'helm-config)
+;;(require 'helm-config)
 
 (helm-autoresize-mode t)
 
@@ -257,7 +257,7 @@
 (require 'smex) ; Not needed if you use package.el
 
 ;; ----------- [ magit ]
-(require 'magit)
+;;(require 'magit)
 ;;(global-magit-file-mode t)
 
 (with-system gnu/linux
@@ -296,7 +296,7 @@
 (load (ser/get-config-dir "seryh/emacs-ser-general.el"))
 ;;(load (ser/get-config-dir "seryh/emacs-ser-projectile-conf.el"))
 ;;(load (ser/get-config-dir "seryh/emacs-cider-conf.el"))
-(load (ser/get-config-dir "seryh/emacs-seryh-mdash.el"))
+;;(load (ser/get-config-dir "seryh/emacs-seryh-mdash.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-kbd.el"))
 ;;(load (ser/get-config-dir "emacs-gulpjs/gulpjs.el"))
 (load (ser/get-config-dir "seryh/emacs-ser-txtnav-kbd.el"))
@@ -309,12 +309,12 @@
 (require 'auto-complete)
 
 ;; ------------------------------------------------------- [ Company ]
-(require 'company)
-(setq company-minimum-prefix-length 2)
-(setq company-tooltip-limit 20)
-(setq company-tooltip-align-annotations 't)
-(setq company-idle-delay .3)
-(setq company-begin-commands '(self-insert-command))
+; (require 'company)
+; (setq company-minimum-prefix-length 2)
+; (setq company-tooltip-limit 20)
+; (setq company-tooltip-align-annotations 't)
+; (setq company-idle-delay .3)
+; (setq company-begin-commands '(self-insert-command))
 ;;(global-company-mode)
 
 (setq auto-mode-alist
@@ -323,7 +323,7 @@
                 ("\\.edn$" . clojure-mode)
                 ("\\.cljs$" . clojurescript-mode)
 
-		("\\.scss$". scss-mode)
+    ("\\.scss$". scss-mode)
 
                 ("\\.java$". java-mode)
 
@@ -341,38 +341,38 @@
 
 
 ;; ------------------------------------ [ web-mode ]
-(use-package web-mode
-  :ensure t
-  :config
-      (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
+; (use-package web-mode
+;   :ensure t
+;   :config
+;       (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+;       (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;       (add-to-list 'auto-mode-alist '("\\.phtml?\\'" . web-mode))
 
-      ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
-      ;; (setq web-mode-engines-alist
-      ;;       '(("php" . "\\.phtml\\'")))
+;       ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+;       ;; (setq web-mode-engines-alist
+;       ;;       '(("php" . "\\.phtml\\'")))
 
-      (setq web-mode-engines-alist
-            '(("\\.phtml\\'")))
+;       (setq web-mode-engines-alist
+;             '(("\\.phtml\\'")))
 
-      ;; (setq web-mode-ac-sources-alist
-      ;;       '(("css" . (ac-source-css-property))
-      ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+;       ;; (setq web-mode-ac-sources-alist
+;       ;;       '(("css" . (ac-source-css-property))
+;       ;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
 
-      (setq web-mode-enable-auto-closing t)
-  :init
-      (add-hook 'web-mode-hook
-                (lambda ()
-                  (auto-complete-mode)
-                  (aggressive-indent-mode t)
-                  (hs-minor-mode t) ;; hide/show block C-.
-                  (emmet-mode t)    ;; zencoding-mode
-                  ))
-      )
+;       (setq web-mode-enable-auto-closing t)
+;   :init
+;       (add-hook 'web-mode-hook
+;                 (lambda ()
+;                   (auto-complete-mode)
+;                   (aggressive-indent-mode t)
+;                   (hs-minor-mode t) ;; hide/show block C-.
+;                   (emmet-mode t)    ;; zencoding-mode
+;                   ))
+;       )
 
-(setq web-mode-enable-auto-quoting t) ; this fixes the quote problem
-(setq web-mode-enable-current-element-highlight t)
-(setq web-mode-enable-current-column-highlight t)
+; (setq web-mode-enable-auto-quoting t) ; this fixes the quote problem
+; (setq web-mode-enable-current-element-highlight t)
+; (setq web-mode-enable-current-column-highlight t)
 ;; ----------------------------------------------------------
 
 
@@ -400,9 +400,9 @@
 ;             (aggressive-indent-mode t)
 ;             (auto-complete-mode)))
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (company-mode)))
+; (add-hook 'emacs-lisp-mode-hook
+;           (lambda ()
+;             (company-mode)))
 
 
 
@@ -414,29 +414,29 @@
 
 ;; ----------------------------------------------- [markdown-mode]
 ;; needed https://github.com/fletcher/peg-multimarkdown/wiki/How-do-I-install-MultiMarkdown%3F
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+; (use-package markdown-mode
+;   :ensure t
+;   :commands (markdown-mode gfm-mode)
+;   :mode (("README\\.md\\'" . gfm-mode)
+;          ("\\.md\\'" . markdown-mode)
+;          ("\\.markdown\\'" . markdown-mode))
+;   :init (setq markdown-command "multimarkdown"))
 
 ;; ------------------------------------ [beacon]
 
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1)
-  (setq beacon-color "magenta")
-  (setq beacon-blink-duration 0.1))
+; (use-package beacon
+;   :ensure t
+;   :config
+;   (beacon-mode 1)
+;   (setq beacon-color "magenta")
+;   (setq beacon-blink-duration 0.1))
 
 ;; -------------------------------------- [hungry-delete]
 
-(use-package hungry-delete
-  :ensure t
-  :config
-  (global-hungry-delete-mode))
+; (use-package hungry-delete
+;   :ensure t
+;   :config
+;   (global-hungry-delete-mode))
 
 
 ;; ------------------------------------ [ autopair-mode ] -- автозакрытие скобок
@@ -462,10 +462,10 @@
 
 
 ;; -------------------------------------------------
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
+; (use-package editorconfig
+;   :ensure t
+;   :config
+;   (editorconfig-mode 1))
 
 
 ;; ------------------------------------------------- [ input method settings ]
@@ -513,3 +513,5 @@
 (add-hook 'dired-mode-hook 'use-monospace)
 
 (run-at-time "3 sec" nil #'message "Use Alt+m for global menu")
+
+(setq epa-pinentry-mode 'loopback)
